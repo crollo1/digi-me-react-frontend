@@ -1,14 +1,14 @@
 import React from 'react';
-import App from "../App";
 
 
-import FoodAndDrink from '../FoodAndDrink.css'
-import generalFood from '../assets/FoodPack/general-food.png'
-import vegetables from '../assets/FoodPack/vegetables.png'
-import fruits from '../assets/FoodPack/fruits.png'
-import drinks from '../assets/FoodPack/drinks.png'
+
+// import FoodAndDrink from '../FoodAndDrink.css'
+// import generalFood from '../assets/FoodPack/general-food.png'
+// import vegetables from '../assets/FoodPack/vegetables.png'
+// import fruits from '../assets/FoodPack/fruits.png'
+// import drinks from '../assets/FoodPack/drinks.png'
 import sweets from '../assets/FoodPack/sweets.png'
-import axios from 'axios';
+
 
 class FeedAndDrink extends React.Component {
 

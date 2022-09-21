@@ -1,10 +1,9 @@
 import React from 'react'
-import axios from 'axios'
-import CritterComponents from './CritterComponents';
+
 // import { toBeEmpty } from '@testing-library/jest-dom/dist/matchers';
 
 // set backend url
-const BASE_BACKEND_URL = 'http://localhost:3000'
+// const BASE_BACKEND_URL = 'http://localhost:3000'
 
 class MyProfile extends React.Component{
 

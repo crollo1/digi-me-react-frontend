@@ -50,10 +50,10 @@ class CreateCritter extends React.Component{
 
     count = () => {
 
-        if (this.state.clickCount == 0){
+        if (this.state.clickCount === 0){
             this.setState ({species: "pink4"});
             console.log('pink4', this.state.species);
-        } else if (this.state.clickCount == 1){
+        } else if (this.state.clickCount === 1){
             this.setState ({species: "dude4"});
             console.log('dude4', this.state.species);
         } else{
@@ -68,8 +68,9 @@ class CreateCritter extends React.Component{
         console.log('left click');
         if (this.state.clickCount <= 0){
             return
-        } else{
-            this.state.clickCount --
+        } else {
+            const newClickCount = this.state.clickCount -1
+            this.setState({clickCount: newClickCount})
             this.count();
         }
 
@@ -80,8 +81,9 @@ class CreateCritter extends React.Component{
         console.log('right click');
         if (this.state.clickCount >= 2){
             return
-        } else{
-            this.state.clickCount ++
+        } else {
+            const newClickCount = this.state.clickCount +1
+            this.setState({clickCount: newClickCount})
             this.count();
         }
 

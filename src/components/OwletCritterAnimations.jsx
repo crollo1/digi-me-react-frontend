@@ -1,5 +1,5 @@
 import React from 'react';
-import OwletCritter from "../OwletCritter.css";
+
 
 import owlet4frames from "../assets/owletMonster/fourFrames_owlet.png";
 import owlet6frames from "../assets/owletMonster/sixFrames_owlet.png";

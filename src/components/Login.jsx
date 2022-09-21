@@ -19,6 +19,8 @@ class Login extends React.Component{
             break;
         case 'password':
             this.setState({password: ev.target.value})
+            break;
+            default: console.log('sign in properly');
     }
   } //handleInput
 
@@ -47,6 +49,7 @@ class Login extends React.Component{
     .catch(err => {
         console.warn(err)
         console.log('incorrect log in');
+        // TODO: put an alert here!!!! ##########################
     })
     ev.preventDefault();
 
