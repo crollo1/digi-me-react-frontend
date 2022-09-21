@@ -87,6 +87,7 @@ class Home extends React.Component {
             
             <div className="App"> 
             <Router>
+
                 <header>
                     {/* Showing on nav bar login/sign-up requests with if statement */}
                     
@@ -94,83 +95,71 @@ class Home extends React.Component {
                         this.state.currentUser !== undefined
                         ?
                         (
-
                             <div className='Login'>
-                            {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
-                            <h4><Link to='/my_profile'>My Profile</Link>{' '}| {' '}<Link onClick={this.handleLogout} to='/'>Logout</Link></h4>
+                                {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
+                                <h4>
+                                    <Link to='/my_profile'>My Profile</Link>
+                                    {' '}| {' '}
+                                    <Link onClick={this.handleLogout} to='/'>Logout</Link>
+                                </h4>
                             </div>
-
                         )
                         :
                         (
-
                             <div className='Login'>
-                            <h4><Link to='/login'>Login</Link>{' '}|{' '}<Link to='/signup'>Sign Up</Link></h4>
+                                <h4>
+                                    <Link to='/login'>Login</Link>
+                                    {' '}|{' '}
+                                    <Link to='/signup'>Sign Up</Link>
+                                </h4>
                             </div>
-
                         )
-                    }
-                 
+                    } 
+                    {/* Section above handles display of login/logout funcitonality */}
                     <h1>Digi-Me</h1>
+
                     <nav>
-                    {/* Links to various pages */}
-                    <Link to="/">Home</Link>
-                    {''} | {''}
+                        {/* Links to various pages */}
+                        <Link to="/">Home</Link>
+                        {''} | {''}
 
-                    <Link to="/pet">Pets</Link>
-                    {''} | {''}
+                        <Link to="/foodTest">Food Animation Testing</Link>
+                        {'  '}|{'   '}
 
-                    {/* <Link to="/accessories">Accessories</Link>
-                    {''} | {''} */}
+                        <Link to="/animation_testing">Animation Testing</Link>
+                        {'  '}|{'   '}
 
-                    <Link to="/users">Users</Link>
-                    {''} | {''}
-
-                    <Link to="/createcritter">create</Link>
-                    <br />
-                    {'  '}|{'   '}
-
-                    <Link to="/foodTest">Food Animation Testing</Link>
-                    {'  '}|{'   '}
-
-                    <Link to="/animation_testing">Animation Testing</Link>
-                    {'  '}|{'   '}
-
-                    <hr />
+                        <hr />
                     </nav>
-                </header>
-                
-                <br /><br />
-                {/* Routes to the various pages */}
-                    {/* change below */}
-                    
-                    {this.state.currentUser &&
-                        <Route exact path="/createcritter" render={() => 
-                        <CreateCritter currentUser ={this.state.currentUser}/>
-                    }/>}
 
-                    {this.state.currentUser &&
-                        <Route exact path="/my_profile" render={() => 
-                        <MyProfile currentUser ={this.state.currentUser}/>
-                    }/>}
+                </header> {/* CLOSES HEADER */}
 
+
+                            {/* Routes to the various pages */}
+                                    {/* change below */}
+                    {/* --------------------ROUTES--------------------------*/}
+                    {this.state.currentUser &&
+                        <Route exact path="/my_profile" 
+                            render={ () => <MyProfile currentUser ={this.state.currentUser}/>}
+                        />
+                    }
                     <Route exact path='/login' render={(props) => 
-                        <Login setCurrentUser={this.setCurrentUser}{...props}/>
-                    }/>
-
+                        <Login setCurrentUser={this.setCurrentUser}{...props}/>}
+                    />
                     <Route exact path='/signup' render={(props) =>
-                        <SignUp setCurrentUser={this.setCurrentUser}{...props}/>
-                    }/>
-
-                    <Route exact path="/users" component={User}/>
-
+                        <SignUp setCurrentUser={this.setCurrentUser}{...props}/>}
+                    />
                     <Route exact path="/foodTest" component={FeedAndDrink}/>
-
                     <Route exact path="/animation_testing" component={CritterComponents}/>
-              
-                  <hr />
-                  &copy; Critters.Co.2022
+                    {/* --------------------ROUTES--------------------------*/}
+                
+                <footer>
+                    <hr />
+                    &copy; Critters.Co.2022
+                </footer>
+
             </Router>
+
             </div>
  
         ); // return
