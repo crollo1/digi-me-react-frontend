@@ -51,7 +51,7 @@ class MyProfile extends React.Component{
       <div>
         <h1>Hello {this.props.currentUser.name}</h1>
         {/* {/* <h3>{this.props.currentUser.pet}</h3> */}
-        <h1>Hello {this.props.currentUser.pet.name}</h1> 
+        {/* <h1>Hello {this.props.currentUser.pet.name}</h1>  */}
       </div>
     );
   }//render​
