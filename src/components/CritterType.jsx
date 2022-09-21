@@ -1,5 +1,10 @@
 import React from 'react';
 
+import '../PinkCritter.css';
+import '../OwletCritter.css';
+import '../DudeCritter.css';
+
+
 import dude4 from "../assets/dudeMonster/fourFrames_dude.png";
 import dude6 from "../assets/dudeMonster/sixFrames_dude.png";
 import dude8 from "../assets/dudeMonster/eightFrames_dude.png";
