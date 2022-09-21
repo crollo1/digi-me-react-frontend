@@ -50,10 +50,11 @@ class MyProfile extends React.Component{
   render(){
     return(
       <div>
-        <h1>Hello {this.props.currentUser.name}</h1>
-        {/* {/* <h3>{this.props.currentUser.pet}</h3> */}
+        <h1>Look said this should be a form to edit our current user information and Pet information</h1>
+        <h1>Hello {this.props.currentUser.name}</h1> 
+       {/* <h3>{this.props.currentUser.pet}</h3> */}
         <h1>Hello {this.props.currentUser.pet.name}</h1> 
-        <CritterComponents />
+        {/* <CritterComponents /> */}
       </div>
     );
   }//render​

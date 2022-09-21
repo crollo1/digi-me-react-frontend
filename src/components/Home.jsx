@@ -136,13 +136,13 @@ class Home extends React.Component {
                     {'  '}|{'   '}
                     <Link to="/foodTest">Food Animation Testing</Link>
                     {'  '}|{'   '}
-                    <Link to="/game">Game</Link>
+                    <Link to="/game">Console</Link>
                     {'  '}|{'   '}
                     <Link to="/fight">Fight</Link>
                     {'  '}|{'   '}
                     <hr />
                     </nav>
-                </header>
+                </header>     
                 
                 <br /><br />
                 {/* Routes to the various pages */}
