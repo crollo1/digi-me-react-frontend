@@ -25,8 +25,10 @@ class Home extends React.Component {
     
     // home states
     state ={
+
         // define current user
         currentUser: null,
+        
     };
 
 
