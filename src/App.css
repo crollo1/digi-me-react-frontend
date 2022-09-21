@@ -1,0 +1,109 @@
+/* --------------- Basic Critter Page .css ---------------- */
+#critterContainer{
+
+  display: flex;
+  
+
+}
+.critterButtonContainer{
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 40vw;
+  
+
+}
+#viewContainer{
+
+  display: flex;
+  position: relative;
+
+}
+.careControls{
+  border-radius: 25%;
+  color: green;
+  display: flex;
+  
+
+
+}
+/* -------------------------------------------------------- */
+/* -------------------- Pixel Art Css --------------------- */
+/* -------------------------------------------------------- */
+.pixelArt{
+  image-rendering: pixelated;
+}
+/*  This section creates a new .css variable in order to adjust the size of individual pixels so as to make the pixel art scaleable */
+:root{
+  --pixel-size-four: 6;
+  --pixel-size-six: 9;
+  --pixel-size-eight: 12; 
+  /*  adjusting this number changes critter size   */
+}
+/* -------------------------------------------------------- */
+
+
+/* ##### FOR MAPPING IF WE USE IT ##### */
+
+/* .mapContainer {
+  width: 50vw;
+  height: 50vh;
+}
+
+.mapMarker {
+  background-color: red;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  font-size: 14pt;
+  cursor: pointer;
+}
+
+.mapMarker:hover {
+  width: 20px;
+  height: 20px;
+  font-size: 18pt;
+} */
+
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

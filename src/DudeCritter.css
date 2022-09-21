@@ -1,0 +1,189 @@
+/* ******************* INSTRUCTIONS ********************** */
+/* To have the critter perform the desired animation, make sure the corresponding <img/> tag, which houses the Spritesheet, in the corresponding Animations.jsx file has the correct className added.
+
+eg. if you wanted Dude Critter to peform the 'critter hurt' animation, you would open the 'DudeCritterAnimations.jsx' and find the relevant <img> tag to then make sure it had 'hurt' within className='',
+
+class DudeCritterAnimations extends React.Component {    
+
+    render({
+ 
+        return({
+ 
+            <div>
+            
+                <div className='dudeFourFramesViewbox'>
+                
+                    <img src={dude4frames}
+                    className='
+                    hurt        # <-- animation className #
+                    dudeForFramesSpriteSheet
+                    pixelArt
+                    '
+                    />
+                
+                <div/>
+            
+            <div/>
+
+        );      // close return()
+    }           // close render()
+}               // close class DudeCritterAnimations
+
+*/
+/* --------------------------------------------------------- */
+/* ------------------- Four-Frame Classes ------------------ */
+/* --------------------------------------------------------- */
+/*  This class handles dude4frames viewbox dimensions  */
+.dude4FramesViewbox{
+    width:  calc(32px * var(--pixel-size-four));
+    height: calc(32px * var(--pixel-size-four));
+    background-color: blanchedalmond;
+    border: 1px solid green;
+    border-radius: 20%;
+
+    position: relative;
+    overflow:hidden;
+        /*  Hiding the overflow means we only show one section of the Spritesheet at the one time - alternatively, turn it off will show all of the sprite sheet and how it moves throughout the animation process  */
+}
+/*  This class animates the dude4frames Spritesheet using the @keyframes moveSpriteSheet  */
+.dude4FramesSpriteSheet{
+    animation: moveSpriteSheet 0.8s steps(4) infinite;
+    width: calc(128px * var(--pixel-size-four));
+    position: absolute;
+    left: 0px;
+    
+}
+
+/* ************  Possible 4Frame Animations  *************** */
+/*  First row animation is 'punch 1'        */
+.punch{
+    top: calc(0 * var(--pixel-size-four))
+}
+/*  Second row animation is 'climbing'      */
+.climbing{
+    top: calc(-32px * var(--pixel-size-four));
+}
+/*  Third row animiation is 'critter hurt'  */
+.hurt{
+    top: calc(-64px * var(--pixel-size-four))
+}
+/*  Fourth row animation is 'idle'          */
+.idle{
+    top: calc(-96px * var(--pixel-size-four))
+}
+/*  Fifth row animation is 'throw stone'        */
+.throwStone{
+    top: calc(-128px * var(--pixel-size-four))
+}
+
+/* --------------------------------------------------------- */
+/* ------------------- Six-Frame Classes ------------------- */
+/* --------------------------------------------------------- */
+/* This class controls dude6frames viewbox dimensions */
+.dude6FramesViewbox{
+    width:  calc(32px * var(--pixel-size-four));
+    height: calc(32px * var(--pixel-size-four));
+    background-color: blanchedalmond;
+    border: 1px solid green;
+    border-radius: 20%;
+
+    position: relative;
+    overflow: hidden; 
+        /*  Hiding the overflow means we only show one section of the Spritesheet at the one time - alternatively, turn it off will show all of the sprite sheet and how it moves throughout the animation process  */
+}
+/*  This class animates the dude6frames Spritesheet using the @keyframes moveSpriteSheet  */
+.dude6FramesSpriteSheet{
+    animation: moveSpriteSheet 1.2s steps(6) infinite;
+    width: calc(128px * var(--pixel-size-six));
+    position: absolute;
+    left: 0px;
+    
+}
+
+/* *************  Possible 6Frame Animations  ************** */
+/* First row animation is 'One Two Punch Combo' */
+.oneTwoCombo{
+    top: calc(0px * var(--pixel-size-six))
+}
+/* Second row animation is 'Running to Hug' */
+.runHug{
+    top: calc(-21.5px * var(--pixel-size-six))
+}
+/* Third row animation is 'Running Fast' */
+.sprint{
+    top: calc(-43px * var(--pixel-size-six))
+}
+/* Fourth row animation is 'Walking' */
+.walking{
+    top: calc(-64px * var(--pixel-size-six))
+}
+/* Fifth row animation is 'Walk and Punch' */
+.walkPunchWalk{
+    top: calc(-85.5px * var(--pixel-size-six))
+}
+
+/* --------------------------------------------------------- */
+/* ------------------- Eight-Frame Classes ----------------- */
+/* --------------------------------------------------------- */
+/* This class controls dude8frames viewbox dimensions */
+.dude8FramesViewbox{
+    width:  calc(16px * var(--pixel-size-eight));
+    height: calc(16px * var(--pixel-size-eight));
+    background-color: blanchedalmond;
+    border: 1px solid green;
+    border-radius: 20%;
+
+    position: relative;
+    overflow: hidden;
+        /*  Hiding the overflow means we only show one section of the Spritesheet at the one time - alternatively, turn it off will show all of the sprite sheet and how it moves throughout the animation process  */
+}
+/*  This class animates the dude8frames Spritesheet using the @keyframes moveSpriteSheet  */
+.dude8FramesSpriteSheet{
+    animation: moveSpriteSheet 1.6s steps(8) infinite;
+    width: calc(128px * var(--pixel-size-eight));
+    position: absolute;
+    left: 0px;
+    
+}
+
+/* *************  Possible 8Frame Animations  ************** */
+/* First row animation is 'Critter K.O.d' */
+.ko{
+    top: calc(0px * var(--pixel-size-eight))
+}
+/* Second row animation is 'Jump' */
+.jump{
+    top: calc(-16px * var(--pixel-size-eight))
+}
+
+/* --------------------------------------------------------- */
+/* -------------------- Utility Classes -------------------- */
+/* --------------------------------------------------------- */
+
+/* basic .css for body */
+body{
+    
+}
+
+/*  This section creates a new .css variable in order to adjust the size of individual pixels so as to make the pixel art scaleable */
+:root{
+    --pixel-size-four: 6;
+    --pixel-size-six: 9;
+    --pixel-size-eight: 12; 
+    /*  adjusting this number changes critter size   */
+}
+
+/*  This is a utility class to maintain crisp resolution for all pixel art images   */
+.pixelArt{
+    image-rendering: pixelated;
+}
+
+/*  This section enables the movement of the spritesheet from left to right across the screen by having a starting position of 0px [far-left] which then finishes at -100% [far-right]   */
+@keyframes moveSpriteSheet {
+    from{
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
