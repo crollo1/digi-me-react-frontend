@@ -31,7 +31,7 @@ class Home extends React.Component {
         // define current user
         currentUser: null,
 
-        // querying message
+        // querying message when critter is given food/drink/sweets
         critterMessageTitle: null,
         critterMessageContent: null,
         loading: true,
@@ -120,8 +120,68 @@ class Home extends React.Component {
 
 
     }
-    
+    fetchDrankMessage = async () => {
+            
+        try {
+            
+            const response = await axios.get(`${BASE_BACKEND_URL}/messages/drink.json`);
+            console.log(`response: `, response.data );
         
+            this.setState({
+
+                critterMessageTitle: response.data.title,
+                critterMessageContent: response.data.content,
+                loading: false
+
+            });    
+        
+        } catch (error) {
+            
+            this.setState({
+
+                loading: false,
+                error: error
+
+            })
+
+        
+        }    
+
+            
+
+
+    }
+    fetchSweetsMessage = async () => {
+            
+        try {
+            
+            const response = await axios.get(`${BASE_BACKEND_URL}/messages/sweets.json`);
+            console.log(`response: `, response.data );
+        
+            this.setState({
+
+                critterMessageTitle: response.data.title,
+                critterMessageContent: response.data.content,
+                loading: false
+
+            });    
+        
+        } catch (error) {
+            
+            this.setState({
+
+                loading: false,
+                error: error
+
+            })
+
+        
+        }    
+
+            
+
+
+    }   
 
     
     //------------------------------------------ //
@@ -171,9 +231,10 @@ class Home extends React.Component {
                             {'  '}|{'   '}
                             <Link to="/fight">Fight</Link>
                             {'  '}|{'   '}
-                            <hr />
                         </nav>
-
+                        
+                        <hr />
+                        
                     </header> {/* CLOSES HEADER */}     
                 
                 {/* Routes to the various pages */}
@@ -209,10 +270,19 @@ class Home extends React.Component {
                     
                     <Route exact path="/users" component={User}/>
                     
-                    <Route exact path="/foodTest" component={FeedAndDrink}/>
+                    <Route 
+                        exact path="/foodTest"
+                        component={FeedAndDrink}
+                        fetchFedMessage={this.fetchFedMessage}
+                    />
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
-                    <hr />
+            {/* ------------------------------------------------------------------- */}
+
+                <button onClick={this.fetchFedMessage}>Feed Critter</button>
+                <button onClick={this.fetchDrankMessage}>Drink Critter</button>
+                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                
+
             {/* ------------------------------------------------------------------- */}
 
                 <footer>

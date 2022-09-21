@@ -27,6 +27,8 @@ class FeedAndDrink extends React.Component {
         drinkInt: null,
         foodInt: null,
         randomInt: null,
+
+        confirm: false,
         
     }
 
@@ -39,9 +41,30 @@ class FeedAndDrink extends React.Component {
         console.log(`randomInt = ${rand}`);  
 
     }  
-
-
     
+    // confirmState = () => {
+    //     this.setState({
+    //         confirm: true
+    //     })
+    // }
+
+    // confirmMessageRequest = () => {
+    //     console.log(`setState of confirm: `, this.state.confirm);
+    //     this.props.fetchFedMessage(this.state.confirm)
+
+        
+    // }
+    
+    // getMessage = async () => {
+    //     confirmState()
+    //     confirmMessageRequest()
+
+    //     await this.props.fetchFedMessage(this.state.confirm)
+
+    // }
+   
+
+
     giveFood = async () => {
         console.log(`food gib`);
         
@@ -59,6 +82,13 @@ class FeedAndDrink extends React.Component {
         }
 
     }
+    // giveFoodGetMessage = () => {
+    //     this.getMessage()
+    //     this.giveFood()
+
+    // }
+
+
 
     giveDrink = async () => {
         console.log(`gib drink`);
@@ -74,7 +104,6 @@ class FeedAndDrink extends React.Component {
         }
         
     }
-
     giveSweets = async () => {
         console.log(`sweetz gib`);
         
