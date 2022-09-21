@@ -129,7 +129,7 @@ class Home extends React.Component {
                     {''} | {''} */}
                     {/* <Link to="/users">Users</Link>
                     {''} | {''} */}
-                    {/* <Link to="/createcritter">create</Link> */}
+                    <Link to="/createcritter">create</Link>
                     <br />
                     {'  '}|{'   '}
                     <Link to="/foodTest">Food Animation Testing</Link>
@@ -146,8 +146,8 @@ class Home extends React.Component {
                 {/* Routes to the various pages */}
                     {/* change below */}
                     {this.state.currentUser &&
-                    <Route exact path="/createcritter" render={() => 
-                    <CreateCritter currentUser ={this.state.currentUser}/>}
+                    <Route exact path="/createcritter" render={(props) => 
+                    <CreateCritter currentUser ={this.state.currentUser}{...props}/>}
                     />}
                      {this.state.currentUser &&
                     <Route exact path="/game" render={() => 
