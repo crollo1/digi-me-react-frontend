@@ -5,12 +5,12 @@ import DudeCritterAnimations from './DudeCritterAnimations.jsx';
 import OwletCritterAnimations from './OwletCritterAnimations.jsx';
 import PinkCritterAnimations from './PinkCritterAnimations.jsx';
 
-import FeedAndDrink from './FeedAndDrink'
+
 import CritterType from './CritterType';
-import Controls from './Controls';
+import FightControls from './FightControls';
 
 
-class CritterComponents extends React.Component {
+class FightGame extends React.Component {
 
 
     state ={
@@ -88,17 +88,11 @@ class CritterComponents extends React.Component {
                 </div>
                 
                 <div className="critterButtonContainer">
-                    <Controls 
+                    <FightControls 
                         updateAction={this.updateAction}
                     />
                 </div>
 
-                <div 
-                className="careControls">
-                    <FeedAndDrink
-                    // pass function to FeedAndDrink
-                    />
-                </div>
 
             </div>
         );      // return()
@@ -110,4 +104,4 @@ class CritterComponents extends React.Component {
 }               // class CritterComponents
 
 
-export default CritterComponents;
+export default FightGame;

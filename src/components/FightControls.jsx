@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Controls extends React.Component {
+class FightControls extends React.Component {
     
     
     /* -------------------------------------- */
@@ -28,23 +28,26 @@ class Controls extends React.Component {
     */
     /* -------------------------------------- */
 
-    critterJump = () => {
+    // critterJump = () => {
 
-        this.props.updateAction( 
+    //     this.props.updateAction( 
             
-            '8', 
-            'jump',
-            4800,  
-            '4', 
-            'idle' 
+    //         '8', 
+    //         'jump',
+    //         4800,  
+    //         '4', 
+    //         'idle' 
              
-        )
+    //     )
         
-        console.log(`Critter jumped`);
+    //     console.log(`Critter jumped`);
         
-    } // critterJump
+    // } // critterJump
 
 
+
+
+    // This should render when someone loses fight
     critterKo = () => {
 
         // NOTE: this function is not configured,
@@ -64,56 +67,59 @@ class Controls extends React.Component {
     } // critterKO
 
 
-    critterWalkPunch = () => {
+
+
+
+    // critterWalkPunch = () => {
         
-        this.props.updateAction(
+    //     this.props.updateAction(
             
-            '6',
-            'walkPunchWalk',
-            3800, 
-            '4',
-            'idle'            
+    //         '6',
+    //         'walkPunchWalk',
+    //         3800, 
+    //         '4',
+    //         'idle'            
 
-        )
+    //     )
         
-        console.log(`Critter walked and punched!`);
+    //     console.log(`Critter walked and punched!`);
         
-    } // critterWalkPunchWalk
+    // } // critterWalkPunchWalk
 
 
-    critterWalk = () => {
+    // critterWalk = () => {
 
-        this.props.updateAction(
+    //     this.props.updateAction(
 
-            '6',
-            'walking',
-            1600, 
-            '6',
-            'walking'
+    //         '6',
+    //         'walking',
+    //         1600, 
+    //         '6',
+    //         'walking'
 
-        )
+    //     )
 
-        console.log(`Critter walking`);
-
-
-    } // critterWalk
+    //     console.log(`Critter walking`);
 
 
-    critterSprint = () => {
+    // } // critterWalk
 
-        this.props.updateAction(
 
-            '6',
-            'sprint',
-            3600, 
-            '4',
-            'idle',
+    // critterSprint = () => {
 
-        )
+    //     this.props.updateAction(
 
-        console.log(`Critter sprinting`);
+    //         '6',
+    //         'sprint',
+    //         3600, 
+    //         '4',
+    //         'idle',
 
-    } // critterStand
+    //     )
+
+    //     console.log(`Critter sprinting`);
+
+    // } // critterStand
 
 
     critterRunHug = () => {
@@ -167,23 +173,24 @@ class Controls extends React.Component {
     } // critterThrowStone
 
     
-    critterStand = () => {
+    // critterStand = () => {
 
-        this.props.updateAction(
+    //     this.props.updateAction(
 
-            '4',
-            'idle',
-            800, 
-            '4',
-            'idle',
+    //         '4',
+    //         'idle',
+    //         800, 
+    //         '4',
+    //         'idle',
 
-        )
+    //     )
 
-        console.log(`Critter standing`);
+    //     console.log(`Critter standing`);
 
-    } // critterStand - 'idle'
+    // } // critterStand - 'idle'
 
 
+    // This should render when someone is hurt
     critterHurt = () => {
 
         this.props.updateAction(
@@ -218,21 +225,21 @@ class Controls extends React.Component {
     } // critterClimbing
 
 
-    critterPunch = () => {
+    // critterPunch = () => {
 
-        this.props.updateAction(
+    //     this.props.updateAction(
 
-            '4',
-            'punch',
-            1600, 
-            '4',
-            'idle',
+    //         '4',
+    //         'punch',
+    //         1600, 
+    //         '4',
+    //         'idle',
 
-        )
+    //     )
 
-        console.log(`Critter punched!`);
+    //     console.log(`Critter punched!`);
 
-    } // critterPunch
+    // } // critterPunch
 
 
 
@@ -245,62 +252,62 @@ class Controls extends React.Component {
             <div>
                 
                 <div className="critterButtonContainer">
-                    <button className="critterButton" 
+                    {/* <button className="critterButton" 
                     onClick={this.critterJump}>
-                        Up
-                    </button>
+                        Jump
+                    </button> */}
                     
-                    <button className="critterButton"
+                    {/* <button className="critterButton"
                     onClick={this.critterKo}>
-                        Down
-                    </button>
+                        K.O'd
+                    </button> */}
                     
                     {/* <button className="critterButton" 
                     onClick={this.critterWalkPunch}>
                         Punch-walk
                     </button> */}
 
-                    <button className="critterButton" 
+                    {/* <button className="critterButton" 
                     onClick={this.critterWalk}>
-                        Right
-                    </button>
+                        Walk
+                    </button> */}
                     
-                    <button className="critterButton" 
+                    {/* <button className="critterButton" 
                     onClick={this.critterSprint}>
+                        Sprint
+                    </button> */}
+
+                    <button className="critterButton" 
+                    onClick={this.critterRunHug}>
                         Left
                     </button>
 
-                    {/* <button className="critterButton" 
-                    onClick={this.critterRunHug}>
-                        Run and Hug
-                    </button> */}
-
-                    {/* <button className="critterButton" 
+                    <button className="critterButton" 
                     onClick={this.critterOneTwoCombo}>
-                        One-Two Combo
+                        Down
                     </button>
 
                     <button className="critterButton" 
                     onClick={this.critterThrowStone}>
-                        Throw Stone
-                    </button> */}
+                        Right
+                    </button>
 
                     {/* <button className="critterButton" 
                     onClick={this.critterStand}>
                         Stand
-                    </button>
+                    </button> */}
 
-                    <button className="critterButton" 
+                    {/* <button className="critterButton" 
                     onClick={this.critterHurt}>
                         Hurt
-                    </button>
+                    </button> */}
 
                     <button className="critterButton" 
                     onClick={this.critterClimbing}>
-                        Climb
+                        Up
                     </button>
 
-                    <button className="critterButton" 
+                    {/* <button className="critterButton" 
                     onClick={this.critterPunch}>
                         Punch
                     </button> */}
@@ -318,4 +325,4 @@ class Controls extends React.Component {
 } // class Controls
 
 
-export default Controls;
+export default FightControls;

@@ -13,6 +13,10 @@ import CreateCritter from './CreateCritter';
 import CritterComponents from './CritterComponents';
 import FeedAndDrink from './FeedAndDrink'
 // --------------------------------------------- //
+// Fight components
+import FightGame from './FightGame';
+
+
 // backend url
 const BASE_BACKEND_URL = 'http://localhost:3000';
 // This function combines CritterType & Controls for use
@@ -94,7 +98,9 @@ class Home extends React.Component {
                     {'  '}|{'   '}
                     <Link to="/foodTest">Food Animation Testing</Link>
                     {'  '}|{'   '}
-                    <Link to="/animation_testing">Animation Testing</Link>
+                    <Link to="/game">Game</Link>
+                    {'  '}|{'   '}
+                    <Link to="/fight">Fight</Link>
                     {'  '}|{'   '}
                     <hr />
                     </nav>
@@ -105,16 +111,25 @@ class Home extends React.Component {
                     {/* change below */}
                     {this.state.currentUser &&
                     <Route exact path="/createcritter" render={() => 
-                    <CreateCritter currentUser ={this.state.currentUser}/>}/>}
+                    <CreateCritter currentUser ={this.state.currentUser}/>}
+                    />}
+                     {this.state.currentUser &&
+                    <Route exact path="/game" render={() => 
+                    <CritterComponents currentUser ={this.state.currentUser}/>}
+                    />}
+                    {this.state.currentUser &&
+                    <Route exact path="/fight" render={() => 
+                    <FightGame currentUser ={this.state.currentUser}/>}
+                    />}
                     {this.state.currentUser &&
                     <Route exact path="/my_profile" render={(props) => 
                     <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
-
+                    {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
                     <Route exact path='/login' render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}/>
                     <Route exact path='/signup' render={(props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>}/>
                     <Route exact path="/users" component={User}/>
                     <Route exact path="/foodTest" component={FeedAndDrink}/>
-                    <Route exact path="/animation_testing" component={CritterComponents}/>
+                    {/* <Route exact path="/game" component={CritterComponents}/> */}
               
                   <hr />
                   &copy; Critters.Co.2022
