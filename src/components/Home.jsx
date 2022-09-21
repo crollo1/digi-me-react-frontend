@@ -95,7 +95,7 @@ class Home extends React.Component {
                     {/* Showing on nav bar login/sign-up requests with if statement */}
                     
                     {
-                        this.state.currentUser !== undefined
+                        this.state.currentUser !== null
                         ?
                         (
                             <div className='Login'>
@@ -144,10 +144,9 @@ class Home extends React.Component {
                     </nav>
                 </header>     
                 
-                <br /><br />
                 {/* Routes to the various pages */}
                     {/* change below */}
-                    {this.state.currentUser &&
+                    {(this.state.currentUser && this.state.currentUser.pet === undefined) &&
                     <Route exact path="/createcritter" render={() => 
                     <CreateCritter currentUser ={this.state.currentUser}/>}
                     />}
