@@ -13,6 +13,7 @@ import FeedAndDrink from './FeedAndDrink'
 // --------------------------------------------- //
 // Fight components
 import FightGame from './FightGame';
+import { Actions } from 'phaser';
 
 
 // backend url
@@ -29,10 +30,17 @@ class Home extends React.Component {
 
         // define current user
         currentUser: null,
+
+        // querying message when critter is given food/drink/sweets
+        critterMessageTitle: null,
+        critterMessageContent: null,
+        loading: true,
+        error: null
         
     };
 
 
+    // --------------User Related--------------- //
     // function to run on component mounting
     componentDidMount(){
 
@@ -40,8 +48,6 @@ class Home extends React.Component {
         this.setCurrentUser();
 
     };
-
-
     // function to set the state of the current logged in user
     setCurrentUser = () => {
 
@@ -68,8 +74,6 @@ class Home extends React.Component {
         .catch(err => console.warn(err))
 
     };
-
-
     // function to handle the logging user out
     handleLogout = () => {
 
@@ -81,8 +85,107 @@ class Home extends React.Component {
         axios.defaults.headers.common['Authorization'] = undefined;
 
     };
+    //------------------------------------------ //
+    
+
+    // ------------Message Related-------------- //
+    fetchFedMessage = async () => {
+            
+        try {
+            
+            const response = await axios.get(`${BASE_BACKEND_URL}/messages/food.json`);
+            console.log(`response: `, response.data );
+        
+            this.setState({
+
+                critterMessageTitle: response.data.title,
+                critterMessageContent: response.data.content,
+                loading: false
+
+            });    
+        
+        } catch (error) {
+            
+            this.setState({
+
+                loading: false,
+                error: error
+
+            })
+
+        
+        }    
+
+            
+
+
+    }
+    fetchDrankMessage = async () => {
+            
+        try {
+            
+            const response = await axios.get(`${BASE_BACKEND_URL}/messages/drink.json`);
+            console.log(`response: `, response.data );
+        
+            this.setState({
+
+                critterMessageTitle: response.data.title,
+                critterMessageContent: response.data.content,
+                loading: false
+
+            });    
+        
+        } catch (error) {
+            
+            this.setState({
+
+                loading: false,
+                error: error
+
+            })
+
+        
+        }    
+
+            
+
+
+    }
+    fetchSweetsMessage = async () => {
+            
+        try {
+            
+            const response = await axios.get(`${BASE_BACKEND_URL}/messages/sweets.json`);
+            console.log(`response: `, response.data );
+        
+            this.setState({
+
+                critterMessageTitle: response.data.title,
+                critterMessageContent: response.data.content,
+                loading: false
+
+            });    
+        
+        } catch (error) {
+            
+            this.setState({
+
+                loading: false,
+                error: error
+
+            })
+
+        
+        }    
+
+            
+
+
+    }   
 
     
+    //------------------------------------------ //
+
     render(){
         return (
             
@@ -90,6 +193,7 @@ class Home extends React.Component {
             <Router>
 
                 <header>
+<<<<<<< HEAD
                     {/* Showing on nav bar login/sign-up requests with if statement */}
                     
                     {
@@ -141,44 +245,115 @@ class Home extends React.Component {
                     <hr />
                     </nav>
                 </header>     
+=======
+                        {/* Showing on nav bar login/sign-up requests with if statement */}
+                        {
+                            this.state.currentUser !== null
+                            ?
+                            (
+                                <div className='Login'>
+                                    {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
+                                    <h4>
+                                        <Link to='/my_profile'>My Profile</Link>
+                                        {' '}| {' '}
+                                        <Link onClick={this.handleLogout} to='/'>Logout</Link>
+                                    </h4>
+                                </div>
+                            )
+                            :
+                            (
+                                <div className='Login'>
+                                    <h4>
+                                        <Link to='/login'>Login</Link>
+                                        {' '}|{' '}
+                                        <Link to='/signup'>Sign Up</Link>
+                                    </h4>
+                                </div>
+                            )
+                        } 
+                        {/* Section above handles display of login/logout funcitonality */}
+                        <h1>Digi-Me</h1>
+
+                        <nav>
+                            {/* Links to various pages */}
+                            <Link to="/">Home</Link>
+                            {'  '}|{'   '}
+                            <Link to="/foodTest">Food Animation Testing</Link>
+                            {'  '}|{'   '}
+                            <Link to="/game">Console</Link>
+                            {'  '}|{'   '}
+                            <Link to="/fight">Fight</Link>
+                            {'  '}|{'   '}
+                        </nav>
+                        
+                        <hr />
+                        
+                    </header> {/* CLOSES HEADER */}     
+>>>>>>> 809a9f1b0269b56dc00567d545c385ca92db1ffc
                 
-                <br /><br />
                 {/* Routes to the various pages */}
                     {/* change below */}
+            {/* ------------------------------------------------------------------- */}
                     {this.state.currentUser &&
+<<<<<<< HEAD
                     <Route exact path="/createcritter" render={(props) => 
                     <CreateCritter currentUser ={this.state.currentUser}{...props}/>}
+=======
+                        <Route exact path="/createcritter" render={() => 
+                        <CreateCritter currentUser ={this.state.currentUser}/>}
+>>>>>>> 809a9f1b0269b56dc00567d545c385ca92db1ffc
                     />}
-                     {this.state.currentUser &&
-                    <Route exact path="/game" render={() => 
-                    <CritterComponents currentUser ={this.state.currentUser}/>}
-                    />}
+                    
                     {this.state.currentUser &&
-                    <Route exact path="/fight" render={() => 
-                    <FightGame currentUser ={this.state.currentUser}/>}
+                        <Route exact path="/game" render={() => 
+                        <CritterComponents currentUser ={this.state.currentUser}/>}
                     />}
-                    {this.state.currentUser &&
-                    <Route exact path="/my_profile" render={(props) => 
-                    <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
-                    {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
-                    <Route exact path='/login' render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}/>
-                    <Route exact path='/signup' render={(props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>}/>
-                    <Route exact path="/users" component={User}/>
-                    <Route exact path="/foodTest" component={FeedAndDrink}/>
-                    {/* <Route exact path="/game" component={CritterComponents}/> */}
-              
-                  <hr />
-              
 
-          
+                    {this.state.currentUser &&
+                        <Route exact path="/fight" render={() => 
+                        <FightGame currentUser ={this.state.currentUser}/>}
+                    />}
+                    
+                    {this.state.currentUser &&
+                        <Route exact path="/my_profile" render={(props) => 
+                        <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
+                    {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
+                    
+                    <Route exact path='/login' render={
+                        (props) => <Login setCurrentUser={this. setCurrentUser}{...props}/>
+                    }/>
+                    
+                    <Route exact path='/signup' render={
+                        (props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>
+                    }/>
+                    
+                    <Route exact path="/users" component={User}/>
+                    
+                    <Route 
+                        exact path="/foodTest"
+                        component={FeedAndDrink}
+                        fetchFedMessage={this.fetchFedMessage}
+                    />
+                    
+                    {/* <Route exact path="/game" component={CritterComponents}/> */}
+            {/* ------------------------------------------------------------------- */}
+
+                <button onClick={this.fetchFedMessage}>Feed Critter</button>
+                <button onClick={this.fetchDrankMessage}>Drink Critter</button>
+                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                
+
+            {/* ------------------------------------------------------------------- */}
+
                 <footer>
+                    
                     <hr />
                     &copy; Critters.Co.2022
-                </footer>
 
-            </Router>
+                </footer> {/* CLOSES FOOTER */}
 
-            </div>
+            </Router> {/* CLOSES ROUTER */}
+
+            </div>  // CLOSES WRAPPER DIV 
  
         ); // return
 
