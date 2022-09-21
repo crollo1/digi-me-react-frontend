@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import CritterComponents from './CritterComponents';
 // import { toBeEmpty } from '@testing-library/jest-dom/dist/matchers';
 
 // set backend url
@@ -51,7 +52,8 @@ class MyProfile extends React.Component{
       <div>
         <h1>Hello {this.props.currentUser.name}</h1>
         {/* {/* <h3>{this.props.currentUser.pet}</h3> */}
-        {/* <h1>Hello {this.props.currentUser.pet.name}</h1>  */}
+        <h1>Hello {this.props.currentUser.pet.name}</h1> 
+        <CritterComponents />
       </div>
     );
   }//render​
