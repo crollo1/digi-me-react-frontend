@@ -107,8 +107,9 @@ class Home extends React.Component {
                     <Route exact path="/createcritter" render={() => 
                     <CreateCritter currentUser ={this.state.currentUser}/>}/>}
                     {this.state.currentUser &&
-                    <Route exact path="/my_profile" render={() => 
-                    <MyProfile currentUser ={this.state.currentUser}/>}/>}
+                    <Route exact path="/my_profile" render={(props) => 
+                    <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
+
                     <Route exact path='/login' render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}/>
                     <Route exact path='/signup' render={(props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>}/>
                     <Route exact path="/users" component={User}/>

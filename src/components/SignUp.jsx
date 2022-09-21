@@ -83,7 +83,7 @@ class SignUp extends React.Component{
                 // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
                 this.props.setCurrentUser();
                 // redirec the url of the page to /my_profile so we can load the MyProfile component
-                this.props.history.push('/my_profile');
+                this.props.history.push('/createcritter');
 
             })
 
