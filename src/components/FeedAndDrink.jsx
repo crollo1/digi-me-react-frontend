@@ -8,6 +8,7 @@ import React from 'react';
 // import fruits from '../assets/FoodPack/fruits.png'
 // import drinks from '../assets/FoodPack/drinks.png'
 import sweets from '../assets/FoodPack/sweets.png'
+const BASE_BACKEND_URL = 'http://localhost:3000';
 
 
 class FeedAndDrink extends React.Component {
@@ -48,8 +49,9 @@ class FeedAndDrink extends React.Component {
 
         try {
             
-            // const res = await axios.post(`http://localhost:3000/pets/:${:pet_id}/action/feed`)
-        
+            // const res = await axios.post(`${BASE_BACKEND_URL}/pets/:${:pet_id}/action/feed`)
+            // const res = await axios.get(`{BASE_BACKEND_URL}/messages/food`)
+
         } catch (error) {
             
             console.log(`error on feed`);
