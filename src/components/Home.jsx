@@ -135,7 +135,7 @@ class Home extends React.Component {
                 <header>
                         {/* Showing on nav bar login/sign-up requests with if statement */}
                         {
-                            this.state.currentUser !== undefined
+                            this.state.currentUser !== null
                             ?
                             (
                                 <div className='Login'>
@@ -175,9 +175,6 @@ class Home extends React.Component {
                         </nav>
 
                     </header> {/* CLOSES HEADER */}     
-                
-                <br /><br />
-                
                 
                 {/* Routes to the various pages */}
                     {/* change below */}
