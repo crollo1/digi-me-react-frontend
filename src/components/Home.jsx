@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from "../App";
+
 import User from './User';
-import Accessories from './Accessories';
 import { Route, HashRouter as Router, Link } from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';

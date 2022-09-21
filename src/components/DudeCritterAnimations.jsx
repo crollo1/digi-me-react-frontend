@@ -1,5 +1,5 @@
 import React from 'react';
-import DudeCritter from "../DudeCritter.css";
+
 
 import dude4frames from "../assets/dudeMonster/fourFrames_dude.png";
 import dude6frames from "../assets/dudeMonster/sixFrames_dude.png";

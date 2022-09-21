@@ -1,10 +1,6 @@
 import React from 'react';
 import '../App.css'
 
-import DudeCritterAnimations from './DudeCritterAnimations.jsx';
-import OwletCritterAnimations from './OwletCritterAnimations.jsx';
-import PinkCritterAnimations from './PinkCritterAnimations.jsx';
-
 import FeedAndDrink from './FeedAndDrink'
 import CritterType from './CritterType';
 import Controls from './Controls';
@@ -52,7 +48,7 @@ class CritterComponents extends React.Component {
     getSpeciesBaseName = (species) => {
         // 'dude4' - input
         // 'dude' - output
-        if(Number.isInteger(parseInt(species[species.length-1])) == true ){
+        if(Number.isInteger(parseInt(species[species.length-1])) === true ){
             return species.substring(0, species.length -1) 
         } else{
             return species

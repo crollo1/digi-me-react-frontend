@@ -17,7 +17,7 @@ class SignUp extends React.Component{
 
     // handle typing in the form
     handleInput = (ev) => {
-        
+
         switch(ev.target.name){
 
             case 'name':
@@ -38,6 +38,8 @@ class SignUp extends React.Component{
             case 'password':
                 this.setState({password: ev.target.value})
                 // console.log("password:", ev.target.value);
+                break;
+                default: console.log('sign in better please');
 
         }
 
