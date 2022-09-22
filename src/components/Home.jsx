@@ -13,7 +13,7 @@ import FeedAndDrink from './FeedAndDrink'
 // --------------------------------------------- //
 // Fight components
 import FightGame from './FightGame';
-import { Actions } from 'phaser';
+
 
 
 // backend url
@@ -193,59 +193,6 @@ class Home extends React.Component {
             <Router>
 
                 <header>
-<<<<<<< HEAD
-                    {/* Showing on nav bar login/sign-up requests with if statement */}
-                    
-                    {
-                        this.state.currentUser !== undefined
-                        ?
-                        (
-                            <div className='Login'>
-                                {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
-                                <h4>
-                                    <Link to='/my_profile'>My Profile</Link>
-                                    {' '}| {' '}
-                                    <Link onClick={this.handleLogout} to='/'>Logout</Link>
-                                </h4>
-                            </div>
-                        )
-                        :
-                        (
-                            <div className='Login'>
-                                <h4>
-                                    <Link to='/login'>Login</Link>
-                                    {' '}|{' '}
-                                    <Link to='/signup'>Sign Up</Link>
-                                </h4>
-                            </div>
-                        )
-                    } 
-                    {/* Section above handles display of login/logout funcitonality */}
-                    <h1>Digi-Me</h1>
-
-                    <nav>
-                    {/* Links to various pages */}
-                    <Link to="/">Home</Link>
-                    {''} | {''}
-                    {/* <Link to="/pet">Pets</Link>
-                    {''} | {''} */}
-                    {/* <Link to="/accessories">Accessories</Link>
-                    {''} | {''} */}
-                    {/* <Link to="/users">Users</Link>
-                    {''} | {''} */}
-                    <Link to="/createcritter">create</Link>
-                    <br />
-                    {'  '}|{'   '}
-                    <Link to="/foodTest">Food Animation Testing</Link>
-                    {'  '}|{'   '}
-                    <Link to="/game">Console</Link>
-                    {'  '}|{'   '}
-                    <Link to="/fight">Fight</Link>
-                    {'  '}|{'   '}
-                    <hr />
-                    </nav>
-                </header>     
-=======
                         {/* Showing on nav bar login/sign-up requests with if statement */}
                         {
                             this.state.currentUser !== null
@@ -289,19 +236,13 @@ class Home extends React.Component {
                         <hr />
                         
                     </header> {/* CLOSES HEADER */}     
->>>>>>> 809a9f1b0269b56dc00567d545c385ca92db1ffc
                 
                 {/* Routes to the various pages */}
                     {/* change below */}
             {/* ------------------------------------------------------------------- */}
                     {this.state.currentUser &&
-<<<<<<< HEAD
-                    <Route exact path="/createcritter" render={(props) => 
-                    <CreateCritter currentUser ={this.state.currentUser}{...props}/>}
-=======
                         <Route exact path="/createcritter" render={() => 
                         <CreateCritter currentUser ={this.state.currentUser}/>}
->>>>>>> 809a9f1b0269b56dc00567d545c385ca92db1ffc
                     />}
                     
                     {this.state.currentUser &&
