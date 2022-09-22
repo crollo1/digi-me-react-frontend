@@ -11,6 +11,19 @@ import axios from 'axios';
 // import sweets from '../assets/FoodPack/sweets.png'
 const BASE_BACKEND_URL = 'http://localhost:3000';
 
+// function CritterMessage (props, ){
+
+//     return(
+
+//         <li>
+//             <h4>{this.props.currentUser.pet.name}</h4> says,
+//             <br/>
+//             <p> {this.props} </p>
+//         </li>
+
+//     )
+
+// }
 
 class FeedAndDrink extends React.Component {
 
@@ -35,6 +48,10 @@ class FeedAndDrink extends React.Component {
         frameInteger: '4',
         animation:'idle',
         currentUserPet:'',
+
+        critterMessages: [],
+        loading: true,
+
     }
 
     randInt = () => {
@@ -55,6 +72,7 @@ class FeedAndDrink extends React.Component {
         try {
             
             const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/feed`)
+            
 
             console.log(`pet last_fed updated with: `, res );
 
@@ -117,7 +135,7 @@ class FeedAndDrink extends React.Component {
 
         return(
             
-            <div>
+            <div className="App">
                 <h2>Critter - {this.props.currentUser.pet.name}</h2>
                 
                 <button onClick={this.giveFood}
@@ -157,9 +175,15 @@ class FeedAndDrink extends React.Component {
                     </div>
                 
                 </div> {/* CLOSES CRITTER CONTAINER */}
-
-            
-            
+{/* 
+                {
+                    this.props.loading
+                    ?
+                    <p>Hello!</p>
+                    :
+                    <CritterMessage/>
+                }
+             */}
             </div>
 
        
