@@ -1,5 +1,6 @@
 import React from 'react';
-
+import CritterType from './CritterType';
+import axios from 'axios';
 
 
 // import FoodAndDrink from '../FoodAndDrink.css'
@@ -30,6 +31,10 @@ class FeedAndDrink extends React.Component {
 
         confirm: false,
         
+        critterSpecies: '',
+        frameInteger: '4',
+        animation:'idle',
+        currentUserPet:'',
     }
 
     randInt = () => {
@@ -41,28 +46,6 @@ class FeedAndDrink extends React.Component {
         console.log(`randomInt = ${rand}`);  
 
     }  
-    
-    // confirmState = () => {
-    //     this.setState({
-    //         confirm: true
-    //     })
-    // }
-
-    // confirmMessageRequest = () => {
-    //     console.log(`setState of confirm: `, this.state.confirm);
-    //     this.props.fetchFedMessage(this.state.confirm)
-
-        
-    // }
-    
-    // getMessage = async () => {
-    //     confirmState()
-    //     confirmMessageRequest()
-
-    //     await this.props.fetchFedMessage(this.state.confirm)
-
-    // }
-   
 
 
     giveFood = async () => {
@@ -81,13 +64,6 @@ class FeedAndDrink extends React.Component {
         }
 
     }
-    // giveFoodGetMessage = () => {
-    //     this.getMessage()
-    //     this.giveFood()
-
-    // }
-
-
 
     giveDrink = async () => {
         console.log(`gib drink`);
@@ -111,7 +87,7 @@ class FeedAndDrink extends React.Component {
 
         try {
         
-            // const res = await axios.post(`http://localhost:3000/pets/:${:pet_id}/action/sweets`)
+            const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
             
         } catch (error) {
             
@@ -119,13 +95,23 @@ class FeedAndDrink extends React.Component {
 
     }
 
+    getSpeciesBaseName = (species) => {
+
+        if(Number.isInteger(parseInt(species[species.length-1])) === true ){
+            return species.substring(0, species.length -1) 
+        } else{
+            return species
+        }
+       
+        
+    }
 
     render (){
 
         return(
             
             <div>
-                <h2>Food Animation Testing</h2>
+                <h2>Critter - {this.props.currentUser.pet.name}</h2>
                 
                 <button onClick={this.giveFood}>
                     Food
@@ -139,9 +125,7 @@ class FeedAndDrink extends React.Component {
                     Sweets
                 </button>
 
-                {/* <button onClick={this.randInt}>randInt</button> */}
-
-                <div className='sweets'>
+                {/* <div className='sweets'>
                     <img src={sweets} alt="sweets" 
                     className={`
                         
@@ -149,9 +133,21 @@ class FeedAndDrink extends React.Component {
                         viewbox1
                     
                     `}/>
-                </div>
+                </div> */}
 
-            
+                <div id="critterContainer">
+
+                    <div id="viewContainer">
+                        <CritterType 
+                            species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+                            frame={this.state.frameInteger}
+                            action={this.state.animation}    
+                        />
+
+                    </div>
+                
+                </div> {/* CLOSES CRITTER CONTAINER */}
+
             
             
             </div>

@@ -224,9 +224,7 @@ class Home extends React.Component {
                             {/* Links to various pages */}
                             <Link to="/">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/food_test">Food Animation Testing</Link>
-                            {'  '}|{'   '}
-                            <Link to="/game">Console</Link>
+                            <Link to="/food_test">Food Testing</Link>
                             {'  '}|{'   '}
                             <Link to="/fight">Fight</Link>
                            
@@ -238,15 +236,10 @@ class Home extends React.Component {
                 
                 {/* Routes to the various pages */}
                     {/* change below */}
-            {/* ------------------------------------------------------------------- */}
+            {/* ------------------------------------------------------------- */}
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={() => 
                         <CreateCritter currentUser ={this.state.currentUser}/>}
-                    />}
-                    
-                    {this.state.currentUser &&
-                        <Route exact path="/game" render={() => 
-                        <CritterComponents currentUser ={this.state.currentUser}/>}
                     />}
 
                     {this.state.currentUser &&
@@ -277,27 +270,14 @@ class Home extends React.Component {
                                 fetchFedMessage={this.fetchFedMessage}
                                 fetchDrankMessage={this.fetchDrankMessage}
                                 fetchSweetsMessage={this.fetchSweetsMessage}
+                                currentUser={this.state.currentUser}
                             />
                         )}
                         
                     />
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
-            {/* ------------------------------------------------------------------- */}
-
-                {/*                                                 
-                // <CritterType 
-                //     species={this.currentUser[this.pet.species]}
-                //     frame={ 4 }
-                //     action={ 'idle' }    
-                //  */}
-               
-
-                {/* <button onClick={this.fetchFedMessage}>Feed Critter</button>
-                <button onClick={this.fetchDrankMessage}>Drink Critter</button>
-                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                 */}
-
-            {/* ------------------------------------------------------------------- */}
+            {/* ------------------------------------------------------------ */}
 
                 <footer>
                     
