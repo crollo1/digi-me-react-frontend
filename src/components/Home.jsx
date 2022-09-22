@@ -51,7 +51,8 @@ class Home extends React.Component {
     };
     // function to set the state of the current logged in user
     setCurrentUser = () => {
-
+        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+       
         // set the token value - authenication 
         let token = "Bearer " + localStorage.getItem("jwt");
 
@@ -96,14 +97,18 @@ class Home extends React.Component {
             
             const response = await axios.get(`${BASE_BACKEND_URL}/messages/food.json`);
             console.log(`response: `, response.data );
-        
+            
+
+
             this.setState({
 
                 critterMessageTitle: response.data.title,
                 critterMessageContent: response.data.content,
                 loading: false
 
-            });    
+            });  
+
+            
         
         } catch (error) {
             
@@ -271,6 +276,7 @@ class Home extends React.Component {
                                 fetchDrankMessage={this.fetchDrankMessage}
                                 fetchSweetsMessage={this.fetchSweetsMessage}
                                 currentUser={this.state.currentUser}
+                                loading={this.state.loading}
                             />
                         )}
                         
@@ -289,8 +295,7 @@ class Home extends React.Component {
 
                 <footer>
                     
-                    <hr />
-                    &copy; Critters.Co.2022
+                    <p className="footerText">&copy; Critters.Co.2022</p>
 
                 </footer> {/* CLOSES FOOTER */}
 
