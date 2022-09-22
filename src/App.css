@@ -1,4 +1,14 @@
 /* --------------- Basic Critter Page .css ---------------- */
+@font-face {
+  font-family: "Common Pixel"; 
+  font-style: normal; 
+  font-weight: normal;
+  src: url('http://fonts.cdnfonts.com/css/common-pixel') format("truetype");
+}
+.Login {
+  font-family: Common Pixel, sans-serif;
+  font-style: normal;
+}
 #critterContainer{
 
   display: flex;
@@ -85,10 +95,31 @@ h4 {
 
 Form {
   max-width: 30vw;
-  margin-left: 30px;
+  margin: 30px;
   padding: 20px;
   display: inline-block;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+.loginform {
+  max-width: 30vw;
+  margin: 30px;
+  padding: 20px;
+  display: inline-block;
+
+}
+.logininput{
+  background-color: #9e856c;
+  border-radius: 10px;
+  margin: 10px;
+  border: none;
+  padding: 5px;
+  color:#fff;
+}
+.form-control{
+  background-color: #9e856c;
+}
+.inputbutton{
+  border-radius: 10px;
 }
 
 .fndButton1 {
@@ -112,6 +143,43 @@ Form {
   background-image: url("./assets/FoodPack/singleSweet.png");
   background-repeat: no-repeat;
   
+}
+
+.critterButton1 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+   /* background-image: url("./assets/left-arrow.png");
+  background-repeat: no-repeat;  */
+}
+.critterButton2 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/down-arrow.png");
+  background-repeat: no-repeat; */
+}
+.critterButton3 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/right-arrow.png");
+  background-repeat: no-repeat; */
+}
+.critterButton4 {
+  max-width: 10vw;
+   padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/up-arrow.png");
+  background-repeat: no-repeat; */
 }
 
 h1 {
@@ -150,20 +218,138 @@ a:visited {
 }
 
 header {
-  background-image: url("./assets/sky\ header2.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  background-image: url("./assets/skyheader3.jpg");
+  /* height: 100vh;  */
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-position: 0 0; */
+  /* background-repeat: repeat-x; */
+  /* animation: redblob 15s linear infinite;  */
+  /* z-index: -10; */
+}
+
+.pikachu{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pikachu 15s linear infinite;
+}
+@keyframes pikachu
+{
+  from {bottom: 0px;}
+  to {bottom: 430px;}
+}
+
+.dinosaur{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: dinosaur 15s linear infinite;
+}
+@keyframes dinosaur
+{
+  from {left: 50px;}
+  to {left: 600px;}
+  from {top: 150px;}
+  to {top: 700px;}
+
+}
+
+.mario{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: mario 15s linear infinite;
+}
+@keyframes mario
+{
+  from {bottom: 0px;}
+  to {bottom: 400px;}
+  from {left: 100px;}
+  to {left: -120px;}
+}
+
+.pinkpolice{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pinkpolice 15s linear infinite;
+}
+@keyframes pinkpolice
+{
+  from {right: 50px;}
+  to {right: 700px;}
+  from {top: 250px;}
+  to {top: 700px;}
+
+}
+
+.pop{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pop 10s linear infinite;
+}
+@keyframes pop
+{
+  from {bottom: 0px;}
+  to {bottom: 300px;}
+  from {right: 100px;}
+  to {right: -20px;}
+}
+
+.redblob{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: redblob 15s linear infinite;
+}
+@keyframes redblob
+{
+  from {right: 0px;}
+  to {right: 1200px;}
+}
+
+.pinkblob{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pinkblob 15s linear infinite;
+}
+@keyframes pinkblob
+{
+  from {left: 0px;}
+  to {left: 1200px;}
 }
 
 body {
   background-image: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.1)), url("./assets/grass\ tile.png");
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: -10;
+  z-index: 10;
   background-size: cover;
   height: 90vh;
-  /* opacity: 0.7; */
+  /* opacity: 0.7;*/
+
 }
+  
+
+
 
 footer {
   /* margin-top: 550px; */
@@ -171,7 +357,7 @@ footer {
   max-height: 40px;
   color: white;
   position: absolute;
-  bottom: 5vh;
+  bottom: 0vh;
   width: 100vw;
   text-align: center;
 }

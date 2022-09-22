@@ -202,16 +202,16 @@ class CreateCritter extends React.Component{
                 <button onClick={this.submitRight} className="right">Right</button>
                 <br /><br />
                 <br /><br />
-                <form onSubmit = {this.submitNewCritter}>
+                <form className="selectcritter" onSubmit = {this.submitNewCritter}>
                
-                <input
+                <input className="logininput"
                 onChange={this.critterName}
                 name="name"
                 type="name"
                 placeholder='Enter Pet Name'
                 />
                 <br /><br />
-                <button onClick = {this.submitNewCritter}className="select">Select Critter</button>
+                <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
                 </form>
 
             </div>
