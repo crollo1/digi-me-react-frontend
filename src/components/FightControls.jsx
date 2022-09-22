@@ -6,28 +6,28 @@ const availableActions = {
         type: 'runHug',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 35,
     },
     climbing: {
         frame: '4',
         type: 'climbing',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 30,
     },
     throwStone: {
         frame: '4',
         type: 'throwStone',
         wait: 800,
         afterFrame: '4',
-        damage: 1,
+        damage: 20,
     }, 
     oneTwoCombo: {
         frame: '6',
         type: 'oneTwoCombo',
         wait: 1600,
         afterFrame: '4',
-        damage: 1, 
+        damage: 15, 
     }   
    
 }
