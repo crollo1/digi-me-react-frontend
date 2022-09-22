@@ -37,8 +37,8 @@ class DudeCritterAnimations extends React.Component {
 .owlet4FramesViewbox{
     width:  calc(32px * var(--pixel-size-four));
     height: calc(32px * var(--pixel-size-four));
-    background-color: blanchedalmond;
-    border: 1px solid green;
+    background-color: none;
+    border: none;
     border-radius: 20%;
 
     position: relative;
@@ -83,8 +83,8 @@ class DudeCritterAnimations extends React.Component {
 .owlet6FramesViewbox{
     width:  calc(32px * var(--pixel-size-four));
     height: calc(32px * var(--pixel-size-four));
-    background-color: blanchedalmond;
-    border: 1px solid green;
+    background-color:none;
+    border: none;
     border-radius: 20%;
 
     position: relative;
@@ -129,8 +129,8 @@ class DudeCritterAnimations extends React.Component {
 .owlet8FramesViewbox{
     width:  calc(16px * var(--pixel-size-eight));
     height: calc(16px * var(--pixel-size-eight));
-    background-color: blanchedalmond;
-    border: 1px solid green;
+    background-color: none;
+    border: none;
     border-radius: 20%;
 
     position: relative;
