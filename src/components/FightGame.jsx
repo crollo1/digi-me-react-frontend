@@ -271,7 +271,7 @@ class FightGame extends React.Component {
 
                 </div>
                 )
-            } else if (this.state.opposingUserExp <= 0) {
+            } else if (this.state.currentUserExp <= 0) {
                 console.log('opposingUserExp less than zero')
                 // console.log('oppoent win:')
                 return (<div id="critterContainer">
