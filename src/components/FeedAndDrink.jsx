@@ -54,8 +54,9 @@ class FeedAndDrink extends React.Component {
 
         try {
             
-            // const res = await axios.post(`${BASE_BACKEND_URL}/pets/:${:pet_id}/action/feed`)
-            // const res = await axios.get(`{BASE_BACKEND_URL}/messages/food`)
+            const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/feed`)
+
+            console.log(`pet last_fed updated with: `, res );
 
         } catch (error) {
             
@@ -72,7 +73,10 @@ class FeedAndDrink extends React.Component {
 
         try {
         
-            // const res = await axios.post(`http://localhost:3000/pets/:${:pet_id}/action/drink`)
+            const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/drink`)
+
+            console.log(`pet last_drank updated with: `, res );
+            
             
         } catch (error) {
 
@@ -81,13 +85,14 @@ class FeedAndDrink extends React.Component {
         }
         
     }
+
     giveSweets = async () => {
         console.log(`sweetz gib`);
         this.props.fetchSweetsMessage()
 
         try {
         
-            const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
+            const res = await axios.post(`http://localhost:3000/pets/:${this.props.currentUser.pet.id}/action/sweet`)
             
         } catch (error) {
             
