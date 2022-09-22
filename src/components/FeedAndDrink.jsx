@@ -135,7 +135,7 @@ class FeedAndDrink extends React.Component {
 
         return(
             
-            <div>
+            <div className="App">
                 <h2>Critter - {this.props.currentUser.pet.name}</h2>
                 
                 <button onClick={this.giveFood}
