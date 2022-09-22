@@ -1,5 +1,5 @@
 import React from 'react';
-import PinkCritter from "../PinkCritter.css";
+
 
 import pink4frames from "../assets/pinkMonster/fourFrames_pink.png";
 import pink6frames from "../assets/pinkMonster/sixFrames_pink.png";

@@ -8,8 +8,9 @@ import MyProfile from './MyProfile';
 import axios from 'axios';
 // -------- Critter Related Imports ------------ //
 import CreateCritter from './CreateCritter';
-import CritterComponents from './CritterComponents';
+// import CritterComponents from './CritterComponents';
 import FeedAndDrink from './FeedAndDrink'
+// import CritterType from './CritterType';
 // --------------------------------------------- //
 // Fight components
 import FightGame from './FightGame';
@@ -182,8 +183,6 @@ class Home extends React.Component {
 
 
     }   
-
-    
     //------------------------------------------ //
 
     render(){
@@ -219,18 +218,16 @@ class Home extends React.Component {
                             )
                         } 
                         {/* Section above handles display of login/logout funcitonality */}
-                        <h1>Digi-Me</h1>
+                        <h1>Digi-Critter</h1>
 
                         <nav>
                             {/* Links to various pages */}
                             <Link to="/">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/foodTest">Food Animation Testing</Link>
-                            {'  '}|{'   '}
-                            <Link to="/game">Console</Link>
+                            <Link to="/food_test">Food Testing</Link>
                             {'  '}|{'   '}
                             <Link to="/fight">Fight</Link>
-                            {'  '}|{'   '}
+                           
                         </nav>
                         
                         <hr />
@@ -239,15 +236,10 @@ class Home extends React.Component {
                 
                 {/* Routes to the various pages */}
                     {/* change below */}
-            {/* ------------------------------------------------------------------- */}
+            {/* ------------------------------------------------------------- */}
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={() => 
                         <CreateCritter currentUser ={this.state.currentUser}/>}
-                    />}
-                    
-                    {this.state.currentUser &&
-                        <Route exact path="/game" render={() => 
-                        <CritterComponents currentUser ={this.state.currentUser}/>}
                     />}
 
                     {this.state.currentUser &&
@@ -257,11 +249,11 @@ class Home extends React.Component {
                     
                     {this.state.currentUser &&
                         <Route exact path="/my_profile" render={(props) => 
-                        <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
+                        <MyProfile currentUser={this.state.currentUser} {...props}  />}/>}
                     {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
                     
                     <Route exact path='/login' render={
-                        (props) => <Login setCurrentUser={this. setCurrentUser}{...props}/>
+                        (props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
                     
                     <Route exact path='/signup' render={
@@ -270,10 +262,18 @@ class Home extends React.Component {
                     
                     <Route exact path="/users" component={User}/>
                     
+                    
                     <Route 
-                        exact path="/foodTest"
-                        component={FeedAndDrink}
-                        fetchFedMessage={this.fetchFedMessage}
+                        exact path="/food_test"
+                        render={ props => (
+                            <FeedAndDrink {... props} 
+                                fetchFedMessage={this.fetchFedMessage}
+                                fetchDrankMessage={this.fetchDrankMessage}
+                                fetchSweetsMessage={this.fetchSweetsMessage}
+                                currentUser={this.state.currentUser}
+                            />
+                        )}
+                        
                     />
 
                     <Route exact path='/game' render={
@@ -285,13 +285,7 @@ class Home extends React.Component {
                     }/>
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
-            {/* ------------------------------------------------------------------- */}
-
-                <button onClick={this.fetchFedMessage}>Feed Critter</button>
-                <button onClick={this.fetchDrankMessage}>Drink Critter</button>
-                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                
-
-            {/* ------------------------------------------------------------------- */}
+            {/* ------------------------------------------------------------ */}
 
                 <footer>
                     
