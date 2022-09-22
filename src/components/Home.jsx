@@ -249,7 +249,7 @@ class Home extends React.Component {
                     
                     {this.state.currentUser &&
                         <Route exact path="/my_profile" render={(props) => 
-                        <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>}
+                        <MyProfile currentUser={this.state.currentUser} {...props}  />}/>}
                     {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
                     
                     <Route exact path='/login' render={
