@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  text-align: center;
 
   width: 40vw;
   
@@ -23,12 +24,14 @@
 }
 h4 {
   max-height: 20vh;
+
 }
 #viewContainer{
 
   display: flex;
   position: relative;
   text-align: center;
+
 
 }
 .careControls{
@@ -88,11 +91,11 @@ Form {
   border: 1px solid red;
 }
 
-/* button {
-  border-radius: 20px;
+.fndButton {
+  border-radius: 10px;
   margin: 5px;
-  padding: 5px;
-} */
+
+}
 
 
 

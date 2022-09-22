@@ -8,8 +8,8 @@ import axios from 'axios';
 // import vegetables from '../assets/FoodPack/vegetables.png'
 // import fruits from '../assets/FoodPack/fruits.png'
 // import drinks from '../assets/FoodPack/drinks.png'
-import sweets from '../assets/FoodPack/sweets.png'
-const BASE_BACKEND_URL = 'http://localhost:3000';
+// import sweets from '../assets/FoodPack/sweets.png'
+// const BASE_BACKEND_URL = 'http://localhost:3000';
 
 
 class FeedAndDrink extends React.Component {
@@ -88,6 +88,8 @@ class FeedAndDrink extends React.Component {
         try {
         
             const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
+
+            console.log(`fetchSweetMessage`, res );
             
         } catch (error) {
             
@@ -113,15 +115,18 @@ class FeedAndDrink extends React.Component {
             <div>
                 <h2>Critter - {this.props.currentUser.pet.name}</h2>
                 
-                <button onClick={this.giveFood}>
+                <button onClick={this.giveFood}
+                className="fndButton">
                     Food
                 </button>
                 
-                <button onClick={this.giveDrink}>
+                <button onClick={this.giveDrink}
+                className="fndButton">
                     Drink
                 </button>
 
-                <button onClick={this.giveSweets}>
+                <button onClick={this.giveSweets}
+                className="fndButton">
                     Sweets
                 </button>
 

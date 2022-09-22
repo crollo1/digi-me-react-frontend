@@ -8,7 +8,7 @@ import MyProfile from './MyProfile';
 import axios from 'axios';
 // -------- Critter Related Imports ------------ //
 import CreateCritter from './CreateCritter';
-import CritterComponents from './CritterComponents';
+// import CritterComponents from './CritterComponents';
 import FeedAndDrink from './FeedAndDrink'
 // import CritterType from './CritterType';
 // --------------------------------------------- //
@@ -218,7 +218,7 @@ class Home extends React.Component {
                             )
                         } 
                         {/* Section above handles display of login/logout funcitonality */}
-                        <h1>Digi-Me</h1>
+                        <h1>Digi-Critter</h1>
 
                         <nav>
                             {/* Links to various pages */}
