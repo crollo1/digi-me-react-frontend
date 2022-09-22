@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../App.css';
 import '../PinkCritter.css';
 import '../OwletCritter.css';
 import '../DudeCritter.css';

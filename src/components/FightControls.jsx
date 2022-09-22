@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 
 const availableActions = {
     runHug: {
@@ -6,28 +7,28 @@ const availableActions = {
         type: 'runHug',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 35,
     },
     climbing: {
         frame: '4',
         type: 'climbing',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 30,
     },
     throwStone: {
         frame: '4',
         type: 'throwStone',
         wait: 800,
         afterFrame: '4',
-        damage: 1,
+        damage: 20,
     }, 
     oneTwoCombo: {
         frame: '6',
         type: 'oneTwoCombo',
         wait: 1600,
         afterFrame: '4',
-        damage: 1, 
+        damage: 15, 
     }   
    
 }
@@ -98,10 +99,10 @@ class FightControls extends React.Component {
 
         this.props.updateAction( 
             
-            availableActions.runhug.frame,
-            availableActions.runhug.type,
-            availableActions.runhug.wait,
-            availableActions.runhug.afterFrame,
+            availableActions.runHug.frame,
+            availableActions.runHug.type,
+            availableActions.runHug.wait,
+            availableActions.runHug.afterFrame,
             'idle' 
              
         )
@@ -134,10 +135,10 @@ class FightControls extends React.Component {
 
         this.props.updateAction( 
             
-            availableActions.throwstone.frame,
-            availableActions.throwstone.type,
-            availableActions.throwstone.wait,
-            availableActions.throwstone.afterFrame,
+            availableActions.throwStone.frame,
+            availableActions.throwStone.type,
+            availableActions.throwStone.wait,
+            availableActions.throwStone.afterFrame,
             'idle' 
              
         )
@@ -202,6 +203,30 @@ class FightControls extends React.Component {
 
     } // critterHurt
 
+    resetGame = () => {
+            // const newOpposingUserScore = this.state.opposingUserScore;
+            // const newCurrentUserScore = this.state.currentUserScore;
+            // const newOpposingUserExp = this.state.opposingUserExp;
+            // const newCurrentUserExp = this.state.currentUserExp;
+            if (this.props.state.opposingUserExp === 0){
+                const newCurrentUserScore = this.props.state.currentUserScore + 1;
+                const newOpposingUserExp = 5;
+                this.peops.setState({
+                    currentUserScore: newCurrentUserScore,
+                    opposingUserExp: newOpposingUserExp,
+                    currentUserExp: 3
+                })
+            } else{
+                const newOpposingUserScore = this.state.opposingUserScore +1;
+                this.props.setState({
+                    opposingUserScore: newOpposingUserScore,
+                    currentUserExp: 3,
+                    opposingUserExp: 3 
+                })
+            }
+        
+        }
+
     /* -------------------------------------- */
     render (){
 
@@ -210,7 +235,8 @@ class FightControls extends React.Component {
 
             <div>
                 
-                <div className="critterButtonContainer">
+                <div id="game-buttons"
+                className="critterButtonContainer">
                     {/* <button className="critterButton" 
                     onClick={this.critterJump}>
                         Jump
@@ -221,17 +247,17 @@ class FightControls extends React.Component {
                         K.O'd
                     </button> */}
 
-                    <button className="critterButton1" 
+                    <button className="critterButton" 
                     onClick={() => this.sendAction('runHug')}>
                         Left
                     </button>
 
-                    <button className="critterButton2" 
+                    <button className="critterButton" 
                     onClick={() => this.sendAction('throwStone')}>
                         Down
                     </button>
 
-                    <button className="critterButton3" 
+                    <button className="critterButton" 
                     onClick={() => this.sendAction('oneTwoCombo')}>
                         Right
                     </button>
@@ -241,7 +267,7 @@ class FightControls extends React.Component {
                         Hurt
                     </button> */}
 
-                    <button className="critterButton4" 
+                    <button className="critterButton" 
                     onClick={() => this.sendAction('climbing')}>
                         Up
                     </button>

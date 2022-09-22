@@ -45,6 +45,18 @@ class CritterComponents extends React.Component {
         randomInteger: null,
     };
 
+    // componentDidMount() {
+    //     if ( this.props.currentUser.pet !== null ){
+    //         this.setState({
+    //             currentUserPet: this.props.currentUser.pet
+    //             // currentUser.pet.species,
+    //             // this.currentUser.pet.species
+    //         })
+
+    //         };
+    //     }
+    
+
     getSpeciesBaseName = (species) => {
         // 'dude4' - input
         // 'dude' - output
@@ -67,6 +79,41 @@ class CritterComponents extends React.Component {
         setTimeout( () => this.setState({ frameInteger: returnToFrame, animation: returnToAction }), timeout )  
 
     }
+
+    // critterContainer = () => {
+    //  // console.log(currentUserPet);
+    //     return(
+    //         <div id="critterContainer">
+                
+    //             <div id="viewContainer">
+    //                 <CritterType 
+    //                     species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+    //                     frame={this.state.frameInteger}
+    //                     action={this.state.animation}    
+    //                 />
+
+    //             </div>
+                
+    //             <div className="critterButtonContainer">
+    //                 <Controls 
+    //                     updateAction={this.updateAction}
+    //                 />
+    //             </div>
+
+    //             <div 
+    //             className="careControls">
+    //                 <FeedAndDrink
+    //                 // pass function to FeedAndDrink
+    //                 />
+    //             </div>
+
+    //         </div>
+    //     );      // return()
+
+
+    // }     
+
+    
 
     render (){
 

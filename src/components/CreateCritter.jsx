@@ -9,6 +9,8 @@ const BASE_CREATECRITTER_URL = 'http://localhost:3000'
 // species2: 'dude4',
 // species3: 'owlet4',
 
+const critters = ['dude4', 'pink4', 'owlet4']
+
 class CreateCritter extends React.Component{
 
     state = {
@@ -55,9 +57,11 @@ class CreateCritter extends React.Component{
 
         if (this.state.clickCount === 0){
             this.setState ({species: "pink4"});
+            // this.setState({clickCount: 0})
             console.log('pink4', this.state.species);
         } else if (this.state.clickCount === 1){
             this.setState ({species: "dude4"});
+
             console.log('dude4', this.state.species);
         } else {
             this.setState ({species: "owlet4"});
@@ -72,10 +76,12 @@ class CreateCritter extends React.Component{
         if (this.state.clickCount <= 0){
             return
         } else {
-            const newClickCount = this.state.clickCount --
+            const newClickCount = this.state.clickCount -1
             this.setState({clickCount: newClickCount})
             this.count();
         }
+        // console.log('newCount', this.state.newClickCount)
+
 
     };
 
@@ -85,10 +91,12 @@ class CreateCritter extends React.Component{
         if (this.state.clickCount >= 2){
             return
         } else {
-            const newClickCount = this.state.clickCount ++
+            const newClickCount = this.state.clickCount +1
             this.setState({clickCount: newClickCount})
             this.count();
         }
+        // console.log('newCount', this.state.newClickCount)
+
 
     };
 
@@ -118,7 +126,7 @@ class CreateCritter extends React.Component{
                 // age:this.state.age,
                 // level:this.state.level,
                 // experience:this.state.experience,
-                species:this.state.species,
+                species: critters[this.state.clickCount],
                 // last_fed:this.state.last_fed,
                 // last_fought:this.state.last_fought,
                 // last_slept:this.state.last_slept, 
@@ -141,8 +149,6 @@ class CreateCritter extends React.Component{
                 
                 console.log("history:",this.props.history)
                 this.props.history.push('/game');
-                window.location.reload()
-                
                 
             // })
 
@@ -169,13 +175,13 @@ class CreateCritter extends React.Component{
                 
                 <h1>Create your own Critter</h1>
 
-                <div className={`${this.state.species}FramesViewbox pixelArt`} >
+                <div className={`${critters[this.state.clickCount]}FramesViewbox pixelArt`} >
 
-                    <img src={this.renderSelection[this.state.species]} alt="character" 
+                    <img src={this.renderSelection[critters[this.state.clickCount]]} alt="character" 
                         className={`
                         
                             idle
-                            ${this.state.species}FramesSpriteSheet
+                            ${critters[this.state.clickCount]}FramesSpriteSheet
                             pixelArt`
 
                         }/>
@@ -198,8 +204,8 @@ class CreateCritter extends React.Component{
                     pixelArt`}/>
                 </div> */}
                 <br /><br />
-                <button onClick={this.submitLeft} className="left">Left</button>
-                <button onClick={this.submitRight} className="right">Right</button>
+                <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
+                <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
                 <br /><br />
                 <br /><br />
                 <form className="selectcritter" onSubmit = {this.submitNewCritter}>
