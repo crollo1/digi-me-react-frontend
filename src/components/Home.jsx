@@ -183,18 +183,6 @@ class Home extends React.Component {
 
 
     }   
-
-    getSpeciesBaseName = (species) => {
-        // 'dude4' - input
-        // 'dude' - output
-        if(Number.isInteger(parseInt(species[species.length-1])) === true ){
-            return species.substring(0, species.length -1) 
-        } else{
-            return species
-        }
-       
-        
-    }
     //------------------------------------------ //
 
     render(){
@@ -236,7 +224,7 @@ class Home extends React.Component {
                             {/* Links to various pages */}
                             <Link to="/">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/foodTest">Food Animation Testing</Link>
+                            <Link to="/food_test">Food Animation Testing</Link>
                             {'  '}|{'   '}
                             <Link to="/game">Console</Link>
                             {'  '}|{'   '}
@@ -281,11 +269,18 @@ class Home extends React.Component {
                     
                     <Route exact path="/users" component={User}/>
                     
-                   
-                     <Route exact path="/footTest" render={() => 
-                        <FeedAndDrink currentUser ={this.state.currentUser}/>
-                    }/>
-
+                    
+                    <Route 
+                        exact path="/food_test"
+                        render={ props => (
+                            <FeedAndDrink {... props} 
+                                fetchFedMessage={this.fetchFedMessage}
+                                fetchDrankMessage={this.fetchDrankMessage}
+                                fetchSweetsMessage={this.fetchSweetsMessage}
+                            />
+                        )}
+                        
+                    />
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------------- */}
@@ -298,9 +293,9 @@ class Home extends React.Component {
                 //  */}
                
 
-                <button onClick={this.fetchFedMessage}>Feed Critter</button>
+                {/* <button onClick={this.fetchFedMessage}>Feed Critter</button>
                 <button onClick={this.fetchDrankMessage}>Drink Critter</button>
-                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                
+                <button onClick={this.fetchSweetsMessage}>Sweets Critter</button>                 */}
 
             {/* ------------------------------------------------------------------- */}
 

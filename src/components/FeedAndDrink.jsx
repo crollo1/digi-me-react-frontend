@@ -8,7 +8,7 @@ import React from 'react';
 // import fruits from '../assets/FoodPack/fruits.png'
 // import drinks from '../assets/FoodPack/drinks.png'
 import sweets from '../assets/FoodPack/sweets.png'
-// const BASE_BACKEND_URL = 'http://localhost:3000';
+const BASE_BACKEND_URL = 'http://localhost:3000';
 
 
 class FeedAndDrink extends React.Component {
@@ -67,8 +67,7 @@ class FeedAndDrink extends React.Component {
 
     giveFood = async () => {
         console.log(`food gib`);
-        
-        // const foodItem
+        this.props.fetchFedMessage()
 
         try {
             
@@ -92,6 +91,8 @@ class FeedAndDrink extends React.Component {
 
     giveDrink = async () => {
         console.log(`gib drink`);
+        this.props.fetchDrankMessage()
+
 
         try {
         
@@ -106,7 +107,8 @@ class FeedAndDrink extends React.Component {
     }
     giveSweets = async () => {
         console.log(`sweetz gib`);
-        
+        this.props.fetchSweetsMessage()
+
         try {
         
             // const res = await axios.post(`http://localhost:3000/pets/:${:pet_id}/action/sweets`)
@@ -148,14 +150,7 @@ class FeedAndDrink extends React.Component {
                     
                     `}/>
                 </div>
-            
-                {/* <div id="viewContainer">
-                    <CritterType 
-                        species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
-                        frame={this.state.frameInteger}
-                        action={this.state.animation}    
-                    />
-                <div/> */}
+
             
             
             
