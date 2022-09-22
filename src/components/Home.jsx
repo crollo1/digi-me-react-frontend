@@ -51,7 +51,8 @@ class Home extends React.Component {
     };
     // function to set the state of the current logged in user
     setCurrentUser = () => {
-
+        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+       
         // set the token value - authenication 
         let token = "Bearer " + localStorage.getItem("jwt");
 
