@@ -148,7 +148,22 @@ class FeedAndDrink extends React.Component {
                     
                     `}/>
                 </div>
+            
+                {/* <div id="viewContainer">
+                    <CritterType 
+                        species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+                        frame={this.state.frameInteger}
+                        action={this.state.animation}    
+                    />
+                <div/> */}
+            
+            
+            
             </div>
+
+       
+
+       
         
         );
 

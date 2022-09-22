@@ -10,6 +10,7 @@ import axios from 'axios';
 import CreateCritter from './CreateCritter';
 import CritterComponents from './CritterComponents';
 import FeedAndDrink from './FeedAndDrink'
+import CritterType from './CritterType';
 // --------------------------------------------- //
 // Fight components
 import FightGame from './FightGame';
@@ -183,7 +184,17 @@ class Home extends React.Component {
 
     }   
 
-    
+    getSpeciesBaseName = (species) => {
+        // 'dude4' - input
+        // 'dude' - output
+        if(Number.isInteger(parseInt(species[species.length-1])) === true ){
+            return species.substring(0, species.length -1) 
+        } else{
+            return species
+        }
+       
+        
+    }
     //------------------------------------------ //
 
     render(){
@@ -230,7 +241,7 @@ class Home extends React.Component {
                             <Link to="/game">Console</Link>
                             {'  '}|{'   '}
                             <Link to="/fight">Fight</Link>
-                            {'  '}|{'   '}
+                           
                         </nav>
                         
                         <hr />
@@ -270,14 +281,22 @@ class Home extends React.Component {
                     
                     <Route exact path="/users" component={User}/>
                     
-                    <Route 
-                        exact path="/foodTest"
-                        component={FeedAndDrink}
-                        fetchFedMessage={this.fetchFedMessage}
-                    />
+                   
+                     <Route exact path="/footTest" render={() => 
+                        <FeedAndDrink currentUser ={this.state.currentUser}/>
+                    }/>
+
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------------- */}
+
+                {/*                                                 
+                // <CritterType 
+                //     species={this.currentUser[this.pet.species]}
+                //     frame={ 4 }
+                //     action={ 'idle' }    
+                //  */}
+               
 
                 <button onClick={this.fetchFedMessage}>Feed Critter</button>
                 <button onClick={this.fetchDrankMessage}>Drink Critter</button>
