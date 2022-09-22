@@ -221,17 +221,17 @@ class FightControls extends React.Component {
                         K.O'd
                     </button> */}
 
-                    <button className="critterButton" 
+                    <button className="critterButton1" 
                     onClick={() => this.sendAction('runHug')}>
                         Left
                     </button>
 
-                    <button className="critterButton" 
+                    <button className="critterButton2" 
                     onClick={() => this.sendAction('throwStone')}>
                         Down
                     </button>
 
-                    <button className="critterButton" 
+                    <button className="critterButton3" 
                     onClick={() => this.sendAction('oneTwoCombo')}>
                         Right
                     </button>
@@ -241,7 +241,7 @@ class FightControls extends React.Component {
                         Hurt
                     </button> */}
 
-                    <button className="critterButton" 
+                    <button className="critterButton4" 
                     onClick={() => this.sendAction('climbing')}>
                         Up
                     </button>
