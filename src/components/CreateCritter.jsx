@@ -59,7 +59,7 @@ class CreateCritter extends React.Component{
         } else if (this.state.clickCount === 1){
             this.setState ({species: "dude4"});
             console.log('dude4', this.state.species);
-        } else{
+        } else {
             this.setState ({species: "owlet4"});
             console.log('owlet4', this.state.species);
         }
@@ -72,7 +72,7 @@ class CreateCritter extends React.Component{
         if (this.state.clickCount <= 0){
             return
         } else {
-            const newClickCount = this.state.clickCount -1
+            const newClickCount = this.state.clickCount --
             this.setState({clickCount: newClickCount})
             this.count();
         }
@@ -85,7 +85,7 @@ class CreateCritter extends React.Component{
         if (this.state.clickCount >= 2){
             return
         } else {
-            const newClickCount = this.state.clickCount +1
+            const newClickCount = this.state.clickCount ++
             this.setState({clickCount: newClickCount})
             this.count();
         }
@@ -102,7 +102,9 @@ class CreateCritter extends React.Component{
     
     // submit new users specify selection
     submitNewCritter = async (ev) => {
-
+        
+            
+        
         console.log('new user species', this.state.species);
 
         ev.preventDefault();
@@ -139,6 +141,8 @@ class CreateCritter extends React.Component{
                 
                 console.log("history:",this.props.history)
                 this.props.history.push('/game');
+                window.location.reload()
+                
                 
             // })
 
