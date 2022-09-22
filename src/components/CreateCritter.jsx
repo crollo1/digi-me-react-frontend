@@ -136,6 +136,8 @@ class CreateCritter extends React.Component{
                 
                 console.log("history:",this.props.history)
                 this.props.history.push('/home');
+                window.location.reload(false)
+            
                 
             // })
 

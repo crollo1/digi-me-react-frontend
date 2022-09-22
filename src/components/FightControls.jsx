@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 
 const availableActions = {
     runHug: {
@@ -234,7 +235,8 @@ class FightControls extends React.Component {
 
             <div>
                 
-                <div className="critterButtonContainer">
+                <div id="game-buttons"
+                className="critterButtonContainer">
                     {/* <button className="critterButton" 
                     onClick={this.critterJump}>
                         Jump
@@ -245,17 +247,17 @@ class FightControls extends React.Component {
                         K.O'd
                     </button> */}
 
-                    <button className="critterButton" 
+                    <button id="left-button" className="critterButton" 
                     onClick={() => this.sendAction('runHug')}>
                         Left
                     </button>
 
-                    <button className="critterButton" 
+                    <button id="down-button" className="critterButton" 
                     onClick={() => this.sendAction('throwStone')}>
                         Down
                     </button>
 
-                    <button className="critterButton" 
+                    <button id="right-button" className="critterButton" 
                     onClick={() => this.sendAction('oneTwoCombo')}>
                         Right
                     </button>
@@ -265,7 +267,7 @@ class FightControls extends React.Component {
                         Hurt
                     </button> */}
 
-                    <button className="critterButton" 
+                    <button id="up-button" className="critterButton" 
                     onClick={() => this.sendAction('climbing')}>
                         Up
                     </button>
