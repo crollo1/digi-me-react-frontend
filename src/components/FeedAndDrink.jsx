@@ -9,7 +9,7 @@ import axios from 'axios';
 // import fruits from '../assets/FoodPack/fruits.png'
 // import drinks from '../assets/FoodPack/drinks.png'
 // import sweets from '../assets/FoodPack/sweets.png'
-// const BASE_BACKEND_URL = 'http://localhost:3000';
+const BASE_BACKEND_URL = 'http://localhost:3000';
 
 
 class FeedAndDrink extends React.Component {
