@@ -1,10 +1,6 @@
 import React from 'react';
 import '../App.css'
 
-import DudeCritterAnimations from './DudeCritterAnimations.jsx';
-import OwletCritterAnimations from './OwletCritterAnimations.jsx';
-import PinkCritterAnimations from './PinkCritterAnimations.jsx';
-
 import FeedAndDrink from './FeedAndDrink'
 import CritterType from './CritterType';
 import Controls from './Controls';
