@@ -121,18 +121,18 @@ class FeedAndDrink extends React.Component {
                 <h2>Critter - {this.props.currentUser.pet.name}</h2>
                 
                 <button onClick={this.giveFood}
-                className="fndButton">
-                    Food
+                className="all fndButton1" >
+                   
                 </button>
                 
                 <button onClick={this.giveDrink}
-                className="fndButton">
-                    Drink
+                className="all fndButton2">
+                    
                 </button>
 
                 <button onClick={this.giveSweets}
-                className="fndButton">
-                    Sweets
+                className="all fndButton3">
+                    
                 </button>
 
                 {/* <div className='sweets'>
