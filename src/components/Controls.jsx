@@ -28,14 +28,15 @@ class Controls extends React.Component {
     */
     /* -------------------------------------- */
 
+
     critterJump = () => {
 
         this.props.updateAction( 
             
-            '8', 
+            '8',
             'jump',
-            4800,  
-            '4', 
+            4800,
+            '4',
             'idle' 
              
         )
@@ -233,6 +234,8 @@ class Controls extends React.Component {
         console.log(`Critter punched!`);
 
     } // critterPunch
+
+
 
 
 

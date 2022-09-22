@@ -14,7 +14,7 @@ import CritterType from './CritterType';
 // --------------------------------------------- //
 // Fight components
 import FightGame from './FightGame';
-import { Actions } from 'phaser';
+
 
 
 // backend url

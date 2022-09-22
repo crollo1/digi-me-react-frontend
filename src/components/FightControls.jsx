@@ -1,5 +1,38 @@
 import React from 'react';
 
+const availableActions = {
+    runHug: {
+        frame: '6',
+        type: 'runHug',
+        wait: 3600,
+        afterFrame: '4',
+        damage: 1,
+    },
+    climbing: {
+        frame: '4',
+        type: 'climbing',
+        wait: 3600,
+        afterFrame: '4',
+        damage: 1,
+    },
+    throwStone: {
+        frame: '4',
+        type: 'throwStone',
+        wait: 800,
+        afterFrame: '4',
+        damage: 1,
+    }, 
+    oneTwoCombo: {
+        frame: '6',
+        type: 'oneTwoCombo',
+        wait: 1600,
+        afterFrame: '4',
+        damage: 1, 
+    }   
+   
+}
+
+
 
 class FightControls extends React.Component {
     
@@ -27,25 +60,111 @@ class FightControls extends React.Component {
         fifthArg = frameInteger of second action
     */
     /* -------------------------------------- */
+  
+    // generate random action
+    getRandomAction = () => {
+        const actionKeys = Object.keys(availableActions);
+        const selectedIndex = Math.floor(Math.random() * actionKeys.length);
 
-    // critterJump = () => {
+        return availableActions[actionKeys[selectedIndex]];
+    }
 
-    //     this.props.updateAction( 
+    // Select key for movement 
+    sendAction = (key) => {
+
+        this.props.updateAction(      
+            availableActions[key].frame,
+            availableActions[key].type,
+            availableActions[key].wait,
+            availableActions[key].afterFrame,
+            'idle', 
+            availableActions[key].damage,
+        )
+
+        const opposingAction = this.getRandomAction();
+
+        setTimeout(() => this.props.updateOpposingAction(
+            opposingAction.frame,
+            opposingAction.type,
+            opposingAction.wait,
+            opposingAction.afterFrame,
+            'idle',
+            opposingAction.damage,
+        ),  availableActions[key].wait + 1000)
+
+    }
+
+    critterRunHug= () => {
+
+        this.props.updateAction( 
             
-    //         '8', 
-    //         'jump',
-    //         4800,  
-    //         '4', 
-    //         'idle' 
+            availableActions.runhug.frame,
+            availableActions.runhug.type,
+            availableActions.runhug.wait,
+            availableActions.runhug.afterFrame,
+            'idle' 
              
-    //     )
+        )
+
+        this.props.opposingAction()
         
-    //     console.log(`Critter jumped`);
+        console.log(`Critter jumped`);
         
-    // } // critterJump
+    } // runHug
+    
+    critterClimbing = () => {
 
+        this.props.updateAction( 
+            
+            availableActions.climbing.frame,
+            availableActions.climbing.type,
+            availableActions.climbing.wait,
+            availableActions.climbing.afterFrame,
+            'idle' 
+             
+        )
 
+        this.props.opposingAction()
+        
+        console.log(`Critter jumped`);
+        
+    } // critterClimbing
 
+    critterThrowStone = () => {
+
+        this.props.updateAction( 
+            
+            availableActions.throwstone.frame,
+            availableActions.throwstone.type,
+            availableActions.throwstone.wait,
+            availableActions.throwstone.afterFrame,
+            'idle' 
+             
+        )
+
+        this.props.opposingAction()
+        
+        console.log(`Critter jumped`);
+        
+    } // critterClimbing
+    critterOneTwoCombo  = () => {
+
+        this.props.updateAction( 
+            
+            availableActions.oneTwoCombo.frame,
+            availableActions.oneTwoCombo.type,
+            availableActions.oneTwoCombo.wait,
+            availableActions.oneTwoCombo.afterFrame,
+            'idle' 
+             
+        )
+
+        this.props.opposingAction()
+        
+        console.log(`Critter jumped`);
+        
+    } // critterClimbing
+  
 
     // This should render when someone loses fight
     critterKo = () => {
@@ -66,130 +185,6 @@ class FightControls extends React.Component {
         
     } // critterKO
 
-
-
-
-
-    // critterWalkPunch = () => {
-        
-    //     this.props.updateAction(
-            
-    //         '6',
-    //         'walkPunchWalk',
-    //         3800, 
-    //         '4',
-    //         'idle'            
-
-    //     )
-        
-    //     console.log(`Critter walked and punched!`);
-        
-    // } // critterWalkPunchWalk
-
-
-    // critterWalk = () => {
-
-    //     this.props.updateAction(
-
-    //         '6',
-    //         'walking',
-    //         1600, 
-    //         '6',
-    //         'walking'
-
-    //     )
-
-    //     console.log(`Critter walking`);
-
-
-    // } // critterWalk
-
-
-    // critterSprint = () => {
-
-    //     this.props.updateAction(
-
-    //         '6',
-    //         'sprint',
-    //         3600, 
-    //         '4',
-    //         'idle',
-
-    //     )
-
-    //     console.log(`Critter sprinting`);
-
-    // } // critterStand
-
-
-    critterRunHug = () => {
-
-        this.props.updateAction(
-
-            '6',
-            'runHug',
-            3600, 
-            '4',
-            'idle',
-
-        )
-
-        console.log(`Critter coming for creepy hug`);
-
-    } // critterRunHug
-
-
-    critterOneTwoCombo = () => {
-
-        this.props.updateAction(
-
-            '6',
-            'oneTwoCombo',
-            1600, 
-            '4',
-            'idle',
-
-        )
-
-        console.log(`Critter one two punched`);
-
-    } // critterOneTwoCombo
-
-    
-    critterThrowStone = () => {
-
-        this.props.updateAction(
-
-            '4',
-            'throwStone',
-            800, 
-            '4',
-            'idle',
-
-        )
-
-        console.log(`Critter threw a stone`);
-
-    } // critterThrowStone
-
-    
-    // critterStand = () => {
-
-    //     this.props.updateAction(
-
-    //         '4',
-    //         'idle',
-    //         800, 
-    //         '4',
-    //         'idle',
-
-    //     )
-
-    //     console.log(`Critter standing`);
-
-    // } // critterStand - 'idle'
-
-
     // This should render when someone is hurt
     critterHurt = () => {
 
@@ -206,42 +201,6 @@ class FightControls extends React.Component {
         console.log(`Critter took damage`);
 
     } // critterHurt
-
-
-    critterClimbing = () => {
-
-        this.props.updateAction(
-
-            '4',
-            'climbing',
-            3600, 
-            '4',
-            'idle',
-
-        )
-
-        console.log(`Critter climbing`);
-
-    } // critterClimbing
-
-
-    // critterPunch = () => {
-
-    //     this.props.updateAction(
-
-    //         '4',
-    //         'punch',
-    //         1600, 
-    //         '4',
-    //         'idle',
-
-    //     )
-
-    //     console.log(`Critter punched!`);
-
-    // } // critterPunch
-
-
 
     /* -------------------------------------- */
     render (){
@@ -261,41 +220,21 @@ class FightControls extends React.Component {
                     onClick={this.critterKo}>
                         K.O'd
                     </button> */}
-                    
-                    {/* <button className="critterButton" 
-                    onClick={this.critterWalkPunch}>
-                        Punch-walk
-                    </button> */}
-
-                    {/* <button className="critterButton" 
-                    onClick={this.critterWalk}>
-                        Walk
-                    </button> */}
-                    
-                    {/* <button className="critterButton" 
-                    onClick={this.critterSprint}>
-                        Sprint
-                    </button> */}
 
                     <button className="critterButton" 
-                    onClick={this.critterRunHug}>
+                    onClick={() => this.sendAction('runHug')}>
                         Left
                     </button>
 
                     <button className="critterButton" 
-                    onClick={this.critterOneTwoCombo}>
+                    onClick={() => this.sendAction('throwStone')}>
                         Down
                     </button>
 
                     <button className="critterButton" 
-                    onClick={this.critterThrowStone}>
+                    onClick={() => this.sendAction('oneTwoCombo')}>
                         Right
                     </button>
-
-                    {/* <button className="critterButton" 
-                    onClick={this.critterStand}>
-                        Stand
-                    </button> */}
 
                     {/* <button className="critterButton" 
                     onClick={this.critterHurt}>
@@ -303,14 +242,10 @@ class FightControls extends React.Component {
                     </button> */}
 
                     <button className="critterButton" 
-                    onClick={this.critterClimbing}>
+                    onClick={() => this.sendAction('climbing')}>
                         Up
                     </button>
 
-                    {/* <button className="critterButton" 
-                    onClick={this.critterPunch}>
-                        Punch
-                    </button> */}
 
                 </div>
 

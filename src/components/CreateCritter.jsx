@@ -36,6 +36,9 @@ class CreateCritter extends React.Component{
     }
     
     componentDidMount(){
+        this.setState({
+            currentUser: this.props.currentUser
+        })
         console.log("currentuser:", this.props.currentUser)
         
     }
@@ -107,21 +110,23 @@ class CreateCritter extends React.Component{
         try{
 
             const submitNewPet = await axios.post(
-
+                
                 `${BASE_CREATECRITTER_URL}/pets`, {
                 name:this.state.name,
-                age:this.state.age,
-                level:this.state.level,
-                experience:this.state.experience,
+                // age:this.state.age,
+                // level:this.state.level,
+                // experience:this.state.experience,
                 species:this.state.species,
-                last_fed:this.state.last_fed,
-                last_fought:this.state.last_fought,
-                last_slept:this.state.last_slept, 
-                last_stretched:this.state.last_stretched,
-                last_drank:this.state.last_drank
+                // last_fed:this.state.last_fed,
+                // last_fought:this.state.last_fought,
+                // last_slept:this.state.last_slept, 
+                // last_stretched:this.state.last_stretched,
+                // last_drank:this.state.last_drank
+                user_id: this.state.currentUser.id
 
             })
-            .then(result => {
+            console.log(submitNewPet)
+            // .then(result => {
                 // localStorage.setItem("jwt", result.data.token.token)
 
                 // console.log("jwt", result.data.token.token);
@@ -130,10 +135,12 @@ class CreateCritter extends React.Component{
                 // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
                 // this.props.setCurrentUser();
                 // redirec the url of the page to /my_profile so we can load the MyProfile component
-                this.props.setCurrentUser();
+                // this.props.setCurrentUser();
+                
+                console.log("history:",this.props.history)
                 this.props.history.push('/game');
                 
-            })
+            // })
 
             console.log(submitNewPet);
         } catch(err){
