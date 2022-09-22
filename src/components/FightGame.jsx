@@ -25,10 +25,12 @@ class FightGame extends React.Component {
         frameInteger: '4',
         animation:'idle',
         currentUserPet:'',
-        currentUserExp: 10,
-        opposingUserExp: 10,
+        currentUserExp: 2,
+        opposingUserExp: 2,
         currentUserScore: 0,
         opposingUserScore: 0,
+        level: 1,
+        gameOver: false,
 
         /* 
         ** AVAILABLE ANIMATIONS **
@@ -61,8 +63,15 @@ class FightGame extends React.Component {
             opposingCritter:  critterKeys[critterIndex]
         })
 
+        this.gameDisplay();
+
+        console.log('check display mounted');
+
     }
 
+    // renderGameDisplay = async () => {
+    //     await this.gameDisplay();
+    // }
     //generate random critter 
     // Please check below, as not getting the key does this still work
     // getRandomCritter = () => {
@@ -105,53 +114,179 @@ class FightGame extends React.Component {
     }
 
     resetGame = () => {
-        this.setState({
-           opposingUserExp: 10,
-           currentUserExp: 10, 
-        })
+        // const newOpposingUserScore = this.state.opposingUserScore;
+        // const newCurrentUserScore = this.state.currentUserScore;
+        // const newOpposingUserExp = this.state.opposingUserExp;
+        // const newCurrentUserExp = this.state.currentUserExp;
+        if (this.state.opposingUserExp === 0){
+            const newCurrentUserScore = this.state.currentUserScore + 1;
+            const newOpposingUserExp = 5;
+            this.setState({
+                currentUserScore: newCurrentUserScore,
+                opposingUserExp: newOpposingUserExp,
+                currentUserExp: 3
+            })
+        } else{
+            const newOpposingUserScore = this.state.opposingUserScore +1;
+            this.setState({
+                opposingUserScore: newOpposingUserScore,
+                currentUserExp: 3,
+                opposingUserExp: 3 
+             })
+        }
+       
+    }
+
+   displayResetButton = () =>{
+    if (this.state.opposingUserExp === 0 ||this.state.currentUserExp === 0){
+            <div id="resetContainer">
+                <button onClick={this.resetGame}/>
+            </div>
+    }
+    }
+
+    gameDisplay =  () => {
+
+        console.log('display game run');
+        const newLevel = this.state.level;
+        try{
+                    if (this.state.opposingUserExp !== 0 && this.state.currentUserExp !== 0){
+                        console.log('user exp', this.state.currentUserExp);
+                        return (
+                            <div id="critterContainer">
+                    
+                            <div id="viewContainer">
+                                <h4>Player {this.props.currentUser.pet.name} Score: {this.state.currentUserScore}</h4>
+                                <CritterType 
+                                    species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+                                    frame={this.state.frameInteger}
+                                    action={this.state.animation}    
+                                />
+            
+                            </div>
+                            
+                            <div className="critterButtonContainer">
+                                <FightControls 
+                                    updateAction={this.updateAction}
+                                    updateOpposingAction={this.updateOpposingAction}
+                                />
+                            </div>
+            
+                            <div id="opponentContainer">
+                            <h4>Player {this.state.opposingCritter} Score: {this.state.opposingUserScore}</h4>  
+                                {/* Below returns a random string from the allocated names */}
+                            {this.state.opposingCritter && <CritterType 
+                                    species={this.state.opposingCritter}
+                                    frame={this.state.opposingFrameInteger}
+                                    action={this.state.opposingAnimation}    
+                                /> }
+                            </div>
+            
+            
+                        </div>
+                        )
+                
+                } else {
+
+                    console.log('check');
+                    return ( <div id="critterContainer">
+                        
+                    <div id="viewContainer">
+                        <h4>Player {this.props.currentUser.pet.name} Score: {this.state.currentUserScore}</h4>
+                        <CritterType 
+                            species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+                            frame={this.state.frameInteger}
+                            action={this.state.animation}    
+                        />
+
+                    </div>
+                    <div className="reset-game">
+                        <button className="reset">Reset</button>
+                    </div>
+                    {/* <div className="critterButtonContainer">
+                        <FightControls 
+                            updateAction={this.updateAction}
+                            updateOpposingAction={this.updateOpposingAction}
+                        />
+                    </div> */}
+
+                    <div id="opponentContainer">
+                    <h4>Player {this.state.opposingCritter} Score: {this.state.opposingUserScore}</h4>  
+                        {/* Below returns a random string from the allocated names */}
+                    {this.state.opposingCritter && <CritterType 
+                            species={this.state.opposingCritter}
+                            frame={this.state.opposingFrameInteger}
+                            action={this.state.opposingAnimation}    
+                        /> }
+                    </div>
+
+
+                </div>
+            )
+
+            }
+        
+           
+
+
+        } catch (error) {
+            console.log('error on game display')
+        }
+
     }
 
     render (){
         // Identifying winning member
-        if (this.state.opposingUserExp === 0 || this.state.currentUserExp === 0) {
-            return (<div id="resetContainer">
-                <button onClick={this.resetGame}/>
-            </div>
-        )}
+   
+       
+
+        // else if(this.state.currentUserExp === 0){
+        //     this.state.opposingUserScore = this.state.opposingUserScore + 1;
+        //     return (<div id="resetContainer">
+        //     <button onClick={this.resetGame}/> Reset
+        //     </div>)
+        // }
 
         // console.log(currentUserPet);
         return(
-            <div id="critterContainer">
+
+            // <div>
+            //     <button onClick={this.renderGameDisplay} >New Game </button>
+            //     {/* <GameDisplay /> */}
+            // </div>
+            <this.gameDisplay />
+            
+            // <div id="critterContainer">
                 
-                <div id="viewContainer">
-                    <h4>Player {this.props.currentUser.pet.name} Score: {this.state.currentUserScore}</h4>
-                    <CritterType 
-                        species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
-                        frame={this.state.frameInteger}
-                        action={this.state.animation}    
-                    />
+            //     <div id="viewContainer">
+            //         <h4>Player {this.props.currentUser.pet.name} Score: {this.state.currentUserScore}</h4>
+            //         <CritterType 
+            //             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+            //             frame={this.state.frameInteger}
+            //             action={this.state.animation}    
+            //         />
 
-                </div>
+            //     </div>
                 
-                <div className="critterButtonContainer">
-                    <FightControls 
-                        updateAction={this.updateAction}
-                        updateOpposingAction={this.updateOpposingAction}
-                    />
-                </div>
+            //     <div className="critterButtonContainer">
+            //         <FightControls 
+            //             updateAction={this.updateAction}
+            //             updateOpposingAction={this.updateOpposingAction}
+            //         />
+            //     </div>
 
-                <div id="opponentContainer">
-                <h4>Player {this.state.opposingCritter} Score: {this.state.opposingUserScore}</h4>  
-                    {/* Below returns a random string from the allocated names */}
-                {this.state.opposingCritter && <CritterType 
-                        species={this.state.opposingCritter}
-                        frame={this.state.opposingFrameInteger}
-                        action={this.state.opposingAnimation}    
-                    /> }
-                </div>
+            //     <div id="opponentContainer">
+            //     <h4>Player {this.state.opposingCritter} Score: {this.state.opposingUserScore}</h4>  
+            //         {/* Below returns a random string from the allocated names */}
+            //     {this.state.opposingCritter && <CritterType 
+            //             species={this.state.opposingCritter}
+            //             frame={this.state.opposingFrameInteger}
+            //             action={this.state.opposingAnimation}    
+            //         /> }
+            //     </div>
+            //     {this.displayResetButton}
 
-
-            </div>
+            // </div>
         );      // return()
 
 

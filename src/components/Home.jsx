@@ -275,6 +275,14 @@ class Home extends React.Component {
                         component={FeedAndDrink}
                         fetchFedMessage={this.fetchFedMessage}
                     />
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setCurrentUserExp={this.setCurrentUserExp}{...props}/>
+                    }/>
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
+                    }/>
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------------- */}

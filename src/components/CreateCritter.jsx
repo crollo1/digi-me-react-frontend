@@ -138,7 +138,7 @@ class CreateCritter extends React.Component{
                 // this.props.setCurrentUser();
                 
                 console.log("history:",this.props.history)
-                this.props.history.push('/game');
+                this.props.history.push('/home');
                 
             // })
 
