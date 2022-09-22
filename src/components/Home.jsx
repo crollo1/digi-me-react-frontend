@@ -96,14 +96,18 @@ class Home extends React.Component {
             
             const response = await axios.get(`${BASE_BACKEND_URL}/messages/food.json`);
             console.log(`response: `, response.data );
-        
+            
+
+
             this.setState({
 
                 critterMessageTitle: response.data.title,
                 critterMessageContent: response.data.content,
                 loading: false
 
-            });    
+            });  
+
+            
         
         } catch (error) {
             
@@ -271,6 +275,7 @@ class Home extends React.Component {
                                 fetchDrankMessage={this.fetchDrankMessage}
                                 fetchSweetsMessage={this.fetchSweetsMessage}
                                 currentUser={this.state.currentUser}
+                                loading={this.state.loading}
                             />
                         )}
                         
