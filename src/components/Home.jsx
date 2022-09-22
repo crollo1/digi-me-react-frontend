@@ -281,8 +281,7 @@ class Home extends React.Component {
 
                 <footer>
                     
-                    <hr />
-                    &copy; Critters.Co.2022
+                    <p className="footerText">&copy; Critters.Co.2022</p>
 
                 </footer> {/* CLOSES FOOTER */}
 
