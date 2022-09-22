@@ -55,9 +55,11 @@ class CreateCritter extends React.Component{
 
         if (this.state.clickCount === 0){
             this.setState ({species: "pink4"});
+            // this.setState({clickCount: 0})
             console.log('pink4', this.state.species);
         } else if (this.state.clickCount === 1){
             this.setState ({species: "dude4"});
+
             console.log('dude4', this.state.species);
         } else{
             this.setState ({species: "owlet4"});
@@ -67,15 +69,21 @@ class CreateCritter extends React.Component{
     };
 
     submitLeft = () =>{
-
         console.log('left click');
         if (this.state.clickCount <= 0){
-            return
+            let zeroCount = 0;
+            this.setState({clickCount: zeroCount})
+            this.count();
         } else {
-            const newClickCount = this.state.clickCount -1
-            this.setState({clickCount: newClickCount})
+            // const newClickCount = this.state.clickCount -1
+            // this.state.clickCount = this.state.clickCount  1,
+            let zeroCount = this.state.clickCount;
+            this.setState({clickCount: zeroCount - 1})
             this.count();
         }
+        console.log('left:', this.state.clickCount);
+        // console.log('newCount', this.state.newClickCount)
+
 
     };
 
@@ -83,12 +91,21 @@ class CreateCritter extends React.Component{
 
         console.log('right click');
         if (this.state.clickCount >= 2){
-            return
+            let zeroCount = 2;
+            this.setState({clickCount: zeroCount})
+
+            // this.state.clickCount = 2;
+            this.count();
         } else {
-            const newClickCount = this.state.clickCount +1
-            this.setState({clickCount: newClickCount})
+            // const newClickCount = this.state.clickCount +1;
+            // this.state.clickCount = this.state.clickCount + 1,
+            let zeroCount = this.state.clickCount;
+            this.setState({clickCount: zeroCount + 1})
             this.count();
         }
+        console.log(this.state.clickCount);
+        // console.log('newCount', this.state.newClickCount)
+
 
     };
 
@@ -138,7 +155,7 @@ class CreateCritter extends React.Component{
                 // this.props.setCurrentUser();
                 
                 console.log("history:",this.props.history)
-                this.props.history.push('/game');
+                this.props.history.push('/home');
                 
             // })
 

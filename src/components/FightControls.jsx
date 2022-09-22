@@ -98,10 +98,10 @@ class FightControls extends React.Component {
 
         this.props.updateAction( 
             
-            availableActions.runhug.frame,
-            availableActions.runhug.type,
-            availableActions.runhug.wait,
-            availableActions.runhug.afterFrame,
+            availableActions.runHug.frame,
+            availableActions.runHug.type,
+            availableActions.runHug.wait,
+            availableActions.runHug.afterFrame,
             'idle' 
              
         )
@@ -134,10 +134,10 @@ class FightControls extends React.Component {
 
         this.props.updateAction( 
             
-            availableActions.throwstone.frame,
-            availableActions.throwstone.type,
-            availableActions.throwstone.wait,
-            availableActions.throwstone.afterFrame,
+            availableActions.throwStone.frame,
+            availableActions.throwStone.type,
+            availableActions.throwStone.wait,
+            availableActions.throwStone.afterFrame,
             'idle' 
              
         )
@@ -201,6 +201,30 @@ class FightControls extends React.Component {
         console.log(`Critter took damage`);
 
     } // critterHurt
+
+    resetGame = () => {
+            // const newOpposingUserScore = this.state.opposingUserScore;
+            // const newCurrentUserScore = this.state.currentUserScore;
+            // const newOpposingUserExp = this.state.opposingUserExp;
+            // const newCurrentUserExp = this.state.currentUserExp;
+            if (this.props.state.opposingUserExp === 0){
+                const newCurrentUserScore = this.props.state.currentUserScore + 1;
+                const newOpposingUserExp = 5;
+                this.peops.setState({
+                    currentUserScore: newCurrentUserScore,
+                    opposingUserExp: newOpposingUserExp,
+                    currentUserExp: 3
+                })
+            } else{
+                const newOpposingUserScore = this.state.opposingUserScore +1;
+                this.props.setState({
+                    opposingUserScore: newOpposingUserScore,
+                    currentUserExp: 3,
+                    opposingUserExp: 3 
+                })
+            }
+        
+        }
 
     /* -------------------------------------- */
     render (){

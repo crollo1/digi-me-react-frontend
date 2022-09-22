@@ -51,7 +51,8 @@ class Home extends React.Component {
     };
     // function to set the state of the current logged in user
     setCurrentUser = () => {
-
+        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+       
         // set the token value - authenication 
         let token = "Bearer " + localStorage.getItem("jwt");
 
@@ -242,8 +243,8 @@ class Home extends React.Component {
                     {/* change below */}
             {/* ------------------------------------------------------------- */}
                     {this.state.currentUser &&
-                        <Route exact path="/createcritter" render={() => 
-                        <CreateCritter currentUser ={this.state.currentUser}/>}
+                        <Route exact path="/createcritter" render={(props) => 
+                        <CreateCritter currentUser ={this.state.currentUser}{...props}/>}
                     />}
 
                     {this.state.currentUser &&
@@ -280,6 +281,14 @@ class Home extends React.Component {
                         )}
                         
                     />
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setCurrentUserExp={this.setCurrentUserExp}{...props}/>
+                    }/>
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
+                    }/>
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
