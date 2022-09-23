@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 
 const availableActions = {
     runHug: {
@@ -6,28 +7,28 @@ const availableActions = {
         type: 'runHug',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 35,
     },
     climbing: {
         frame: '4',
         type: 'climbing',
         wait: 3600,
         afterFrame: '4',
-        damage: 1,
+        damage: 30,
     },
     throwStone: {
         frame: '4',
         type: 'throwStone',
         wait: 800,
         afterFrame: '4',
-        damage: 1,
+        damage: 20,
     }, 
     oneTwoCombo: {
         frame: '6',
         type: 'oneTwoCombo',
         wait: 1600,
         afterFrame: '4',
-        damage: 1, 
+        damage: 15, 
     }   
    
 }
@@ -234,7 +235,8 @@ class FightControls extends React.Component {
 
             <div>
                 
-                <div className="critterButtonContainer">
+                <div id="game-buttons"
+                className="critterButtonContainer">
                     {/* <button className="critterButton" 
                     onClick={this.critterJump}>
                         Jump
@@ -245,17 +247,17 @@ class FightControls extends React.Component {
                         K.O'd
                     </button> */}
 
-                    <button className="critterButton1" 
+                    <button id="left-button" className="critterButton" 
                     onClick={() => this.sendAction('runHug')}>
                         Left
                     </button>
 
-                    <button className="critterButton2" 
+                    <button id="down-button" className="critterButton" 
                     onClick={() => this.sendAction('throwStone')}>
                         Down
                     </button>
 
-                    <button className="critterButton3" 
+                    <button id="right-button" className="critterButton" 
                     onClick={() => this.sendAction('oneTwoCombo')}>
                         Right
                     </button>
@@ -265,7 +267,7 @@ class FightControls extends React.Component {
                         Hurt
                     </button> */}
 
-                    <button className="critterButton4" 
+                    <button id="up-button" className="critterButton" 
                     onClick={() => this.sendAction('climbing')}>
                         Up
                     </button>

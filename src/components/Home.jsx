@@ -80,11 +80,12 @@ class Home extends React.Component {
     handleLogout = () => {
 
         // Set our state of current user to undefined.
-        this.setState({currentUser: undefined});
+        this.setState({currentUser: null});
         // Remove the jwt token from our local storage
         localStorage.removeItem("jwt");
         // Set our axios default headers to undefined.
         axios.defaults.headers.common['Authorization'] = undefined;
+        // window.location.href = window.location.origin + '/#/home'
 
     };
     //------------------------------------------ //

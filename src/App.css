@@ -11,6 +11,7 @@
   flex-direction: column;
   position: relative;
   text-align: center;
+  border-color: red;
 
   width: 40vw;
   
@@ -39,7 +40,9 @@ h4 {
 
 
 }
-
+.level{
+  color: red;
+}
 
 
 /* -------------------------------------------------------- */
@@ -246,4 +249,71 @@ footer {
   to {
     transform: rotate(360deg);
   }
+}
+/* Game CSS */
+#userContainer{
+
+  border-color: red;
+  border-radius: 20px;
+  background-color: rgb(0, 255, 76);
+  padding: 40px;
+  margin: 5px;
+  
+
+}
+#opponentContainer{
+  height: 300px;
+  width: 300px;
+  border-color: red;
+  border-width: 20px;
+  padding: 50px;
+  background-color: green;
+  padding: 40px;
+  margin: 5px;
+
+
+}
+#game-flip{
+  transform: scaleX(-1);
+}
+#game-image{
+  transform: scaleX(-1);
+
+}
+
+#opp-game{
+  color: red;
+  text-align: center;
+}
+#user-game{
+  text-align: center;
+  color: white;
+
+}
+#game-critter{
+  background-color: aliceblue;
+}
+
+
+#level{
+  color: green;
+}
+#game-buttons{
+  color: red;
+  background-color: red;
+}
+#critterButtonContainer{
+  color: red;
+}
+#left-button{
+  color: red;
+}
+#up-button{
+  color: red;
+}
+#right-button{
+  color: red;
+}
+#down-button{
+  color: red;
 }
