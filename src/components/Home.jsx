@@ -33,11 +33,14 @@ class Home extends React.Component {
         currentUser: null,
 
         // querying message when critter is given food/drink/sweets
-        critterMessageTitle: null,
-        critterMessageContent: null,
         loading: true,
-        error: null
-        
+        error: null,
+
+        // holds message once receieved from request to backend
+        messageContent: '',
+        messageTitle: '',
+        messageReceived: false,
+    
     };
 
 
@@ -49,33 +52,34 @@ class Home extends React.Component {
         this.setCurrentUser();
 
     };
+    
     // function to set the state of the current logged in user
     setCurrentUser = () => {
-        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
-       
         // set the token value - authenication 
-        let token = "Bearer " + localStorage.getItem("jwt");
-
+        let token = localStorage.getItem("jwt");
+        console.log('token: ', token); // check === true
         // axios get request 
-        axios.get(`${BASE_BACKEND_URL}/users/current`, {
+        if (token === null) {
+            
+            // if login token not present, prevent
+            // remainder of function from running
+            return;
+            
+        }
+        axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 
-            headers: {
-
-                'Authorization': token
-
-            }
-
-        })
+        axios.get(`${BASE_BACKEND_URL}/users/current`)
         // successful load gets res data and sets it to current user
         .then(res => {
-
+   
             this.setState({currentUser: res.data})
-            console.log("home:", res.data);
+            // console.log("home:", res.data); // check === true
 
         })
         .catch(err => console.warn(err))
 
-    };
+    };      // closes setCurrentUser()
+    
     // function to handle the logging user out
     handleLogout = () => {
 
@@ -86,30 +90,53 @@ class Home extends React.Component {
         // Set our axios default headers to undefined.
         axios.defaults.headers.common['Authorization'] = undefined;
 
-    };
+        // TODO reset path to login
+
+    };      // handleLogout()
     //------------------------------------------ //
     
+    //------------------------------------------ //
+    // --------- FEED&DRINK Related ------------ //
+    //------------------------------------------ //
+    // function that resets state.message elements
+    timeOutMessage = async () => {
+    
 
-    // ------------Message Related-------------- //
+        setTimeout( () => {
+            
+            this.setState({
+
+                messageTitle: '',
+                messageContent: '',
+                messageReceived: false                
+    
+            })  // closes this.setState()
+
+        }, 8000);   
+          // closes if/else
+        
+    }               // closes timeOutMessage()
+
+    // function gets 'Food' message from backend
     fetchFedMessage = async () => {
             
         try {
             
             const response = await axios.get(`${BASE_BACKEND_URL}/messages/food.json`);
-            console.log(`response: `, response.data );
-            
-
+            // console.log(`response: `, response.data ); // check === true
 
             this.setState({
 
-                critterMessageTitle: response.data.title,
-                critterMessageContent: response.data.content,
-                loading: false
-
-            });  
-
+                messageTitle: response.data.fed_message.title,
+                messageContent: response.data.fed_message.content,
+                messageReceived: true                
             
-        
+            })  // closes this.setState()
+            
+            // invoking timeOutMessage limits the duration 
+            // of the message being displayed by Critter
+            this.timeOutMessage()
+
         } catch (error) {
             
             this.setState({
@@ -117,15 +144,13 @@ class Home extends React.Component {
                 loading: false,
                 error: error
 
-            })
+            })  // closes this.setState()
 
-        
-        }    
+        }       // closes try/catch
 
-            
+    }           // closes fetchFedMessage()
 
-
-    }
+    // function gets 'Drink' message from backend
     fetchDrankMessage = async () => {
             
         try {
@@ -135,11 +160,14 @@ class Home extends React.Component {
         
             this.setState({
 
-                critterMessageTitle: response.data.title,
-                critterMessageContent: response.data.content,
-                loading: false
+                messageTitle: response.data.drank_message.title,
+                messageContent: response.data.drank_message.content,                
+                
+            }); // closes this.setState() 
 
-            });    
+            // invoking timeOutMessage limits the duration 
+            // of the message being displayed by Critter
+            this.timeOutMessage()
         
         } catch (error) {
             
@@ -148,15 +176,13 @@ class Home extends React.Component {
                 loading: false,
                 error: error
 
-            })
-
+            })  // closes this.setState()
         
-        }    
+        }       // closes try/catch
 
-            
+    }           // cloese fetchDrankMessage()
 
-
-    }
+    // function gets 'Sweets' message from backend
     fetchSweetsMessage = async () => {
             
         try {
@@ -166,11 +192,14 @@ class Home extends React.Component {
         
             this.setState({
 
-                critterMessageTitle: response.data.title,
-                critterMessageContent: response.data.content,
-                loading: false
+                messageTitle: response.data.sweets_message.title,
+                messageContent: response.data.sweets_message.content,
+                
+            }); // closes this.setState()
 
-            });    
+            // invoking timeOutMessage limits the duration 
+            // of the message being displayed by Critter
+            this.timeOutMessage()
         
         } catch (error) {
             
@@ -179,15 +208,24 @@ class Home extends React.Component {
                 loading: false,
                 error: error
 
-            })
-
+            })  // closes this.setState()
         
-        }    
+        }       // closes try/catch
 
-            
+    }           // closes fetchSweetsMessage()
 
+    // function updates critter animation/action
+    updateAction = ( frames , action, timeout,  returnToFrame, returnToAction ) => {
 
-    }   
+        this.setState({ frameInteger: frames , animation: action })
+        
+        /* 
+        The 'timeout' argument is the amount of miliseconds first action lasts before returnToAction is set
+        */
+        setTimeout( () => this.setState({ frameInteger: returnToFrame, animation: returnToAction }), timeout )  
+
+    }           // closes updateAction()
+    //------------------------------------------ //
     //------------------------------------------ //
 
     render(){
@@ -268,7 +306,9 @@ class Home extends React.Component {
                     <Route exact path="/users" component={User}/>
                     
                     
-                    <Route 
+                    {this.state.currentUser && 
+                        
+                        <Route 
                         exact path="/food_test"
                         render={ props => (
                             <FeedAndDrink {... props} 
@@ -276,11 +316,12 @@ class Home extends React.Component {
                                 fetchDrankMessage={this.fetchDrankMessage}
                                 fetchSweetsMessage={this.fetchSweetsMessage}
                                 currentUser={this.state.currentUser}
-                                loading={this.state.loading}
-                            />
+                                messageTitle={this.state.messageTitle}
+                                messageContent={this.state.messageContent}
+                             />
                         )}
                         
-                    />
+                    />}      
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}

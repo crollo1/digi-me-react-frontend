@@ -2,8 +2,10 @@
 #critterContainer{
 
   display: flex;
-  
-
+  width: 80vw;
+  height: 30vh;
+  justify-self: center;
+  align-self: center;
 }
 .critterButtonContainer{
 
@@ -42,9 +44,107 @@ h4 {
 
 
 }
+/* -------------------------------------------------------- */
+/* ----------------------Feed&Drink------------------------ */
+/* -------------------------------------------------------- */
+#critterContainerAlt{
 
+  position: relative;;
+  display: flex;
+  width: 80vw;
+  height: 30vh;
+  align-self: center;
+  bottom: -25vh;
+  padding: 0px;
+  margin: 0px;
+  
+}
+.critterMessage{
+  
+  font-size: 12pt;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background-image: url("./assets/413-4138875_large-text-box-speech-bubbles-bubble-text-png.png");
+  background-size: 100% 20vh;
 
+}
+.messageText{
+  text-align: center;
+  object-fit: contain;
+  margin: 0px;
+  padding: 1px 3vw 0 3vw;
+}
+.fed{
+  display: flex;
+  flex-direction: column;
 
+}
+.goFromLeft{
+  animation: movingFromLeft 10s;
+}
+.goFromRight{
+  animation: movingFromRight 10s; 
+}
+.littleCritterLeft{
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
+  transform: scaleX(1);
+  
+}
+.littleCritterRight{
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
+  transform: scaleX(-1);
+
+}
+.paused{
+  animation-play-state: paused;
+} 
+.running{
+  animation-play-state: running;
+}
+@keyframes movingFromLeft {
+  0%{
+    left: 10vw;
+  } 100% {
+    left: 80.1vw
+  }
+}
+@keyframes movingFromRight{
+  0%{
+    left: 70vw
+  } 100% {
+    left: -10vw
+  }
+}
+.biggerCritterLeft{
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
+  transform: scaleX(1);
+
+}
+.biggerCritterRight{
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
+  transform: scaleX(-1);
+}
+
+@keyframes movingFromLeft {
+  from{
+    transform: translate(0vw)
+  } to {
+    transform: translate(80vw);
+  }
+}
+#containerBnC{
+
+}
 /* -------------------------------------------------------- */
 /* -------------------- Pixel Art Css --------------------- */
 /* -------------------------------------------------------- */
@@ -133,6 +233,7 @@ h2 {
   padding: 10px;
   background-color: #445169;
   border: 2px solid antiquewhite;
+  
 }
 
 .all:hover {
