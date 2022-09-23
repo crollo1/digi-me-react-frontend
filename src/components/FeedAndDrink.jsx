@@ -137,11 +137,11 @@ class FeedAndDrink extends React.Component {
         try {
             
             const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/feed`)
-            // console.log(
-            //     `${this.props.messageTitle}`, 
-            //     `${this.props.messageContent}`,
-            //     `${res}`
-            // ); // check === true
+            console.log(
+                `${this.props.messageTitle}`, 
+                `${this.props.messageContent}`,
+                `${res}`
+            ); // check === true
 
             // changes state to initiate class change on Critter
             this.setState({
@@ -168,11 +168,11 @@ class FeedAndDrink extends React.Component {
         try {
         
             const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/drink`)
-            // console.log(
-            //     `${this.props.messageTitle}`, 
-            //     `${this.props.messageContent}`
-            //     `${res}`
-            // ); // check === true
+            console.log(
+                `${this.props.messageTitle}`, 
+                `${this.props.messageContent}`
+                `${res}`
+            ); // check === true
             
             // changes state to initiate class change on Critter
             this.setState({
@@ -198,11 +198,11 @@ class FeedAndDrink extends React.Component {
         try {
         
             const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
-            // console.log(
-            //     `${this.props.messageTitle}`, 
-            //     `${this.props.messageContent}`,
-            //     `${res}`
-            // ); // check === true
+            console.log(
+                `${this.props.messageTitle}`, 
+                `${this.props.messageContent}`,
+                `${res}`
+            ); // check === true
             
             // changes state to initiate class change on Critter
             this.setState({
