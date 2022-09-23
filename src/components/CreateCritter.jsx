@@ -151,6 +151,10 @@ class CreateCritter extends React.Component{
                 this.props.history.push('/');
                 
             // })
+            // console.log("history:",this.props.history);
+            //     console.log('this hits to redirect');
+            //     this.props.history.push('/');
+            //     window.location.reload(false);
 
             console.log(submitNewPet);
         } catch(err){

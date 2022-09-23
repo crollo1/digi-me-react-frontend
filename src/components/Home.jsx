@@ -273,7 +273,7 @@ class Home extends React.Component {
                             {/* Links to various pages */}
                             <Link to="/" className="little">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/food_test" className="little">Food Testing</Link>
+                            <Link to="/food_test" className="little">Feed Me</Link>
                             {'  '}|{'   '}
                             <Link to="/fight" className="little">Fight</Link>
                            
@@ -340,13 +340,6 @@ class Home extends React.Component {
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
-             
-                {/* <footer>
-                    
-                    <p className="footerText">&copy; Critters.Co.2022</p>
-
-                </footer> CLOSES FOOTER */}
-
             </Router> {/* CLOSES ROUTER */}
          
             </div>  // CLOSES WRAPPER DIV 
