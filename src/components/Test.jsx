@@ -13,6 +13,7 @@ class Test extends React.Component{
     render(){
 
         return(
+
             <div>
                 <h1 className="homepage">Welcome to Digi-Critter World!! </h1>
                 <img className="redblob" src={Pixel1} alt="redblob"/>
@@ -23,8 +24,11 @@ class Test extends React.Component{
                 <img className="pinkblob" src={Pixel6} alt="pinkblob"/>
                 <img className="mario" src={Pixel7} alt="mario"/>
             </div>
+
         )
+
     }
+    
 }
 
 export default Test;

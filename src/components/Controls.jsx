@@ -236,9 +236,6 @@ class Controls extends React.Component {
     } // critterPunch
 
 
-
-
-
     /* -------------------------------------- */
     render (){
 
@@ -257,12 +254,7 @@ class Controls extends React.Component {
                     onClick={this.critterKo}>
                         Down
                     </button>
-                    
-                    {/* <button className="critterButton" 
-                    onClick={this.critterWalkPunch}>
-                        Punch-walk
-                    </button> */}
-
+        
                     <button className="critterButton" 
                     onClick={this.critterWalk}>
                         Right
@@ -272,6 +264,11 @@ class Controls extends React.Component {
                     onClick={this.critterSprint}>
                         Left
                     </button>
+
+                    {/* <button className="critterButton" 
+                    onClick={this.critterWalkPunch}>
+                        Punch-walk
+                    </button> */}
 
                     {/* <button className="critterButton" 
                     onClick={this.critterRunHug}>

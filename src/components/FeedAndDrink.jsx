@@ -46,6 +46,8 @@ class FeedAndDrink extends React.Component {
         animationPlayState: 'running',
 
     }   // state 
+
+
     componentDidMount(){
 
         // loads when the page loads so it passes this function
@@ -53,6 +55,8 @@ class FeedAndDrink extends React.Component {
         this.walkFromLeft()
 
     };  // closes componentDidMount()
+
+    
     // function utilises User information to set species
     getSpeciesBaseName = (species) => {
 
@@ -65,9 +69,11 @@ class FeedAndDrink extends React.Component {
         
     }           // closes getSpeciesBaseName()
 
+
     // --------------------------------------- //
     // --------- Movement Functions ---------- //
     // --------------------------------------- //
+
     // times movement from left to right
     timeOutWalk = () => {
 
@@ -81,6 +87,7 @@ class FeedAndDrink extends React.Component {
                     walkingFromLeft: false             
                     
                 })  // closes this.setState()
+
                 this.walkFromRight()
             } else {
 
@@ -91,11 +98,14 @@ class FeedAndDrink extends React.Component {
         
                 })  // closes this.setState()
                 this.walkFromLeft()
+
             }
 
         }, 6000 );  
     
     }       // closes timeOutWalk
+
+
     // function sets critter classes to create movement
     walkFromLeft = () => {
 
@@ -128,9 +138,11 @@ class FeedAndDrink extends React.Component {
     // --------------------------------------- //
     // ----------- Button Functions ---------- //
     // --------------------------------------- //
+
     // function posts to backend, updating Pet lastDrank:
     //     - also invokes fetchFoodMessage()
     giveFood = async () => {
+
         console.log(`food gib`);
         this.props.fetchFedMessage()
         
@@ -138,13 +150,16 @@ class FeedAndDrink extends React.Component {
             
             const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/feed`)
             console.log(
+
                 `${this.props.messageTitle}`, 
                 `${this.props.messageContent}`,
                 `${res}`
+
             ); // check === true
 
             // changes state to initiate class change on Critter
             this.setState({
+
                 givenItem: true,
                 animationPlayState: 'paused'
 
@@ -159,9 +174,12 @@ class FeedAndDrink extends React.Component {
         }       // closes try/catch
 
     }           // closes giveFood()
+
+
     // function posts to backend, updating Pet lastDrank:
     //     - also invokes fetchDrinkMessage()
     giveDrink = async () => {
+
         console.log(`gib drink`);
         this.props.fetchDrankMessage()
         
@@ -169,13 +187,16 @@ class FeedAndDrink extends React.Component {
         
             const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/drink`)
             console.log(
+
                 `${this.props.messageTitle}`, 
                 `${this.props.messageContent}`
                 `${res}`
+
             ); // check === true
             
             // changes state to initiate class change on Critter
             this.setState({
+
                 givenItem: true,
                 animationPlayState: 'paused'
 
@@ -188,10 +209,14 @@ class FeedAndDrink extends React.Component {
             console.log(`error on sweets`);
             
         }       // closes try/catch
+
     }           // closes giveDrink()
+
+
     // function posts to backend, taking -25exp off Pet total Exp
     //     - also invokes fetchSweetsMessage()
     giveSweets = async () => {
+
         console.log(`sweetz gib`);  // check === true
         this.props.fetchSweetsMessage()
 
@@ -199,13 +224,16 @@ class FeedAndDrink extends React.Component {
         
             const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
             console.log(
+
                 `${this.props.messageTitle}`, 
                 `${this.props.messageContent}`,
                 `${res}`
+
             ); // check === true
             
             // changes state to initiate class change on Critter
             this.setState({
+
                 givenItem: true,
                 animationPlayState: 'paused'
 
@@ -218,6 +246,8 @@ class FeedAndDrink extends React.Component {
         }       // closes try/catch
 
     }           // closes giveSweets()
+
+
     // function controls animations when item is given
     givenItem = () => {
 
@@ -259,12 +289,14 @@ class FeedAndDrink extends React.Component {
                             fndButton1
                         `} >
                     </button> {/* closes button-giveFood */}
+
                     <button onClick={this.giveDrink}
                         className={`
                             all
                             fndButton2
                         `}>                        
                     </button> {/* closes button-giveDrink */}
+
                     <button onClick={this.giveSweets}
                         className={`
                             all
@@ -274,12 +306,14 @@ class FeedAndDrink extends React.Component {
 
                     {
                         <div className="critterMessage">
+
                             <h5 className='messageText'>
                                 {this.props.messageTitle}
                             </h5>  
                             <p className='messageText'>
                                 {this.props.messageContent}
                             </p>
+
                         </div> // closes div-critterMessage 
                     }
                 </div>
@@ -289,17 +323,20 @@ class FeedAndDrink extends React.Component {
                     <div 
                         id="viewContainer" 
                         className={
-                        `
-                        littleCritter${this.state.littleCritter}
-                        goFrom${this.state.littleCritter}
-                        ${this.state.animationPlayState}
-                        `
-                    }>
+                            `
+                            littleCritter${this.state.littleCritter}
+                            goFrom${this.state.littleCritter}
+                            ${this.state.animationPlayState}
+                            `
+                        }>
                         <CritterType 
+
                             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                             frame={this.state.frameInteger}
-                            action={this.state.animation}  
+                            action={this.state.animation} 
+
                         />
+
                     </div>
                 
                 </div> {/* CLOSES CRITTER CONTAINER */}

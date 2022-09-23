@@ -38,6 +38,7 @@ class CreateCritter extends React.Component{
     }
     
     componentDidMount(){
+        
         this.setState({
             currentUser: this.props.currentUser
         })
@@ -73,30 +74,36 @@ class CreateCritter extends React.Component{
     submitLeft = () =>{
 
         console.log('left click');
+
         if (this.state.clickCount <= 0){
+
             return
+
         } else {
+
             const newClickCount = this.state.clickCount -1
             this.setState({clickCount: newClickCount})
             this.count();
+
         }
-        // console.log('newCount', this.state.newClickCount)
-
-
+        
     };
 
     submitRight = () =>{
 
         console.log('right click');
+
         if (this.state.clickCount >= 2){
+
             return
+
         } else {
+
             const newClickCount = this.state.clickCount +1
             this.setState({clickCount: newClickCount})
             this.count();
+        
         }
-        // console.log('newCount', this.state.newClickCount)
-
 
     };
 
@@ -110,8 +117,7 @@ class CreateCritter extends React.Component{
     
     // submit new users specify selection
     submitNewCritter = async (ev) => {
-        
-            
+                  
         
         console.log('new user species', this.state.species);
 
@@ -129,8 +135,6 @@ class CreateCritter extends React.Component{
 
             })
             console.log(submitNewPet)
-            // .then(result => {
-                // localStorage.setItem("jwt", result.data.token.token)
 
                 // console.log("jwt", result.data.token.token);
                 // // set axios default headers to have an authorization key
@@ -142,25 +146,21 @@ class CreateCritter extends React.Component{
                 
                 console.log("history:",this.props.history)
                 this.props.history.push('/');
-                
-            // })
-            // console.log("history:",this.props.history);
-            //     console.log('this hits to redirect');
-            //     this.props.history.push('/');
-            //     window.location.reload(false);
+                console.log(submitNewPet);
 
-            console.log(submitNewPet);
+
         } catch(err){
+
             // TODO: add error validation if a missing field
             this.setState({
+
                 loading: false, 
                 error: err
+
             })
 
         }
 
-
-       
 
     }
 
@@ -182,46 +182,29 @@ class CreateCritter extends React.Component{
                             pixelArt`
 
                         }/>
-                </div>
-                <br />
 
-                {/* <div className="dude4FramesViewbox pixelArt" >
-                    <img src={dude4frames} alt="character" 
-                    className={`
-                    idle
-                    ${this.state.species2}FramesSpriteSheet
-                    pixelArt`}/>
                 </div>
-                <br />
-                <div className="owlet4FramesViewbox pixelArt" >
-                    <img src={owlet4frames} alt="character" 
-                    className={`
-                    idle
-                    ${this.state.species3}FramesSpriteSheet
-                    pixelArt`}/>
-                </div> */}
+                
                 <div className="leftrightbutton">
-                <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
-                <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
+
+                    <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
+                    <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
+
                 </div>
                 
                 <form className="selectcritter" onSubmit = {this.submitNewCritter}>
-               
-                <input className="logininput"
-                onChange={this.critterName}
-                name="name"
-                type="name"
-                placeholder='Enter Pet Name'
-                />
-                <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
+
+                    <input className="logininput"
+                        onChange={this.critterName}
+                        name="name"
+                        type="name"
+                        placeholder='Enter Pet Name'
+                    />
+                    
+                    <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
                 </form>
 
             </div>
-
-                // 'idle',
-                // '4',
-                // 'idle',
-                // 800
 
         ) // return
 

@@ -9,14 +9,8 @@ import MyProfile from './MyProfile';
 import axios from 'axios';
 // -------- Critter Related Imports ------------ //
 import CreateCritter from './CreateCritter';
-// import CritterComponents from './CritterComponents';
 import FeedAndDrink from './FeedAndDrink'
-// import CritterType from './CritterType';
-// --------------------------------------------- //
-// Fight components
 import FightGame from './FightGame';
-
-
 
 // backend url
 const BASE_BACKEND_URL = 'http://localhost:3000';
@@ -28,6 +22,7 @@ class Home extends React.Component {
 
     
     // home states
+
     state ={
 
         // define current user
@@ -46,6 +41,7 @@ class Home extends React.Component {
 
 
     // --------------User Related--------------- //
+
     // function to run on component mounting
     componentDidMount(){
 
@@ -54,12 +50,15 @@ class Home extends React.Component {
 
     };
     
+
     // function to set the state of the current logged in user
     setCurrentUser = () => {
+
         // set the token value - authenication 
         let token = localStorage.getItem("jwt");
         console.log('token: ', token); // check === true
         // axios get request 
+        
         if (token === null) {
             
             // if login token not present, prevent
@@ -80,6 +79,7 @@ class Home extends React.Component {
         .catch(err => console.warn(err))
 
     };      // closes setCurrentUser()
+
     
     // function to handle the logging user out
     handleLogout = () => {
@@ -95,9 +95,13 @@ class Home extends React.Component {
 
         // TODO reset path to login
     }
+
+
     //------------------------------------------ //
     // --------- FEED&DRINK Related ------------ //
     //------------------------------------------ //
+
+
     // function that resets state.message elements
     timeOutMessage = async () => {
 
@@ -112,7 +116,7 @@ class Home extends React.Component {
             })  // closes this.setState()
 
         }, 8000);   
-          // closes if/else
+    
         
     }               // closes timeOutMessage()
 
@@ -276,17 +280,21 @@ class Home extends React.Component {
 
                 </header> {/* CLOSES HEADER */}     
                 
+
                             {/* Routes to the various pages */}
                                   {/* change below */}
             {/* ------------------------------------------------------------- */}
+
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={(props) => 
                         <CreateCritter currentUser ={this.state.currentUser} {...props}/>}
                     />}
+
                     {this.state.currentUser &&
                         <Route exact path="/fight" render={() => 
                         <FightGame currentUser ={this.state.currentUser}/>}
                     />}
+
                     {this.state.currentUser &&
                         <Route exact path="/my_profile" render={(props) => 
                         <MyProfile currentUser={this.state.currentUser} {...props}  />}
@@ -295,32 +303,44 @@ class Home extends React.Component {
                     <Route exact path='/login' render={
                         (props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
+
                     <Route exact path='/signup' render={
                         (props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
+
                     <Route exact path="/users" component={User}/>
                     
                     {this.state.currentUser && 
+
                         <Route exact path="/critter_hangs" render={ props => (
+
                             <FeedAndDrink {... props} 
+
                                 fetchFedMessage={this.fetchFedMessage}
                                 fetchDrankMessage={this.fetchDrankMessage}
                                 fetchSweetsMessage={this.fetchSweetsMessage}
                                 currentUser={this.state.currentUser}
                                 messageTitle={this.state.messageTitle}
                                 messageContent={this.state.messageContent}
+
                             />
+
                         )}
+
                     />}      
 
                     <Route exact path='/game' render={
                         (props) => <FightGame setCurrentUserExp={this.setCurrentUserExp}{...props}/>
                     }/>
+
                     <Route exact path='/game' render={
                         (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
                     }/>
+
                     <Route exact path='/' component={Test}/>
+
             {/* ------------------------------------------------------------ */}
+            
             </Router> {/* CLOSES ROUTER */}
          
             </div>  // CLOSES WRAPPER DIV 
