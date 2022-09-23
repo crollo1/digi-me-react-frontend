@@ -1,4 +1,6 @@
 import React from 'react';
+import '../App.css';
+import Test from './Test'
 import Pixel1 from '../assets/pixel1.png'
 import Pixel2 from '../assets/pixel2.png'
 import Pixel3 from '../assets/pixel3.png'
@@ -232,15 +234,15 @@ class Home extends React.Component {
                             )
                         } 
                         {/* Section above handles display of login/logout funcitonality */}
-                        <h1>Digi-Critter</h1>
+                        <h1 className="title">Digi-Critter</h1>
 
                         <nav>
                             {/* Links to various pages */}
-                            <Link to="/">Home</Link>
+                            <Link to="/" className="little">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/food_test">Food Testing</Link>
+                            <Link to="/food_test" className="little">Food Testing</Link>
                             {'  '}|{'   '}
-                            <Link to="/fight">Fight</Link>
+                            <Link to="/fight" className="little">Fight</Link>
                            
                         </nav>
                         
@@ -298,25 +300,16 @@ class Home extends React.Component {
                     <Route exact path='/game' render={
                         (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
                     }/>
+                    <Route exact path='/' component={Test}/>
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
-                <img className="redblob" src={Pixel1} />
-                <img className="pikachu" src={Pixel2} />
-                <img className="dinosaur" src={Pixel3} />
-                <img 
-                className="pop" src={Pixel4} />
-                <img 
-                className="pinkpolice" src={Pixel5} />
-                <img 
-                className="pinkblob" src={Pixel6} />
-                <img 
-                className="mario" src={Pixel7} />
-                <footer>
+             
+                {/* <footer>
                     
                     <p className="footerText">&copy; Critters.Co.2022</p>
 
-                </footer> {/* CLOSES FOOTER */}
+                </footer> CLOSES FOOTER */}
 
             </Router> {/* CLOSES ROUTER */}
          

@@ -173,7 +173,7 @@ class CreateCritter extends React.Component{
 
             <div className="Create">
                 
-                <h1>Create your own Critter</h1>
+                <h3 className="createCritter">Create your own Critter</h3>
 
                 <div className={`${critters[this.state.clickCount]}FramesViewbox pixelArt`} >
 

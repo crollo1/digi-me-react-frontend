@@ -1,5 +1,11 @@
 import React from 'react'
-
+import Pixel1 from '../assets/pixel1.png'
+import Pixel2 from '../assets/pixel2.png'
+import Pixel3 from '../assets/pixel3.png'
+import Pixel4 from '../assets/pixel4.png'
+import Pixel5 from '../assets/pixel5.png'
+import Pixel6 from '../assets/pixel6.png'
+import Pixel7 from '../assets/pixel7.png'
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 // import Alert from 'react-bootstrap/Alert';
@@ -85,7 +91,7 @@ class MyProfile extends React.Component{
           <Button variant="info" type="submit">Update</Button>
         </Form>
 
-       
+      
         {/* <h1>Hello {this.props.currentUser.pet.name}</h1>  */}
         {/* <CritterComponents /> */}
       </div>

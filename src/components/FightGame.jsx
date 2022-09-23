@@ -346,7 +346,7 @@ class FightGame extends React.Component {
 
         // console.log(currentUserPet);
         return (
-
+            
             // <div>
             //     <button onClick={this.renderGameDisplay} >New Game </button>
             //     {/* <GameDisplay /> */}

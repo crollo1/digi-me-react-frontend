@@ -1,14 +1,21 @@
 /* --------------- Basic Critter Page .css ---------------- */
-@font-face {
-  font-family: "Common Pixel"; 
-  font-style: normal; 
-  font-weight: normal;
-  src: url('http://fonts.cdnfonts.com/css/common-pixel') format("truetype");
-}
-.Login {
-  font-family: Common Pixel, sans-serif;
+@import url('http://fonts.cdnfonts.com/css/common-pixel');
+
+@import url('http://fonts.cdnfonts.com/css/spooky-pixels?styles=135469');
+
+@import url('http://fonts.cdnfonts.com/css/bm-neco');
+
+@import url('http://fonts.cdnfonts.com/css/serious-rounded'); /* seriousr2b/2 seriousr4b/4 */
+
+.Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
+  font-family: seriousr2, sans-serif;
   font-style: normal;
 }
+.createCritter, .logininput, .inputbutton, .left, .right{
+  color: rgb(85, 84, 84);
+}
+
+
 #critterContainer{
 
   display: flex;
@@ -363,6 +370,9 @@ footer {
   bottom: 0vh;
   width: 100vw;
   text-align: center;
+}
+.selectcritter{
+ 
 }
 
 .App {
