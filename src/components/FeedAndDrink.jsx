@@ -248,7 +248,7 @@ class FeedAndDrink extends React.Component {
         return(
             
             <div className="App fed">
-                <h2 className="critterheading">Critter - {this.props.currentUser.pet.name}</h2>
+                <h2 className="critterheading">Your Critter: '{this.props.currentUser.pet.name}'</h2>
                 
                 
                 <div id="containerBnC">

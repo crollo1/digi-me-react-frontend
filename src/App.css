@@ -18,6 +18,9 @@
   font-family: seriousr2, sans-serif;
   font-style: normal;
 }
+.title{
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+}
 .createCritter, .logininput, .inputbutton, .left, .right{
   color: rgb(85, 84, 84);
 }
@@ -109,7 +112,8 @@ h4 {
   
 }
 .critterMessage{
-  
+  font-family: 'Press Start 2p';
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
   font-size: 12pt;
   position: absolute;
   margin: 0px;
@@ -120,6 +124,8 @@ h4 {
 
 }
 .messageText{
+  font-family: 'Press Start 2p';
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ; 
   text-align: center;
   object-fit: contain;
   margin: 0px;
@@ -128,6 +134,20 @@ h4 {
 .fed{
   display: flex;
   flex-direction: column;
+  font-family: 'Press Start 2p';
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+}
+.all {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background-position: center;
+  background-size: 75%;
+  padding: 10px;
+  background-color: #445169;
+  border: 2px solid antiquewhite;
+  box-shadow: 1px 1px 5px rgb(8, 234, 255), -1px -1px 5px rgb(8, 20, 255);
+  
 
 }
 .goFromLeft{
@@ -330,17 +350,7 @@ h2 {
   font-size: 50px;
 }
 
-.all {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  background-position: center;
-  background-size: 75%;
-  padding: 10px;
-  background-color: #445169;
-  border: 2px solid antiquewhite;
-  
-}
+
 
 .all:hover {
   color: white;
