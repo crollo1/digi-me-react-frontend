@@ -241,82 +241,74 @@ class Home extends React.Component {
             <Router>
 
                 <header>
-                        {/* Showing on nav bar login/sign-up requests with if statement */}
-                        {
-                            this.state.currentUser !== null
-                            ?
-                            (
-                                <div className='Login'>
-                                    {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
-                                    <h4>
-                                        <Link to='/my_profile'>My Profile</Link>
-                                        {' '}| {' '}
-                                        <Link onClick={this.handleLogout} to='/'>Logout</Link>
-                                    </h4>
-                                </div>
-                            )
-                            :
-                            (
-                                <div className='Login'>
-                                    <h4>
-                                        <Link to='/login'>Login</Link>
-                                        {' '}|{' '}
-                                        <Link to='/signup'>Sign Up</Link>
-                                    </h4>
-                                </div>
-                            )
-                        } 
-                        {/* Section above handles display of login/logout funcitonality */}
-                        <h1 className="title">Digi-Critter</h1>
 
-                        <nav>
-                            {/* Links to various pages */}
-                            <Link to="/" className="little">Home</Link>
-                            {'  '}|{'   '}
-                            <Link to="/food_test" className="little">Food Testing</Link>
-                            {'  '}|{'   '}
-                            <Link to="/fight" className="little">Fight</Link>
-                           
-                        </nav>
-                        
+                    {/* Showing on nav bar login/sign-up requests with if statement */}
+                    {
+                        this.state.currentUser !== null
+                        ?
+                        (
+                            <div className='Login'>
+                                {/* <h4>Welcome {this.state.currentUser.name}</h4> */}
+                                <h4>
+                                    <Link to='/my_profile'>My Profile</Link>
+                                    {' '}| {' '}
+                                    <Link onClick={this.handleLogout} to='/'>Logout</Link>
+                                </h4>
+                            </div>
+                        )
+                        :
+                        (
+                            <div className='Login'>
+                                <h4>
+                                    <Link to='/login'>Login</Link>
+                                    {' '}|{' '}
+                                    <Link to='/signup'>Sign Up</Link>
+                                </h4>
+                            </div>
+                        )
+                    } 
+                    {/* Section above handles display of login/logout funcitonality */}
+                    
+                    <h1 className="title">Digi-Critter</h1>
+
+                    <nav>
+                        {/* Links to various pages */}
+                        <Link to="/" className="little">Home</Link>
+                        {'  '}|{'   '}
+                        <Link to="/critter_hangs" className="little">Critter Hangs</Link>
+                        {'  '}|{'   '}
+                        <Link to="/fight" className="little">Fight</Link>
                         <hr />
-                        
-                    </header> {/* CLOSES HEADER */}     
+                    </nav> {/* CLOSES NAV */}
+
+                </header> {/* CLOSES HEADER */}     
                 
-                {/* Routes to the various pages */}
-                    {/* change below */}
+                            {/* Routes to the various pages */}
+                                  {/* change below */}
             {/* ------------------------------------------------------------- */}
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={() => 
                         <CreateCritter currentUser ={this.state.currentUser}/>}
                     />}
-
                     {this.state.currentUser &&
                         <Route exact path="/fight" render={() => 
                         <FightGame currentUser ={this.state.currentUser}/>}
                     />}
-                    
                     {this.state.currentUser &&
                         <Route exact path="/my_profile" render={(props) => 
-                        <MyProfile currentUser={this.state.currentUser} {...props}  />}/>}
-                    {/* <MyProfile currentUser ={this.state.currentUser} {...props}  />}/>} */}
+                        <MyProfile currentUser={this.state.currentUser} {...props}  />}
+                    />}
                     
                     <Route exact path='/login' render={
                         (props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
-                    
                     <Route exact path='/signup' render={
                         (props) => <SignUp setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
-                    
                     <Route exact path="/users" component={User}/>
                     
-                    
                     {this.state.currentUser && 
-                        
-                        <Route 
-                        exact path="/food_test"
-                        render={ props => (
+                        <Route exact path="/critter_hangs" render={ props => (
                             <FeedAndDrink {... props} 
                                 fetchFedMessage={this.fetchFedMessage}
                                 fetchDrankMessage={this.fetchDrankMessage}
@@ -324,21 +316,17 @@ class Home extends React.Component {
                                 currentUser={this.state.currentUser}
                                 messageTitle={this.state.messageTitle}
                                 messageContent={this.state.messageContent}
-                             />
+                            />
                         )}
-                        
                     />}      
 
                     <Route exact path='/game' render={
                         (props) => <FightGame setCurrentUserExp={this.setCurrentUserExp}{...props}/>
                     }/>
-
                     <Route exact path='/game' render={
                         (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
                     }/>
                     <Route exact path='/' component={Test}/>
-                    
-                    {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
             </Router> {/* CLOSES ROUTER */}
          
