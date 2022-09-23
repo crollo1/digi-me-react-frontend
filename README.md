@@ -6,7 +6,7 @@
 
 We created this project for our 3rd project for General Assembly Software Engineering Immersive course. We were tasked to build/create an app of our choosing using any of our previously learned skills and languages.
 
-Our team chose to use Ruby on Rails as our backend database for data storage.
+Our team chose to use React for our frontend.
 
 ## Logins:
 
@@ -27,7 +27,7 @@ Users:
 
 ## Object Model Associations
 
-![Wireframe](/app/assets/images/wireframes.png)
+![Wireframe](/src/assets/wireframes.png)
 
 ## Features
 
@@ -43,7 +43,9 @@ Users:
 
 6. Update your details 
 
-7. Battle other pets!
+7. Care for your pet while it helps care for you
+
+8. Battle other pets!
 
 ## Tools and Gems Used
 
@@ -61,8 +63,6 @@ Users:
 ## Bugs
 
 • update form not currently connected
-
-• Battle function not fully functional currently
 
 • CSS not completed to desired standard
 
