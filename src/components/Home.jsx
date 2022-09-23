@@ -273,7 +273,7 @@ class Home extends React.Component {
                             {/* Links to various pages */}
                             <Link to="/" className="little">Home</Link>
                             {'  '}|{'   '}
-                            <Link to="/food_test" className="little">Food Testing</Link>
+                            <Link to="/food_test" className="little">Feed Me</Link>
                             {'  '}|{'   '}
                             <Link to="/fight" className="little">Fight</Link>
                            
