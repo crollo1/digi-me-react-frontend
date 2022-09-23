@@ -15,6 +15,19 @@
   color: rgb(85, 84, 84);
 }
 
+.createCritter{
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+
+}
+
+.leftrightbutton{
+  text-align: center;
+ 
+}
+
+.selectcritter{
+  margin-top: 0;
+}
 
 #critterContainer{
 
@@ -70,6 +83,7 @@ h4 {
 /* -------------------------------------------------------- */
 .pixelArt{
   image-rendering: pixelated;
+  margin: 0 auto;
 }
 /*  This section creates a new .css variable in order to adjust the size of individual pixels so as to make the pixel art scaleable */
 :root{

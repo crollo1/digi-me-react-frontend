@@ -203,11 +203,11 @@ class CreateCritter extends React.Component{
                     ${this.state.species3}FramesSpriteSheet
                     pixelArt`}/>
                 </div> */}
-                <br /><br />
+                <div className="leftrightbutton">
                 <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
                 <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
-                <br /><br />
-                <br /><br />
+                </div>
+                
                 <form className="selectcritter" onSubmit = {this.submitNewCritter}>
                
                 <input className="logininput"
@@ -216,7 +216,6 @@ class CreateCritter extends React.Component{
                 type="name"
                 placeholder='Enter Pet Name'
                 />
-                <br /><br />
                 <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
                 </form>
 
