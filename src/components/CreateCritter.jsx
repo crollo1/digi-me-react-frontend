@@ -147,8 +147,10 @@ class CreateCritter extends React.Component{
                 // redirec the url of the page to /my_profile so we can load the MyProfile component
                 // this.props.setCurrentUser();
                 
-                console.log("history:",this.props.history)
-                this.props.history.push('/game');
+                console.log("history:",this.props.history);
+                console.log('this hits to redirect');
+                this.props.history.push('/');
+                window.location.reload(false);
                 
             // })
 
