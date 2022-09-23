@@ -84,23 +84,20 @@ class Home extends React.Component {
     handleLogout = () => {
 
         // Set our state of current user to undefined.
-        this.setState({currentUser: undefined});
+        this.setState({currentUser: null});
         // Remove the jwt token from our local storage
         localStorage.removeItem("jwt");
         // Set our axios default headers to undefined.
         axios.defaults.headers.common['Authorization'] = undefined;
+        // window.location.href = window.location.origin + '/#/home'
 
         // TODO reset path to login
-
-    };      // handleLogout()
-    //------------------------------------------ //
-    
+    }
     //------------------------------------------ //
     // --------- FEED&DRINK Related ------------ //
     //------------------------------------------ //
     // function that resets state.message elements
     timeOutMessage = async () => {
-    
 
         setTimeout( () => {
             
@@ -281,8 +278,8 @@ class Home extends React.Component {
                     {/* change below */}
             {/* ------------------------------------------------------------- */}
                     {this.state.currentUser &&
-                        <Route exact path="/createcritter" render={() => 
-                        <CreateCritter currentUser ={this.state.currentUser}/>}
+                        <Route exact path="/createcritter" render={(props) => 
+                        <CreateCritter currentUser ={this.state.currentUser}{...props}/>}
                     />}
 
                     {this.state.currentUser &&
@@ -322,6 +319,14 @@ class Home extends React.Component {
                         )}
                         
                     />}      
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setCurrentUserExp={this.setCurrentUserExp}{...props}/>
+                    }/>
+
+                    <Route exact path='/game' render={
+                        (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
+                    }/>
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
