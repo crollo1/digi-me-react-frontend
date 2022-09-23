@@ -32,6 +32,20 @@
  
 }
 
+.critterheading {
+  font-family: 'seriousr2', sans-serif;
+  font-size: 40px;
+}
+
+.homepage {
+  font-family: 'seriousr2', sans-serif;
+  font-size: 65px;
+  text-align: center;
+  z-index: 200;
+  padding: 150px;
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+}
+
 .selectcritter{
   margin-top: 0;
 }
