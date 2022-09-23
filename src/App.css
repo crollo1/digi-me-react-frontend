@@ -47,12 +47,8 @@
   
 
 }
-.critterButton {
-  max-width: 20vw;
-  margin: 10px;
-  border-radius: 20px;
-  text-align: center;
-}
+
+
 h4 {
   max-height: 20vh;
 
@@ -62,6 +58,7 @@ h4 {
   display: flex;
   position: relative;
   text-align: center;
+  
 
 
 }
@@ -198,7 +195,7 @@ Form {
 }
 .critterButton4 {
   max-width: 10vw;
-   padding: 5px;
+  padding: 5px;
   margin: 10px;
   border-radius: 20px;
   text-align: center;
@@ -368,8 +365,7 @@ body {
   z-index: 10;
   background-size: cover;
   height: 90vh;
-  /* opacity: 0.7;*/
-
+  
 }
   
 
@@ -392,7 +388,6 @@ footer {
   height: 70vh;
   width: 100vw;
 }
-
 
 
 .App-logo {
