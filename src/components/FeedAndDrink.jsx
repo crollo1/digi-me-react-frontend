@@ -22,14 +22,6 @@ const BASE_BACKEND_URL = 'http://localhost:3000';
 
 class FeedAndDrink extends React.Component {
 
-    // Food button will random select from either generalFood, vegetables, fruits. 
-    // After selection it will randomly pick a food sprite element to use.
-
-
-    // Drink button will random select a drink sprite element to use from drinks.png
-
-
-    // Sweets button will random select a sweet sprite element to use from sweets.png
     state = {
 
         sweetsInt: null,
