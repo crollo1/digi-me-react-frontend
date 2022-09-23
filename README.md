@@ -74,3 +74,11 @@ Users:
 • Map intergration to allow other users to join in and battle
 
 • Would love to have some scrolling background animations that interact with the characters - potentially introduce phaser.js
+
+## Screenshots
+
+![Wireframe](/src/assets/homepage.png)
+
+![Wireframe](/src/assets/feedpage.png)
+
+![Wireframe](/src/assets/fightpage.png)

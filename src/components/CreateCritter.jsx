@@ -122,16 +122,9 @@ class CreateCritter extends React.Component{
             const submitNewPet = await axios.post(
                 
                 `${BASE_CREATECRITTER_URL}/pets`, {
+
                 name:this.state.name,
-                // age:this.state.age,
-                // level:this.state.level,
-                // experience:this.state.experience,
                 species: critters[this.state.clickCount],
-                // last_fed:this.state.last_fed,
-                // last_fought:this.state.last_fought,
-                // last_slept:this.state.last_slept, 
-                // last_stretched:this.state.last_stretched,
-                // last_drank:this.state.last_drank
                 user_id: this.state.currentUser.id
 
             })
