@@ -25,7 +25,7 @@ class FightGame extends React.Component {
         frameInteger: '4',
         animation: 'idle',
         currentUserPet: '',
-        currentUserExp: 100,
+        currentUserExp: 30,
         opposingUserExp: 100,
         currentUserScore: 0,
         opposingUserScore: 0,
@@ -259,13 +259,6 @@ class FightGame extends React.Component {
                         />
 
                     </div>
-                  
-                    {/* <div className="critterButtonContainer">
-                                <FightControls 
-                                    updateAction={this.updateAction}
-                                    updateOpposingAction={this.updateOpposingAction}
-                                />
-                            </div> */}
 
                     <div id="opponentContainer">
                         <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} YOU LOSE</h4></div>
@@ -293,18 +286,16 @@ class FightGame extends React.Component {
                         <button className="start-btn" onClick={this.reset}>Reset</button>
                     </div>
                     <div id="gameContainer">
-                    <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} YOU LOSE</h4></div>
                     <div id="userContainer">
-                        
-                        <CritterType
+                        <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} YOU LOSE </h4></div>
+                        <CritterType id="game-critter"
                             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                             frame={this.state.koFrame}
                             action={this.state.koAnimation}
                         />
 
-                    </div>
 
-                   
+                        </div>
                     {/* <div className="critterButtonContainer">
                                 <FightControls 
                                     updateAction={this.updateAction}
