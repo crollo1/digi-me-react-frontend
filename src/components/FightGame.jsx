@@ -25,8 +25,8 @@ class FightGame extends React.Component {
         frameInteger: '4',
         animation: 'idle',
         currentUserPet: '',
-        currentUserExp: 30,
-        opposingUserExp: 30,
+        currentUserExp: 100,
+        opposingUserExp: 100,
         currentUserScore: 0,
         opposingUserScore: 0,
         level: 1,
@@ -35,7 +35,7 @@ class FightGame extends React.Component {
         koAnimation: 'ko',
         jumpFrame: '8',
         jumpAnimation: 'jump',
-
+        lostOpposingExp: 100,
 
         /* 
         ** AVAILABLE ANIMATIONS **
@@ -160,8 +160,8 @@ class FightGame extends React.Component {
         // const newUserScore = this.state.currentUserScore + 1;
         this.setState({
             level: newLevel,
-            currentUserExp: 30,
-            opposingUserExp: 30 + (this.state.level * 10),
+            currentUserExp: 100,
+            opposingUserExp: 100 + (this.state.level * 10),
             currentUserScore: this.state.currentUserScore + 1
 
         })
@@ -170,11 +170,14 @@ class FightGame extends React.Component {
     }
     gameLost = () => {
         console.log('gameLost click')
-        const lostOpposingExp = 30 + (this.state.level * 10);
+        if( this.state.level != 1){
+            this.state.lostOpposingExp = 100 + (this.state.level * 10);
+        } 
+
         // const newOpposingScore= this.state.opposingUserScore + 1;
         this.setState({
-            currentUserExp: 30,
-            opposingUserExp: 30 + (this.state.level * 10),
+            currentUserExp: 100,
+            opposingUserExp: this.state.lostOpposingExp,
             opposingUserScore: this.state.opposingUserScore + 1,
         })
         console.log('currentUE', this.state.currentUserExp, 'oppoUE', this.state.opposingUserExp, 'lost', this.state.level);
@@ -197,37 +200,45 @@ class FightGame extends React.Component {
                 return (
                     <div id="critterContainer">
                          <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
-                        <br /> <br />
+
+                       
+
+                        <div id="gameContainer">
+                            <div id="userContainer">
+                                <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} Score: {this.state.currentUserScore}</h4></div>
+
+                                <div id="user-xp"><h4>XP {this.state.currentUserExp}</h4></div>
+
+                                <CritterType id="game-image"
+                                    species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
+                                    frame={this.state.frameInteger}
+                                    action={this.state.animation}
+                                     />
+                            </div>
+
+                            <div id="opponentContainer">
+                                <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} Score: {this.state.opposingUserScore}</h4></div>
+                                <div id="user-xp"><h4>XP {this.state.opposingUserExp}</h4></div>
+
+                                    {/* Below returns a random string from the allocated names */}
+                                <div id="game-flip">
+                                    {this.state.opposingCritter && <CritterType
+                                        species={this.state.opposingCritter}
+                                        frame={this.state.opposingFrameInteger}
+                                        action={this.state.opposingAnimation}
+                                    />}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
 
                         <div id="game-buttons" className="critterButtonContainer">
                             <FightControls
                                 updateAction={this.updateAction}
                                 updateOpposingAction={this.updateOpposingAction}
                             />
-                        </div>
-
-                        <div id="userContainer">
-                            <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} Score: {this.state.currentUserScore}</h4></div>
-
-                            <CritterType id="game-image"
-                                species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
-                                frame={this.state.frameInteger}
-                                action={this.state.animation}
-                            />
-
-                        </div>
-
-
-                        <div id="opponentContainer">
-                             <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} Score: {this.state.opposingUserScore}</h4></div>
-                            {/* Below returns a random string from the allocated names */}
-                            <div id="game-flip">
-                            {this.state.opposingCritter && <CritterType
-                                species={this.state.opposingCritter}
-                                frame={this.state.opposingFrameInteger}
-                                action={this.state.opposingAnimation}
-                            />}
-                            </div>
                         </div>
 
 
@@ -240,14 +251,15 @@ class FightGame extends React.Component {
                 // console.log('check, current user win');
                 return (<div id="critterContainer">
                     <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
-                    <br /><br />
-                    <div id="game0-buttons" className="reset-game">
-                        <button className="game-lost-button" onClick={this.gameWon}>New Game</button>
-                        <button id="game-rest-button"  className="game-won" onClick={this.reset}>Reset</button>
-                    </div>
 
+                    <div id="game0-buttons" className="reset-game">
+                        <button className="start-btn" onClick={this.gameWon}>New Game</button>
+                        
+                        <button className="start-btn" onClick={this.reset}>Reset</button>
+                    </div>
+                    <div id="gameContainer">
                     <div id="userContainer">
-                        <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} Score: {this.state.currentUserScore}</h4></div>
+                        <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} WINS</h4></div>
                         <CritterType id="game-critter"
                             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                             frame={this.state.jumpFrame}
@@ -264,7 +276,7 @@ class FightGame extends React.Component {
                             </div> */}
 
                     <div id="opponentContainer">
-                        <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} Score: {this.state.opposingUserScore}</h4></div>
+                        <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} YOU LOSE</h4></div>
                         {/* Below returns a random string from the allocated names */}
                         <div id="game-flip">
                         {this.state.opposingCritter && <CritterType id="game-critter"
@@ -275,7 +287,7 @@ class FightGame extends React.Component {
                         </div>
                     </div>
 
-
+                    </div>
                 </div>
                 )
             } else if (this.state.currentUserExp <= 0) {
@@ -283,14 +295,15 @@ class FightGame extends React.Component {
                 // console.log('oppoent win:')
                 return (<div id="critterContainer">
                     <div className="level"> <h4>Level {this.state.level}</h4></div>
-                    <br /><br />
+
                     <div id="game0-buttons" className="reset-game">
-                        <button id="game-won-button" className="game-won" onClick={this.gameLost}>New Game</button>
-                        <button id="game-rest-button" className="game-won" onClick={this.reset}>Reset</button>
+                        <button  className="start-btn" onClick={this.gameLost}>New Game</button>
+                        <button className="start-btn" onClick={this.reset}>Reset</button>
                     </div>
-                    <br /><br />
+                    <div id="gameContainer">
+                    <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} YOU LOSE</h4></div>
                     <div id="userContainer">
-                        <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} Score: {this.state.currentUserScore}</h4></div>
+                        
                         <CritterType
                             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                             frame={this.state.koFrame}
@@ -308,7 +321,7 @@ class FightGame extends React.Component {
                             </div> */}
 
                     <div id="opponentContainer">
-                         <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} Score: {this.state.opposingUserScore}</h4></div>
+                         <div id="opp-game"><h4>{this.state.opposingCritter.toUpperCase()} WINS</h4></div>
                         {/* Below returns a random string from the allocated names */}
                         <div id="game-flip">
                         {this.state.opposingCritter && <CritterType
@@ -320,6 +333,7 @@ class FightGame extends React.Component {
                     </div>
 
 
+                 </div>
                 </div>
                 )
 

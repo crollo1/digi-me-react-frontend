@@ -1,7 +1,15 @@
 /* --------------- Basic Critter Page .css ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@font-face {
+  font-family: 'Press Start 2p';
+}
+
 #critterContainer{
 
-  display: flex;
+  /* display: flex; */
   
 
 }
@@ -161,9 +169,8 @@ header {
 body {
   background-image: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.1)), url("./assets/grass\ tile.png");
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   z-index: -10;
-  background-size: cover;
   height: 90vh;
   /* opacity: 0.7; */
 }
@@ -208,9 +215,29 @@ footer {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+#critterContainer{
+  background-image: url("/src/assets/battle-background.jpg");
+  background-position: center center;
+  background-size: 100% 100%;
+
+  /* background-color: white; */
+  padding: 40px;
+  margin: 60px;
+  border-radius: 20px;
+
+  /* background-size: cover; */
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* height: 1000px;
+  width: 1000px; */
+ 
+
+  object-fit: cover;
+}
 
 .App-link {
   color: #61dafb;
+
 }
 
 @keyframes App-logo-spin {
@@ -222,69 +249,113 @@ footer {
   }
 }
 /* Game CSS */
-#userContainer{
-
-  border-color: red;
+#gameContainer{
+  font-family: 'Press Start 2P', cursive;
+  font-size: px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* border-color: red; */
   border-radius: 20px;
-  background-color: rgb(0, 255, 76);
+  /* background-color: white; */
   padding: 40px;
-  margin: 5px;
-  
-
+  margin: 20px 50px;
+  margin-bottom: -30px;
 }
-#opponentContainer{
-  height: 300px;
-  width: 300px;
-  border-color: red;
-  border-width: 20px;
-  padding: 50px;
-  background-color: green;
-  padding: 40px;
-  margin: 5px;
 
-
+#userContainer, #opponentContainer{
+  margin: 0 auto;
 }
+
 #game-flip{
   transform: scaleX(-1);
 }
+
 #game-image{
   transform: scaleX(-1);
-
+  margin: 0 auto;
 }
 
-#opp-game{
-  color: red;
+
+#user-game, #opp-game{
   text-align: center;
+  color: rgb(3, 9, 11);
+  font-size: 15px;
 }
-#user-game{
-  text-align: center;
-  color: white;
 
-}
 #game-critter{
   background-color: aliceblue;
+ 
 }
-
 
 #level{
-  color: green;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50pt;
 }
+
+
+
 #game-buttons{
-  color: red;
-  background-color: red;
+  /* color: red; */
+  /* background-color: red; */
+  /* background-color: black; */
+  margin: 0 auto;
+  font-family: 'Press Start 2p';
+  margin-bottom: -15px;
+ 
 }
-#critterButtonContainer{
-  color: red;
+.video-game-button {
+  /* background-color: black;
+  font-family: 'Press Start 2p'; */
+  font-size: 30pt;
+  font-family: 'Press Start 2P', cursive;
+	text-shadow: 1px 1px rgb(239, 233, 233), -1px -1px rgb(38, 9, 9);
+
+	line-height: 1.5em;
+	text-align: center;
+	display: inline-block;
+	width: 1.5em;
+	-webkit-border-radius: .75em;
+	-moz-border-radius: .75em;
+	-o-border-radius: .75em;
+		border-radius: .75em;
+	background-color: red;
+	-webkit-box-shadow:  0 .2em maroon;
+	-moz-box-shadow:  0 .2em maroon;
+	-o-box-shadow:  0 .2em maroon;
+	box-shadow:  0 .2em maroon;
+	color: red;
+	margin: 5px;
+	background-color: red;
+	background-image: -o-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: -moz-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: -webkit-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#left-button{
-  color: red;
+.start-btn{
+  font-family: 'Press Start 2p';
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: rgb(241, 230, 230);
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: rgb(194, 187, 187);
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+    padding: 10px;
+
 }
-#up-button{
-  color: red;
-}
-#right-button{
-  color: red;
-}
-#down-button{
-  color: red;
+.video-game-button:active, .start-btn:active {
+  font-family: 'Press Start 2p';
+	box-shadow: none;
+	position: relative;
+	top: .2em;
 }

@@ -235,8 +235,7 @@ class FightControls extends React.Component {
 
             <div>
                 
-                <div id="game-buttons"
-                className="critterButtonContainer">
+                <div id="game-buttons">
                     {/* <button className="critterButton" 
                     onClick={this.critterJump}>
                         Jump
@@ -247,29 +246,23 @@ class FightControls extends React.Component {
                         K.O'd
                     </button> */}
 
-                    <button id="left-button" className="critterButton" 
+                    <button className="video-game-button" 
                     onClick={() => this.sendAction('runHug')}>
-                        Left
+                        L
                     </button>
 
-                    <button id="down-button" className="critterButton" 
+                    <button className="video-game-button" 
                     onClick={() => this.sendAction('throwStone')}>
-                        Down
+                        D
                     </button>
 
-                    <button id="right-button" className="critterButton" 
-                    onClick={() => this.sendAction('oneTwoCombo')}>
-                        Right
-                    </button>
+                    <button className="video-game-button" 
+                    onClick={() => this.sendAction('oneTwoCombo')}> R </button>  
+                        
 
-                    {/* <button className="critterButton" 
-                    onClick={this.critterHurt}>
-                        Hurt
-                    </button> */}
-
-                    <button id="up-button" className="critterButton" 
+                    <button className="video-game-button" 
                     onClick={() => this.sendAction('climbing')}>
-                        Up
+                        U
                     </button>
 
 

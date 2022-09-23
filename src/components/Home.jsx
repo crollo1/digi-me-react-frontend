@@ -293,13 +293,6 @@ class Home extends React.Component {
                     
                     {/* <Route exact path="/game" component={CritterComponents}/> */}
             {/* ------------------------------------------------------------ */}
-
-                <footer>
-                    
-                    <p className="footerText">&copy; Critters.Co.2022</p>
-
-                </footer> {/* CLOSES FOOTER */}
-
             </Router> {/* CLOSES ROUTER */}
 
             </div>  // CLOSES WRAPPER DIV 
