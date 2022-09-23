@@ -151,16 +151,27 @@ class FightGame extends React.Component {
     }
     gameLost = () => {
         console.log('gameLost click')
-        if( this.state.level != 1){
-            this.state.lostOpposingExp = 100 + (this.state.level * 10);
-        } 
+        if( this.state.level > 1){
+
+            this.setState({ 
+
+                lostOpposingExp: 100 + (this.state.level * 10), 
+                currentUserExp: 100,
+                opposingUserScore: this.state.opposingUserScore + 1,
+                
+            });
+            
+        } else {
+            
+            this.setState({
+                currentUserExp: 100,
+                opposingUserExp: 100, // this.state.lostOpposingExp,
+                opposingUserScore: this.state.opposingUserScore + 1,
+            })
+
+        }
 
         // const newOpposingScore= this.state.opposingUserScore + 1;
-        this.setState({
-            currentUserExp: 100,
-            opposingUserExp: this.state.lostOpposingExp,
-            opposingUserScore: this.state.opposingUserScore + 1,
-        })
         console.log('currentUE', this.state.currentUserExp, 'oppoUE', this.state.opposingUserExp, 'lost', this.state.level);
 
 

@@ -15,13 +15,13 @@ class Test extends React.Component{
         return(
             <div>
                 <h1 className="homepage">Welcome to Digi-Critter World!! </h1>
-                <img className="redblob" src={Pixel1} />
-                <img className="pikachu" src={Pixel2} />
-                <img className="dinosaur" src={Pixel3} />
-                <img className="pop" src={Pixel4} />
-                <img className="pinkpolice" src={Pixel5} />
-                <img className="pinkblob" src={Pixel6} />
-                <img className="mario" src={Pixel7} />
+                <img className="redblob" src={Pixel1} alt="redblob"/>
+                <img className="pikachu" src={Pixel2} alt="pikachu"/>
+                <img className="dinosaur" src={Pixel3} alt="dinosaur"/>
+                <img className="pop" src={Pixel4} alt="pop"/>
+                <img className="pinkpolice" src={Pixel5} alt="pinkpolice"/>
+                <img className="pinkblob" src={Pixel6} alt="pinkblob"/>
+                <img className="mario" src={Pixel7} alt="mario"/>
             </div>
         )
     }
