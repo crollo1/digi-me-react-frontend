@@ -45,7 +45,7 @@ Users:
 
 7. Care for your pet while it helps care for you
 
-8. Battle other pets!
+8. Battle other pets
 
 ## Tools and Gems Used
 
@@ -70,6 +70,8 @@ Users:
 ## To Do List
 
 • Add profile pictures to Users (default or selected)
+
+• Time sensitive reminders to feed your pet and yourself
 
 • Map intergration to allow other users to join in and battle
 
