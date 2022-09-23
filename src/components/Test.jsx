@@ -14,6 +14,7 @@ class Test extends React.Component{
 
         return(
             <div>
+                <h1 className="homepage">Welcome to Digi-Critter World!! </h1>
                 <img className="redblob" src={Pixel1} />
                 <img className="pikachu" src={Pixel2} />
                 <img className="dinosaur" src={Pixel3} />
