@@ -198,7 +198,7 @@ class FightGame extends React.Component {
                 // console.log('opp exp', this.state.opposingUserExp);
 
                 return (
-                    <div id="critterContainer">
+                    <div id="critterContainerTwo">
                          <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
 
                        
@@ -249,7 +249,7 @@ class FightGame extends React.Component {
                 // hit this like 5 times
                 console.log('opposingUserExp less than zero')
                 // console.log('check, current user win');
-                return (<div id="critterContainer">
+                return (<div id="critterContainerTwo">
                     <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
 
                     <div id="game0-buttons" className="reset-game">
@@ -293,7 +293,7 @@ class FightGame extends React.Component {
             } else if (this.state.currentUserExp <= 0) {
                 console.log('opposingUserExp less than zero')
                 // console.log('oppoent win:')
-                return (<div id="critterContainer">
+                return (<div id="critterContainerTwo">
                     <div className="level"> <h4>Level {this.state.level}</h4></div>
 
                     <div id="game0-buttons" className="reset-game">
@@ -360,7 +360,7 @@ class FightGame extends React.Component {
 
         // console.log(currentUserPet);
         return (
-
+            
             // <div>
             //     <button onClick={this.renderGameDisplay} >New Game </button>
             //     {/* <GameDisplay /> */}

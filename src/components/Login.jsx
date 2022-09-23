@@ -41,6 +41,7 @@ class Login extends React.Component{
         localStorage.setItem("jwt", result.data.jwt)
         // set axios default headers to have an authorization key
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+        
         // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
         this.props.setCurrentUser();
         // redirec the url of the page to /my_profile so we can load the MyProfile component
@@ -58,24 +59,24 @@ class Login extends React.Component{
     // render simple form to take in email and password
   render(){
     return(
-        <form onSubmit={this.handleSubmit}>
+        <form className="loginform" onSubmit={this.handleSubmit}>
         <label>Login Form</label>
         <br/>
-        <input
+        <input className="logininput"
           onChange={this.handleInput}
           name="email"
           type="email"
           placeholder='Enter Email'
         />
         <br/>
-        <input
+        <input className="logininput"
           onChange={this.handleInput}
           name="password"
           type="password"
           placeholder='Enter Password'
         />
         <br/>
-        <button>Login</button>
+        <button className="inputbutton">Login</button>
       </form>
 
     ); // return

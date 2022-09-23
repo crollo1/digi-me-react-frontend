@@ -63,7 +63,7 @@ class CreateCritter extends React.Component{
             this.setState ({species: "dude4"});
 
             console.log('dude4', this.state.species);
-        } else{
+        } else {
             this.setState ({species: "owlet4"});
             console.log('owlet4', this.state.species);
         }
@@ -71,8 +71,14 @@ class CreateCritter extends React.Component{
     };
 
     submitLeft = () =>{
-        if (this.state.clickCount > 0 ) {
-            this.setState({ clickCount: this.state.clickCount - 1})
+
+        console.log('left click');
+        if (this.state.clickCount <= 0){
+            return
+        } else {
+            const newClickCount = this.state.clickCount -1
+            this.setState({clickCount: newClickCount})
+            this.count();
         }
         // console.log('newCount', this.state.newClickCount)
 
@@ -81,8 +87,13 @@ class CreateCritter extends React.Component{
 
     submitRight = () =>{
 
-        if (this.state.clickCount <= critters.length -1 ) {
-            this.setState({ clickCount: this.state.clickCount + 1})
+        console.log('right click');
+        if (this.state.clickCount >= 2){
+            return
+        } else {
+            const newClickCount = this.state.clickCount +1
+            this.setState({clickCount: newClickCount})
+            this.count();
         }
         // console.log('newCount', this.state.newClickCount)
 
@@ -99,7 +110,9 @@ class CreateCritter extends React.Component{
     
     // submit new users specify selection
     submitNewCritter = async (ev) => {
-
+        
+            
+        
         console.log('new user species', this.state.species);
 
         ev.preventDefault();
@@ -135,9 +148,7 @@ class CreateCritter extends React.Component{
                 // this.props.setCurrentUser();
                 
                 console.log("history:",this.props.history)
-                this.props.history.push('/home');
-                window.location.reload(false)
-            
+                this.props.history.push('/game');
                 
             // })
 
@@ -162,7 +173,7 @@ class CreateCritter extends React.Component{
 
             <div className="Create">
                 
-                <h1>Create your own Critter</h1>
+                <h3 className="createCritter">Create your own Critter</h3>
 
                 <div className={`${critters[this.state.clickCount]}FramesViewbox pixelArt`} >
 
@@ -192,21 +203,20 @@ class CreateCritter extends React.Component{
                     ${this.state.species3}FramesSpriteSheet
                     pixelArt`}/>
                 </div> */}
-                <br /><br />
+                <div className="leftrightbutton">
                 <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
                 <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
-                <br /><br />
-                <br /><br />
-                <form onSubmit = {this.submitNewCritter}>
+                </div>
+                
+                <form className="selectcritter" onSubmit = {this.submitNewCritter}>
                
-                <input
+                <input className="logininput"
                 onChange={this.critterName}
                 name="name"
                 type="name"
                 placeholder='Enter Pet Name'
                 />
-                <br /><br />
-                <button onClick = {this.submitNewCritter}className="select">Select Critter</button>
+                <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
                 </form>
 
             </div>

@@ -129,11 +129,11 @@ class SignUp extends React.Component{
 
         return(
 
-          <form onSubmit={this.handleSubmit}>
+          <form className="signupform" onSubmit={this.handleSubmit}>
             <label>Sign-Up Form</label>
             <br/>
 
-            <input
+            <input className="logininput"
               onChange={this.handleInput}
               name="name"
               type="name"
@@ -141,7 +141,7 @@ class SignUp extends React.Component{
             />
             <br/>
 
-            <input
+            <input className="logininput"
               onChange={this.handleInput}
               name="display_name"
               type="display_name"
@@ -149,7 +149,7 @@ class SignUp extends React.Component{
             />
             <br/>
 
-            <input
+            <input className="logininput"
               onChange={this.handleInput}
               name="email"
               type="email"
@@ -157,7 +157,7 @@ class SignUp extends React.Component{
             />
             <br/>
 
-            <input
+            <input className="logininput"
               onChange={this.handleInput}
               name="password"
               type="password"
@@ -165,7 +165,7 @@ class SignUp extends React.Component{
             />
             <br/>
 
-            <button>Sign Up</button>
+            <button className="inputbutton">Sign Up</button>
 
           </form>
 

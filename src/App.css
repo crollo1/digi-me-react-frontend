@@ -6,12 +6,43 @@
 @font-face {
   font-family: 'Press Start 2p';
 }
+@import url('http://fonts.cdnfonts.com/css/common-pixel');
+
+@import url('http://fonts.cdnfonts.com/css/spooky-pixels?styles=135469');
+
+@import url('http://fonts.cdnfonts.com/css/bm-neco');
+
+@import url('http://fonts.cdnfonts.com/css/serious-rounded'); /* seriousr2b/2 seriousr4b/4 */
+
+.Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
+  font-family: seriousr2, sans-serif;
+  font-style: normal;
+}
+.createCritter, .logininput, .inputbutton, .left, .right{
+  color: rgb(85, 84, 84);
+}
+
+.createCritter{
+  text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+
+}
+
+.leftrightbutton{
+  text-align: center;
+ 
+}
+
+.selectcritter{
+  margin-top: 0;
+}
 
 #critterContainer{
 
-  /* display: flex; */
-  
-
+  display: flex;
+  width: 80vw;
+  height: 30vh;
+  justify-self: center;
+  align-self: center;
 }
 .critterButtonContainer{
 
@@ -25,12 +56,8 @@
   
 
 }
-.critterButton {
-  max-width: 20vw;
-  margin: 10px;
-  border-radius: 20px;
-  text-align: center;
-}
+
+
 h4 {
   max-height: 20vh;
 
@@ -40,6 +67,7 @@ h4 {
   display: flex;
   position: relative;
   text-align: center;
+  
 
 
 }
@@ -51,16 +79,111 @@ h4 {
 
 
 }
-.level{
-  color: red;
+/* -------------------------------------------------------- */
+/* ----------------------Feed&Drink------------------------ */
+/* -------------------------------------------------------- */
+#critterContainerAlt{
+
+  position: relative;;
+  display: flex;
+  width: 80vw;
+  height: 30vh;
+  align-self: center;
+  bottom: -25vh;
+  padding: 0px;
+  margin: 0px;
+  
+}
+.critterMessage{
+  
+  font-size: 12pt;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background-image: url("./assets/413-4138875_large-text-box-speech-bubbles-bubble-text-png.png");
+  background-size: 100% 20vh;
+
+}
+.messageText{
+  text-align: center;
+  object-fit: contain;
+  margin: 0px;
+  padding: 1px 3vw 0 3vw;
+}
+.fed{
+  display: flex;
+  flex-direction: column;
+
+}
+.goFromLeft{
+  animation: movingFromLeft 10s;
+}
+.goFromRight{
+  animation: movingFromRight 10s; 
+}
+.littleCritterLeft{
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
+  transform: scaleX(1);
+  
+}
+.littleCritterRight{
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
+  transform: scaleX(-1);
+
+}
+.paused{
+  animation-play-state: paused;
+} 
+.running{
+  animation-play-state: running;
+}
+@keyframes movingFromLeft {
+  0%{
+    left: 10vw;
+  } 100% {
+    left: 80.1vw
+  }
+}
+@keyframes movingFromRight{
+  0%{
+    left: 70vw
+  } 100% {
+    left: -10vw
+  }
+}
+.biggerCritterLeft{
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
+  transform: scaleX(1);
+
+}
+.biggerCritterRight{
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
+  transform: scaleX(-1);
 }
 
+@keyframes movingFromLeft {
+  from{
+    transform: translate(0vw)
+  } to {
+    transform: translate(80vw);
+  }
+}
 
 /* -------------------------------------------------------- */
 /* -------------------- Pixel Art Css --------------------- */
 /* -------------------------------------------------------- */
 .pixelArt{
   image-rendering: pixelated;
+  margin: 0 auto;
 }
 /*  This section creates a new .css variable in order to adjust the size of individual pixels so as to make the pixel art scaleable */
 :root{
@@ -96,10 +219,31 @@ h4 {
 
 Form {
   max-width: 30vw;
-  margin-left: 30px;
+  margin: 30px;
   padding: 20px;
   display: inline-block;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+.loginform {
+  max-width: 30vw;
+  margin: 30px;
+  padding: 20px;
+  display: inline-block;
+
+}
+.logininput{
+  background-color: #9e856c;
+  border-radius: 10px;
+  margin: 10px;
+  border: none;
+  padding: 5px;
+  color:#fff;
+}
+.form-control{
+  background-color: #9e856c;
+}
+.inputbutton{
+  border-radius: 10px;
 }
 
 .fndButton1 {
@@ -125,6 +269,43 @@ Form {
   
 }
 
+.critterButton1 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+   /* background-image: url("./assets/left-arrow.png");
+  background-repeat: no-repeat;  */
+}
+.critterButton2 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/down-arrow.png");
+  background-repeat: no-repeat; */
+}
+.critterButton3 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/right-arrow.png");
+  background-repeat: no-repeat; */
+}
+.critterButton4 {
+  max-width: 10vw;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  /* background-image: url("./assets/up-arrow.png");
+  background-repeat: no-repeat; */
+}
+
 h1 {
 
   font-size: 60px;
@@ -144,6 +325,7 @@ h2 {
   padding: 10px;
   background-color: #445169;
   border: 2px solid antiquewhite;
+  
 }
 
 .all:hover {
@@ -161,9 +343,123 @@ a:visited {
 }
 
 header {
-  background-image: url("./assets/sky\ header2.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  background-image: url("./assets/skyheader3.jpg");
+  /* height: 100vh;  */
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-position: 0 0; */
+  /* background-repeat: repeat-x; */
+  /* animation: redblob 15s linear infinite;  */
+  /* z-index: -10; */
+}
+
+.pikachu{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pikachu 15s linear infinite;
+}
+@keyframes pikachu
+{
+  from {bottom: 0px;}
+  to {bottom: 430px;}
+}
+
+.dinosaur{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: dinosaur 15s linear infinite;
+}
+@keyframes dinosaur
+{
+  from {left: 50px;}
+  to {left: 600px;}
+  from {top: 150px;}
+  to {top: 700px;}
+
+}
+
+.mario{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: mario 15s linear infinite;
+}
+@keyframes mario
+{
+  from {bottom: 0px;}
+  to {bottom: 400px;}
+  from {left: 100px;}
+  to {left: -120px;}
+}
+
+.pinkpolice{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pinkpolice 15s linear infinite;
+}
+@keyframes pinkpolice
+{
+  from {right: 50px;}
+  to {right: 700px;}
+  from {top: 250px;}
+  to {top: 700px;}
+
+}
+
+.pop{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pop 10s linear infinite;
+}
+@keyframes pop
+{
+  from {bottom: 0px;}
+  to {bottom: 300px;}
+  from {right: 100px;}
+  to {right: -20px;}
+}
+
+.redblob{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: redblob 15s linear infinite;
+}
+@keyframes redblob
+{
+  from {right: 0px;}
+  to {right: 1200px;}
+}
+
+.pinkblob{
+  position: fixed;
+  border-radius: 10px;
+  height: 25px;
+  /* background-position: 0 0; */
+  background-repeat: repeat-x;
+  animation: pinkblob 15s linear infinite;
+}
+@keyframes pinkblob
+{
+  from {left: 0px;}
+  to {left: 1200px;}
 }
 
 body {
@@ -172,8 +468,11 @@ body {
   /* background-repeat: no-repeat; */
   z-index: -10;
   height: 90vh;
-  /* opacity: 0.7; */
+  
 }
+  
+
+
 
 footer {
   /* margin-top: 550px; */
@@ -181,17 +480,17 @@ footer {
   max-height: 40px;
   color: white;
   position: absolute;
-  bottom: 5vh;
+  bottom: 0vh;
   width: 100vw;
   text-align: center;
 }
+
 
 .App {
   text-align: center;
   height: 70vh;
   width: 100vw;
 }
-
 
 
 .App-logo {
@@ -215,7 +514,7 @@ footer {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-#critterContainer{
+#critterContainerTwo{
   background-image: url("/src/assets/battle-background.jpg");
   background-position: center center;
   background-size: 100% 100%;
