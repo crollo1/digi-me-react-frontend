@@ -41,6 +41,7 @@ class Login extends React.Component{
         localStorage.setItem("jwt", result.data.jwt)
         // set axios default headers to have an authorization key
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+        
         // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
         this.props.setCurrentUser();
         // redirec the url of the page to /my_profile so we can load the MyProfile component
