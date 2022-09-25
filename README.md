@@ -2,7 +2,8 @@
 
 <p>Digi-Critter is an interactive companion browser extension that helps you to look after yourself while looking after your created pet!</p>
 
-<em> Click the link to check out the site</em> --> https://digi-critter.netlify.app
+<em> Click the link to check out the site</em> --> https://digi-critter.netlify.app 
+<strong>or</strong> click here to see the Rails (backend) repo --> https://github.com/mdak2806/digi-me-rails-server
 
 We created this project for our 3rd project for General Assembly Software Engineering Immersive course. We were tasked to build/create an app of our choosing using any of our previously learned skills and languages.
 
