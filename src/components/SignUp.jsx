@@ -2,7 +2,15 @@ import React from 'react'
 import axios from 'axios'
 
 
-const BASE_SIGNUP_URL = 'http://localhost:3000'
+// const BASE_SIGNUP_URL = 'http://localhost:3000'
+
+let BASE_SIGNUP_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_SIGNUP_URL = 'http://localhost:3000';
+} else {
+    BASE_SIGNUP_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
+
 
 class SignUp extends React.Component{
 

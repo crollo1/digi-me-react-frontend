@@ -5,9 +5,16 @@ import dude4 from "../assets/dudeMonster/fourFrames_dude.png";
 import pink4 from "../assets/pinkMonster/fourFrames_pink.png";
 import owlet4 from "../assets/owletMonster/fourFrames_owlet.png";
 
-const BASE_CREATECRITTER_URL = 'http://localhost:3000'
+// const BASE_CREATECRITTER_URL = 'http://localhost:3000'
 // species2: 'dude4',
 // species3: 'owlet4',
+
+let BASE_CREATECRITTER_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_CREATECRITTER_URL = 'http://localhost:3000';
+} else {
+    BASE_CREATECRITTER_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 const critters = ['dude4', 'pink4', 'owlet4']
 

@@ -9,7 +9,14 @@ import axios from 'axios';
 // import fruits from '../assets/FoodPack/fruits.png'
 // import drinks from '../assets/FoodPack/drinks.png'
 // import sweets from '../assets/FoodPack/sweets.png'
-const BASE_BACKEND_URL = 'http://localhost:3000';
+// const BASE_BACKEND_URL = 'http://localhost:3000';
+
+let BASE_BACKEND_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
     // TODO have randInt drop random food/drink/sweet to Critter
     // randInt = () => {
@@ -222,7 +229,7 @@ class FeedAndDrink extends React.Component {
 
         try {
         
-            const res = await axios.post(`http://localhost:3000/pets/${this.props.currentUser.pet.id}/action/sweets`)
+            const res = await axios.post(`${BASE_BACKEND_URL}/pets/${this.props.currentUser.pet.id}/action/sweets`)
             console.log(
 
                 `${this.props.messageTitle}`, 

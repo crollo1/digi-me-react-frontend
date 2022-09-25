@@ -13,9 +13,16 @@ import FeedAndDrink from './FeedAndDrink'
 import FightGame from './FightGame';
 
 // backend url
-const BASE_BACKEND_URL = 'http://localhost:3000';
+// const BASE_BACKEND_URL = 'http://localhost:3000';
 // This function combines CritterType & Controls for use
 //      in a seperate route link
+
+let BASE_BACKEND_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 
 class Home extends React.Component {
@@ -340,7 +347,7 @@ class Home extends React.Component {
                     <Route exact path='/' component={Test}/>
 
             {/* ------------------------------------------------------------ */}
-            
+
             </Router> {/* CLOSES ROUTER */}
          
             </div>  // CLOSES WRAPPER DIV 

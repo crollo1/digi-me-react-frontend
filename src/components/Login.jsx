@@ -1,7 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
-const BASE_BACKEND_URL = 'http://localhost:3000'
+// const BASE_BACKEND_URL = 'http://localhost:3000'
+
+let BASE_BACKEND_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 class Login extends React.Component{
 

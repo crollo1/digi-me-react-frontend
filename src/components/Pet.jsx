@@ -2,7 +2,14 @@
 import React from "react";
 import axios from "axios";
 
-const RAILS_USER_BASE_URL = 'http://localhost:3000/pets';
+// const RAILS_USER_BASE_URL = 'http://localhost:3000/pets';
+
+let RAILS_USER_BASE_URL;
+if( process.env.NODE_ENV === 'development'){
+    RAILS_USER_BASE_URL = 'http://localhost:3000/pets';
+} else {
+    RAILS_USER_BASE_URL = 'http://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 class Pet extends React.Component{
 
