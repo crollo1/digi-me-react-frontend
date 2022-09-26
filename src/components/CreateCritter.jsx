@@ -13,7 +13,7 @@ let BASE_CREATECRITTER_URL;
 if( process.env.NODE_ENV === 'development'){
     BASE_CREATECRITTER_URL = 'http://localhost:3000';
 } else {
-    BASE_CREATECRITTER_URL = 'http://digi-critter.herokuapp.com';
+    BASE_CREATECRITTER_URL = 'https://digi-critter.herokuapp.com';
 } // end rails deployment if-else
 
 const critters = ['dude4', 'pink4', 'owlet4']

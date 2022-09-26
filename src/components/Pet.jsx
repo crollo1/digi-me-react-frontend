@@ -8,7 +8,7 @@ let RAILS_USER_BASE_URL;
 if( process.env.NODE_ENV === 'development'){
     RAILS_USER_BASE_URL = 'http://localhost:3000/pets';
 } else {
-    RAILS_USER_BASE_URL = 'http://digi-critter.herokuapp.com';
+    RAILS_USER_BASE_URL = 'https://digi-critter.herokuapp.com';
 } // end rails deployment if-else
 
 class Pet extends React.Component{

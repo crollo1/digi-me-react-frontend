@@ -8,7 +8,7 @@ let BASE_SIGNUP_URL;
 if( process.env.NODE_ENV === 'development'){
     BASE_SIGNUP_URL = 'http://localhost:3000';
 } else {
-    BASE_SIGNUP_URL = 'http://digi-critter.herokuapp.com';
+    BASE_SIGNUP_URL = 'https://digi-critter.herokuapp.com';
 } // end rails deployment if-else
 
 
