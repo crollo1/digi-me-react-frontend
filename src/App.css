@@ -151,22 +151,22 @@ h4 {
 
 }
 .goFromLeft{
-  animation: movingFromLeft 10s;
+  animation: movingFromLeft 15s;
 }
 .goFromRight{
-  animation: movingFromRight 10s; 
+  animation: movingFromRight 15s; 
 }
 .littleCritterLeft{
-  --pixel-size-four: 1.5;
-  --pixel-size-six: 2.25;
-  --pixel-size-eight: 3; 
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
   transform: scaleX(1);
   
 }
 .littleCritterRight{
-  --pixel-size-four: 1.5;
-  --pixel-size-six: 2.25;
-  --pixel-size-eight: 3; 
+  --pixel-size-four: 12;
+  --pixel-size-six: 18;
+  --pixel-size-eight: 24;
   transform: scaleX(-1);
 
 }
@@ -176,13 +176,13 @@ h4 {
 .running{
   animation-play-state: running;
 }
-@keyframes movingFromLeft {
+/* @keyframes movingFromLeft {
   0%{
     left: 10vw;
   } 100% {
     left: 80.1vw
   }
-}
+} */
 @keyframes movingFromRight{
   0%{
     left: 70vw
