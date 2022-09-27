@@ -1,6 +1,13 @@
 import axios from 'axios';
 import React from 'react';
-const RAILS_USER_BASE_URL = 'http://localhost:3000/users';
+// const RAILS_USER_BASE_URL = 'http://localhost:3000/users';
+
+let RAILS_USER_BASE_URL;
+if( process.env.NODE_ENV === 'development'){
+    RAILS_USER_BASE_URL = 'http://localhost:3000/users';
+} else {
+    RAILS_USER_BASE_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 
 

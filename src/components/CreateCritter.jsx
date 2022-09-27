@@ -5,9 +5,16 @@ import dude4 from "../assets/dudeMonster/fourFrames_dude.png";
 import pink4 from "../assets/pinkMonster/fourFrames_pink.png";
 import owlet4 from "../assets/owletMonster/fourFrames_owlet.png";
 
-const BASE_CREATECRITTER_URL = 'http://localhost:3000'
+// const BASE_CREATECRITTER_URL = 'http://localhost:3000'
 // species2: 'dude4',
 // species3: 'owlet4',
+
+let BASE_CREATECRITTER_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_CREATECRITTER_URL = 'http://localhost:3000';
+} else {
+    BASE_CREATECRITTER_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 const critters = ['dude4', 'pink4', 'owlet4']
 
@@ -38,6 +45,7 @@ class CreateCritter extends React.Component{
     }
     
     componentDidMount(){
+        
         this.setState({
             currentUser: this.props.currentUser
         })
@@ -73,30 +81,36 @@ class CreateCritter extends React.Component{
     submitLeft = () =>{
 
         console.log('left click');
+
         if (this.state.clickCount <= 0){
+
             return
+
         } else {
+
             const newClickCount = this.state.clickCount -1
             this.setState({clickCount: newClickCount})
             this.count();
+
         }
-        // console.log('newCount', this.state.newClickCount)
-
-
+        
     };
 
     submitRight = () =>{
 
         console.log('right click');
+
         if (this.state.clickCount >= 2){
+
             return
+
         } else {
+
             const newClickCount = this.state.clickCount +1
             this.setState({clickCount: newClickCount})
             this.count();
+        
         }
-        // console.log('newCount', this.state.newClickCount)
-
 
     };
 
@@ -110,8 +124,7 @@ class CreateCritter extends React.Component{
     
     // submit new users specify selection
     submitNewCritter = async (ev) => {
-        
-            
+                  
         
         console.log('new user species', this.state.species);
 
@@ -120,54 +133,47 @@ class CreateCritter extends React.Component{
         try{
 
             const submitNewPet = await axios.post(
+
+                
                 
                 `${BASE_CREATECRITTER_URL}/pets`, {
+
                 name:this.state.name,
-                // age:this.state.age,
-                // level:this.state.level,
-                // experience:this.state.experience,
                 species: critters[this.state.clickCount],
-                // last_fed:this.state.last_fed,
-                // last_fought:this.state.last_fought,
-                // last_slept:this.state.last_slept, 
-                // last_stretched:this.state.last_stretched,
-                // last_drank:this.state.last_drank
-                user_id: this.state.currentUser.id
-
+                user_id: this.state.currentUser.id,
+                
             })
+            .then( res => {
+
+                this.props.history.push('/')
+
+            });
             console.log(submitNewPet)
-            // .then(result => {
-                // localStorage.setItem("jwt", result.data.token.token)
-
-                // console.log("jwt", result.data.token.token);
-                // // set axios default headers to have an authorization key
-                // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token.token;
-                // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
-                // this.props.setCurrentUser();
-                // redirec the url of the page to /my_profile so we can load the MyProfile component
-                // this.props.setCurrentUser();
-                
-                console.log("history:",this.props.history)
-                this.props.history.push('/');
-                
-            // })
-            // console.log("history:",this.props.history);
-            //     console.log('this hits to redirect');
-            //     this.props.history.push('/');
-            //     window.location.reload(false);
-
+            
+            // console.log("jwt", result.data.token.token);
+            // // set axios default headers to have an authorization key
+            // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token.token;
+            // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
+            // this.props.setCurrentUser();
+            // redirec the url of the page to /my_profile so we can load the MyProfile component
+            // this.props.setCurrentUser();
+            
+            console.log("history:",this.props.history)
             console.log(submitNewPet);
+
+
         } catch(err){
+
             // TODO: add error validation if a missing field
             this.setState({
+
                 loading: false, 
                 error: err
+
             })
 
         }
 
-
-       
 
     }
 
@@ -189,46 +195,29 @@ class CreateCritter extends React.Component{
                             pixelArt`
 
                         }/>
-                </div>
-                <br />
 
-                {/* <div className="dude4FramesViewbox pixelArt" >
-                    <img src={dude4frames} alt="character" 
-                    className={`
-                    idle
-                    ${this.state.species2}FramesSpriteSheet
-                    pixelArt`}/>
                 </div>
-                <br />
-                <div className="owlet4FramesViewbox pixelArt" >
-                    <img src={owlet4frames} alt="character" 
-                    className={`
-                    idle
-                    ${this.state.species3}FramesSpriteSheet
-                    pixelArt`}/>
-                </div> */}
+                
                 <div className="leftrightbutton">
-                <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
-                <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
+
+                    <button onClick={this.submitLeft} className="left" disabled={this.state.clickCount === 0}>Left</button>
+                    <button onClick={this.submitRight} className="right" disabled={this.state.clickCount === critters.length - 1}>Right</button>
+
                 </div>
                 
                 <form className="selectcritter" onSubmit = {this.submitNewCritter}>
-               
-                <input className="logininput"
-                onChange={this.critterName}
-                name="name"
-                type="name"
-                placeholder='Enter Pet Name'
-                />
-                <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
+
+                    <input className="logininput"
+                        onChange={this.critterName}
+                        name="name"
+                        type="name"
+                        placeholder='Enter Pet Name'
+                    />
+                    
+                    <button className="inputbutton" onClick = {this.submitNewCritter}>Select Critter</button>
                 </form>
 
             </div>
-
-                // 'idle',
-                // '4',
-                // 'idle',
-                // 800
 
         ) // return
 

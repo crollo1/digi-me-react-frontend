@@ -2,7 +2,15 @@ import React from 'react'
 import axios from 'axios'
 
 
-const BASE_SIGNUP_URL = 'http://localhost:3000'
+// const BASE_SIGNUP_URL = 'http://localhost:3000'
+
+let BASE_SIGNUP_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_SIGNUP_URL = 'http://localhost:3000';
+} else {
+    BASE_SIGNUP_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
+
 
 class SignUp extends React.Component{
 
@@ -90,15 +98,6 @@ class SignUp extends React.Component{
             })
 
             console.log(submitDeatils);
-            // // localStorage.setItem("jwt", result.data.jwt)
-            // // // set axios default headers to have an authorization key
-            // // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
-            // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
-            // // this.props.setCurrentUser();
-            // this.setState.CurrentUser();
-            // // redirec the url of the page to /my_profile so we can load the MyProfile component
-            // this.props.history.push('/my_profile');
-            // console.log('this.push', this.props.history.push)
         }
         catch(err){
 
@@ -111,17 +110,6 @@ class SignUp extends React.Component{
 
         }
 
-
-        // // do a axios post request to send signup/new user details to rails
-        // axios.post(`${BASE_SIGNUP_URL}/user/signup`, {auth: request})
-        // .then(result =>{
-        //     this.props.setCurrentUser();
-        //     this.props.history.push('/my_profile');
-        // })
-        // .catch(err => {
-        //     console.log('sign-up failed');
-        //     console.warn(err);
-        // })
 
     }; // handleSubmit
 

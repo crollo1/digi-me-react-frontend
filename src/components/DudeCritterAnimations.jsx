@@ -17,29 +17,35 @@ class DudeCritterAnimations extends React.Component {
             <div>
                 
                 <div className="dudeFourFramesViewbox pixelArt" >
+
                     <img src={dude4frames} alt="character" 
                     className="
                     idle
                     dudeFourFramesSpriteSheet
                     pixelArt"/>
+
                 </div>
 
                 <div className="dudeSixFramesViewbox pixelArt">
+
                     <img src={dude6frames} alt="character"
                     className="
                     sprint
                     dudeSixFramesSpriteSheet 
                     pixelArt
                     "/>
+
                 </div>
 
                 <div className="dudeEightFramesViewbox pixelArt">
+
                     <img src={dude8frames} alt="character" 
                     className="
                     jump
                     dudeEigthFramesSpriteSheet
                     pixelArt
                     "/>
+                    
                 </div>
             </div>
         );  // return()

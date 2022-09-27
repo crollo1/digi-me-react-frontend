@@ -64,9 +64,6 @@ class GameControls extends React.Component {
     } // critterKO
 
 
-
-
-
     critterWalk = () => {
 
         this.props.updateAction(
@@ -102,7 +99,6 @@ class GameControls extends React.Component {
     } // critterStand
 
 
-
     // Set - orginal state
     critterStand = () => {
 
@@ -121,9 +117,6 @@ class GameControls extends React.Component {
     } // critterStand - 'idle'
 
 
-
-
-
     /* -------------------------------------- */
     render (){
 
@@ -133,6 +126,7 @@ class GameControls extends React.Component {
             <div>
                 
                 <div className="critterButtonContainer">
+
                     <button className="critterButton" 
                     onClick={this.critterJump}>
                         Up
@@ -152,7 +146,6 @@ class GameControls extends React.Component {
                     onClick={this.critterWalk}>
                         Left
                     </button>                 
-
 
                 </div>
 

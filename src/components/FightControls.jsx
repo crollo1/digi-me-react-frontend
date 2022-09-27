@@ -1,7 +1,10 @@
+
 import React from 'react';
 import '../App.css'
 
+
 const availableActions = {
+
     runHug: {
         frame: '6',
         type: 'runHug',
@@ -64,45 +67,53 @@ class FightControls extends React.Component {
   
     // generate random action
     getRandomAction = () => {
+
         const actionKeys = Object.keys(availableActions);
         const selectedIndex = Math.floor(Math.random() * actionKeys.length);
 
         return availableActions[actionKeys[selectedIndex]];
+
     }
+
 
     // Select key for movement 
     sendAction = (key) => {
 
-        this.props.updateAction(      
+        this.props.updateAction(   
+
             availableActions[key].frame,
             availableActions[key].type,
             availableActions[key].wait,
-            availableActions[key].afterFrame,
+            availableActions[key].afterFrame, 
             'idle', 
             availableActions[key].damage,
+
         )
 
         const opposingAction = this.getRandomAction();
 
         setTimeout(() => this.props.updateOpposingAction(
+
             opposingAction.frame,
             opposingAction.type,
             opposingAction.wait,
-            opposingAction.afterFrame,
+            opposingAction.afterFrame, 
             'idle',
             opposingAction.damage,
         ),  availableActions[key].wait + 1000)
 
+
     }
 
-    critterRunHug= () => {
+
+    critterRunHug = () => {
 
         this.props.updateAction( 
             
             availableActions.runHug.frame,
             availableActions.runHug.type,
             availableActions.runHug.wait,
-            availableActions.runHug.afterFrame,
+            availableActions.runHug.afterFrame, 
             'idle' 
              
         )
@@ -113,6 +124,7 @@ class FightControls extends React.Component {
         
     } // runHug
     
+
     critterClimbing = () => {
 
         this.props.updateAction( 
@@ -131,6 +143,7 @@ class FightControls extends React.Component {
         
     } // critterClimbing
 
+
     critterThrowStone = () => {
 
         this.props.updateAction( 
@@ -148,6 +161,8 @@ class FightControls extends React.Component {
         console.log(`Critter jumped`);
         
     } // critterClimbing
+
+
     critterOneTwoCombo  = () => {
 
         this.props.updateAction( 
@@ -186,6 +201,7 @@ class FightControls extends React.Component {
         
     } // critterKO
 
+
     // This should render when someone is hurt
     critterHurt = () => {
 
@@ -203,33 +219,45 @@ class FightControls extends React.Component {
 
     } // critterHurt
 
+
     resetGame = () => {
+        
             // const newOpposingUserScore = this.state.opposingUserScore;
             // const newCurrentUserScore = this.state.currentUserScore;
             // const newOpposingUserExp = this.state.opposingUserExp;
             // const newCurrentUserExp = this.state.currentUserExp;
+
             if (this.props.state.opposingUserExp === 0){
+
                 const newCurrentUserScore = this.props.state.currentUserScore + 1;
                 const newOpposingUserExp = 5;
+
                 this.peops.setState({
+
                     currentUserScore: newCurrentUserScore,
                     opposingUserExp: newOpposingUserExp,
                     currentUserExp: 3
+
                 })
-            } else{
+
+            } else { 
+
                 const newOpposingUserScore = this.state.opposingUserScore +1;
+
                 this.props.setState({
+
                     opposingUserScore: newOpposingUserScore,
                     currentUserExp: 3,
                     opposingUserExp: 3 
+
                 })
+
             }
         
         }
 
     /* -------------------------------------- */
     render (){
-
 
         return(
 

@@ -6,42 +6,47 @@
 @font-face {
   font-family: 'Press Start 2p';
 }
-@import url('http://fonts.cdnfonts.com/css/common-pixel');
 
-@import url('http://fonts.cdnfonts.com/css/spooky-pixels?styles=135469');
+@import url('https://fonts.cdnfonts.com/css/common-pixel');
 
-@import url('http://fonts.cdnfonts.com/css/bm-neco');
+@import url('https://fonts.cdnfonts.com/css/spooky-pixels?styles=135469');
 
-@import url('http://fonts.cdnfonts.com/css/serious-rounded'); /* seriousr2b/2 seriousr4b/4 */
+@import url('https://fonts.cdnfonts.com/css/bm-neco');
+
+/* @import url('https://fonts.cdnfonts.com/css/serious-r2b/2');  */
+/* seriousr2b/2 seriousr4b/4 */
 
 .Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
-  font-family: seriousr2, sans-serif;
+  font-family: 'seriousr2', sans-serif;
   font-style: normal;
 }
-.title{
+
+.title {
+  font-family: 'Press Start 2p', sans-serif;
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 }
-.createCritter, .logininput, .inputbutton, .left, .right{
+
+.createCritter, .logininput, .inputbutton, .left, .right {
   color: rgb(85, 84, 84);
 }
 
-.createCritter{
+.createCritter {
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 
 }
 
-.leftrightbutton{
+.leftrightbutton {
   text-align: center;
  
 }
 
 .critterheading {
-  font-family: 'seriousr2', sans-serif;
+  font-family: 'Press Start 2p', sans-serif;
   font-size: 40px;
 }
 
 .homepage {
-  font-family: 'seriousr2', sans-serif;
+  font-family: 'Press Start 2p', sans-serif;
   font-size: 65px;
   text-align: center;
   z-index: 200;
@@ -49,11 +54,11 @@
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 }
 
-.selectcritter{
+.selectcritter {
   margin-top: 0;
 }
 
-#critterContainer{
+#critterContainer {
 
   display: flex;
   width: 80vw;
@@ -61,7 +66,8 @@
   justify-self: center;
   align-self: center;
 }
-.critterButtonContainer{
+
+.critterButtonContainer {
 
   display: flex;
   flex-direction: column;
@@ -74,12 +80,12 @@
 
 }
 
-
 h4 {
   max-height: 20vh;
 
 }
-#viewContainer{
+
+#viewContainer {
 
   display: flex;
   position: relative;
@@ -88,18 +94,19 @@ h4 {
 
 
 }
-.careControls{
+
+.careControls {
   border-radius: 25%;
   color: green;
   display: flex;
-  
-
 
 }
+
 /* -------------------------------------------------------- */
 /* ----------------------Feed&Drink------------------------ */
 /* -------------------------------------------------------- */
-#critterContainerAlt{
+
+#critterContainerAlt {
 
   position: relative;;
   display: flex;
@@ -111,7 +118,8 @@ h4 {
   margin: 0px;
   
 }
-.critterMessage{
+
+.critterMessage {
   font-family: 'Press Start 2p';
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
   font-size: 12pt;
@@ -123,7 +131,8 @@ h4 {
   background-size: 100% 20vh;
 
 }
-.messageText{
+
+.messageText {
   font-family: 'Press Start 2p';
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ; 
   text-align: center;
@@ -131,12 +140,14 @@ h4 {
   margin: 0px;
   padding: 1px 3vw 0 3vw;
 }
-.fed{
+
+.fed {
   display: flex;
   flex-direction: column;
   font-family: 'Press Start 2p';
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 }
+
 .all {
   width: 50px;
   height: 50px;
@@ -150,54 +161,73 @@ h4 {
   
 
 }
-.goFromLeft{
-  animation: movingFromLeft 15s;
+
+.goFromLeft {
+  animation: movingFromLeft 10s;
 }
-.goFromRight{
-  animation: movingFromRight 15s; 
+
+.goFromRight {
+  animation: movingFromRight 10s; 
 }
-.littleCritterLeft{
-  --pixel-size-four: 12;
-  --pixel-size-six: 18;
-  --pixel-size-eight: 24;
+
+.littleCritterLeft {
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
   transform: scaleX(1);
   
 }
-.littleCritterRight{
-  --pixel-size-four: 12;
-  --pixel-size-six: 18;
-  --pixel-size-eight: 24;
+
+.littleCritterRight {
+  --pixel-size-four: 1.5;
+  --pixel-size-six: 2.25;
+  --pixel-size-eight: 3; 
   transform: scaleX(-1);
 
 }
-.paused{
+
+.paused {
   animation-play-state: paused;
 } 
-.running{
+
+.running  {
   animation-play-state: running;
 }
+<<<<<<< HEAD
 /* @keyframes movingFromLeft {
+=======
+
+@keyframes movingFromLeft {
+>>>>>>> e04171c95f1c19ca292a17b02ac02b23ad5808f1
   0%{
     left: 10vw;
   } 100% {
     left: 80.1vw
   }
+<<<<<<< HEAD
 } */
 @keyframes movingFromRight{
+=======
+}
+
+@keyframes movingFromRight {
+>>>>>>> e04171c95f1c19ca292a17b02ac02b23ad5808f1
   0%{
     left: 70vw
   } 100% {
     left: -10vw
   }
 }
-.biggerCritterLeft{
+
+.biggerCritterLeft {
   --pixel-size-four: 12;
   --pixel-size-six: 18;
   --pixel-size-eight: 24;
   transform: scaleX(1);
 
 }
-.biggerCritterRight{
+
+.biggerCritterRight {
   --pixel-size-four: 12;
   --pixel-size-six: 18;
   --pixel-size-eight: 24;
@@ -215,12 +245,12 @@ h4 {
 /* -------------------------------------------------------- */
 /* -------------------- Pixel Art Css --------------------- */
 /* -------------------------------------------------------- */
-.pixelArt{
+.pixelArt {
   image-rendering: pixelated;
   margin: 0 auto;
 }
 /*  This section creates a new .css variable in order to adjust the size of individual pixels so as to make the pixel art scaleable */
-:root{
+:root {
   --pixel-size-four: 6;
   --pixel-size-six: 9;
   --pixel-size-eight: 12; 
@@ -258,6 +288,7 @@ Form {
   display: inline-block;
   /* border: 1px solid red; */
 }
+
 .loginform {
   max-width: 30vw;
   margin: 30px;
@@ -265,7 +296,8 @@ Form {
   display: inline-block;
 
 }
-.logininput{
+
+.logininput {
   background-color: #9e856c;
   border-radius: 10px;
   margin: 10px;
@@ -273,10 +305,12 @@ Form {
   padding: 5px;
   color:#fff;
 }
-.form-control{
+
+.form-control {
   background-color: #9e856c;
 }
-.inputbutton{
+
+.inputbutton {
   border-radius: 10px;
 }
 
@@ -350,8 +384,6 @@ h2 {
   font-size: 50px;
 }
 
-
-
 .all:hover {
   color: white;
 }
@@ -378,7 +410,7 @@ header {
   /* z-index: -10; */
 }
 
-.pikachu{
+.pikachu {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -392,7 +424,7 @@ header {
   to {bottom: 430px;}
 }
 
-.dinosaur{
+.dinosaur {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -409,7 +441,7 @@ header {
 
 }
 
-.mario{
+.mario {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -425,7 +457,7 @@ header {
   to {left: -120px;}
 }
 
-.pinkpolice{
+.pinkpolice {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -442,7 +474,7 @@ header {
 
 }
 
-.pop{
+.pop {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -458,7 +490,7 @@ header {
   to {right: -20px;}
 }
 
-.redblob{
+.redblob {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -472,7 +504,7 @@ header {
   to {right: 1200px;}
 }
 
-.pinkblob{
+.pinkblob {
   position: fixed;
   border-radius: 10px;
   height: 25px;
@@ -494,9 +526,6 @@ body {
   height: 90vh;
   
 }
-  
-
-
 
 footer {
   /* margin-top: 550px; */
@@ -538,7 +567,7 @@ footer {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-#critterContainerTwo{
+#critterContainerTwo {
   background-image: url("/src/assets/battle-background.jpg");
   background-position: center center;
   background-size: 100% 100%;
@@ -572,7 +601,7 @@ footer {
   }
 }
 /* Game CSS */
-#gameContainer{
+#gameContainer {
   font-family: 'Press Start 2P', cursive;
   font-size: px;
   display: grid;
@@ -585,39 +614,37 @@ footer {
   margin-bottom: -30px;
 }
 
-#userContainer, #opponentContainer{
+#userContainer, #opponentContainer {
   margin: 0 auto;
 }
 
-#game-flip{
+#game-flip {
   transform: scaleX(-1);
 }
 
-#game-image{
+#game-image {
   transform: scaleX(-1);
   margin: 0 auto;
 }
 
 
-#user-game, #opp-game{
+#user-game, #opp-game {
   text-align: center;
   color: rgb(3, 9, 11);
   font-size: 15px;
 }
 
-#game-critter{
+#game-critter {
   background-color: aliceblue;
  
 }
 
-#level{
+#level {
   font-family: 'Press Start 2P', cursive;
   font-size: 50pt;
 }
 
-
-
-#game-buttons{
+#game-buttons {
   /* color: red; */
   /* background-color: red; */
   /* background-color: black; */
@@ -626,6 +653,7 @@ footer {
   margin-bottom: -15px;
  
 }
+
 .video-game-button {
   /* background-color: black;
   font-family: 'Press Start 2p'; */
@@ -657,7 +685,8 @@ footer {
   padding-left: 5px;
   padding-right: 5px;
 }
-.start-btn{
+
+.start-btn {
   font-family: 'Press Start 2p';
     text-align: center;
 	display: inline-block;
@@ -674,8 +703,8 @@ footer {
     box-shadow: 0 .2em gray; 
     cursor: pointer;
     padding: 10px;
-
 }
+
 .video-game-button:active, .start-btn:active {
   font-family: 'Press Start 2p';
 	box-shadow: none;

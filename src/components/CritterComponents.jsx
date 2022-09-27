@@ -15,7 +15,7 @@ class CritterComponents extends React.Component {
         // currentUser: undefined,
 
         /* 
-        TODO set when a user is logged in:
+        set when a user is logged in:
         set.state.criterSpecies to User's Critter species
         */ 
 
@@ -42,86 +42,51 @@ class CritterComponents extends React.Component {
                 'ko'
                 'jump'    
             */ 
+
         randomInteger: null,
+
     };
-
-    // componentDidMount() {
-    //     if ( this.props.currentUser.pet !== null ){
-    //         this.setState({
-    //             currentUserPet: this.props.currentUser.pet
-    //             // currentUser.pet.species,
-    //             // this.currentUser.pet.species
-    //         })
-
-    //         };
-    //     }
     
 
     getSpeciesBaseName = (species) => {
         // 'dude4' - input
         // 'dude' - output
+
         if(Number.isInteger(parseInt(species[species.length-1])) === true ){
+
             return species.substring(0, species.length -1) 
+
         } else{
+
             return species
+
         }
        
         
     }
 
-    updateAction = ( frames , action, timeout,  returnToFrame, returnToAction ) => {
+    updateAction = ( frames , action, timeout, returnToFrame, returnToAction ) => {
 
         this.setState({ frameInteger: frames , animation: action })
         
         /* 
-        The 'timeout' argument is the amount of miliseconds that
+        The 'timeout' argument is the amount of milliseconds
         */
+
         setTimeout( () => this.setState({ frameInteger: returnToFrame, animation: returnToAction }), timeout )  
 
-    }
-
-    // critterContainer = () => {
-    //  // console.log(currentUserPet);
-    //     return(
-    //         <div id="critterContainer">
-                
-    //             <div id="viewContainer">
-    //                 <CritterType 
-    //                     species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
-    //                     frame={this.state.frameInteger}
-    //                     action={this.state.animation}    
-    //                 />
-
-    //             </div>
-                
-    //             <div className="critterButtonContainer">
-    //                 <Controls 
-    //                     updateAction={this.updateAction}
-    //                 />
-    //             </div>
-
-    //             <div 
-    //             className="careControls">
-    //                 <FeedAndDrink
-    //                 // pass function to FeedAndDrink
-    //                 />
-    //             </div>
-
-    //         </div>
-    //     );      // return()
-
-
-    // }     
+    }    
 
     
-
     render (){
 
         // console.log(currentUserPet);
         return(
+
             <div id="critterContainer">
                 
                 <div id="viewContainer">
+
                     <CritterType 
                         species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                         frame={this.state.frameInteger}
@@ -131,16 +96,19 @@ class CritterComponents extends React.Component {
                 </div>
                 
                 <div className="critterButtonContainer">
+
                     <Controls 
                         updateAction={this.updateAction}
                     />
+
                 </div>
 
-                <div 
-                className="careControls">
+                <div className="careControls">
+
                     <FeedAndDrink
                     // pass function to FeedAndDrink
                     />
+
                 </div>
 
             </div>

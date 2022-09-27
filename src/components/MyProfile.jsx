@@ -138,8 +138,11 @@ handleInput = (ev) => {
 
     // render simple greeting with user name
   render(){
+
     return(
+
       <div>
+
         <h1>Hello {this.props.currentUser.name}</h1> 
          {/* <h3>Pet Name: {this.props.currentUser.pet.name}</h3> */}
         <Form>
@@ -150,6 +153,7 @@ handleInput = (ev) => {
               </Form.Label>
               <Form.Control required name="name" type="name"  onChange={this.handleInput}/>
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicName" >
               <Form.Label>
                   <h4>Pet Name </h4>
@@ -191,8 +195,11 @@ handleInput = (ev) => {
         </Form>
 
       </div>
+
     );
+
   }//render​
+  
 }//class MyProfile
 
 
