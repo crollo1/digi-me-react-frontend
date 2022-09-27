@@ -277,7 +277,7 @@ class Home extends React.Component {
 
                     <nav>
                         {/* Links to various pages */}
-                        <Link to="/" className="little">Home</Link>
+                        <Link to="/home" className="little">Home</Link>
                         {'  '}|{'   '}
                         <Link to="/critter_hangs" className="little">Critter Hangs</Link>
                         {'  '}|{'   '}
