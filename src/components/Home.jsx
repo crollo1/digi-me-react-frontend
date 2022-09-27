@@ -277,7 +277,7 @@ class Home extends React.Component {
 
                     <nav>
                         {/* Links to various pages */}
-                        <Link to="/home" className="little">Home</Link>
+                        <Link to="/" className="little">Home</Link>
                         {'  '}|{'   '}
                         <Link to="/critter_hangs" className="little">Critter Hangs</Link>
                         {'  '}|{'   '}
@@ -344,7 +344,17 @@ class Home extends React.Component {
                         (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
                     }/>
 
-                    <Route exact path='/' component={Test}/>
+                    {this.state.currentUser &&
+
+                        <Route exact path='/' render={ props => (
+
+                            <Test {...props} 
+                                currentUser={this.state.currentUser}
+                            />
+
+                        )}
+                    
+                    />}
 
             {/* ------------------------------------------------------------ */}
 

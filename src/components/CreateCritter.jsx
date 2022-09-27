@@ -145,7 +145,7 @@ class CreateCritter extends React.Component{
             })
             .then( res => {
 
-                this.props.history.push('/home')
+                this.props.history.push('/')
 
             });
             console.log(submitNewPet)
