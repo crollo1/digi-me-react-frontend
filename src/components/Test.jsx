@@ -1,5 +1,7 @@
 import React from "react";
 
+import Home from './Home';
+
 import Pixel1 from '../assets/pixel1.png'
 import Pixel2 from '../assets/pixel2.png'
 import Pixel3 from '../assets/pixel3.png'
@@ -15,6 +17,7 @@ class Test extends React.Component{
         return(
 
             <div>
+                <Home />
                 <h1 className="homepage">Welcome to Digi-Critter World!! </h1>
                 <img className="redblob" src={Pixel1} alt="redblob"/>
                 <img className="pikachu" src={Pixel2} alt="pikachu"/>
