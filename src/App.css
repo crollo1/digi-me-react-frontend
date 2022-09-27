@@ -193,25 +193,16 @@ h4 {
 .running  {
   animation-play-state: running;
 }
-<<<<<<< HEAD
-/* @keyframes movingFromLeft {
-=======
 
 @keyframes movingFromLeft {
->>>>>>> e04171c95f1c19ca292a17b02ac02b23ad5808f1
   0%{
     left: 10vw;
   } 100% {
     left: 80.1vw
   }
-<<<<<<< HEAD
-} */
-@keyframes movingFromRight{
-=======
 }
 
 @keyframes movingFromRight {
->>>>>>> e04171c95f1c19ca292a17b02ac02b23ad5808f1
   0%{
     left: 70vw
   } 100% {

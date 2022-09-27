@@ -114,7 +114,7 @@ handleInput = (ev) => {
   // }
   updateProfileInfo = async () => {
 
-
+    console.log('trying to post')
     try{
       const res = await axios.post(`${BASE_BACKEND_URL}/users/current/update/`, {
 
@@ -151,27 +151,27 @@ handleInput = (ev) => {
               <Form.Label>
                   <h4>Name </h4>
               </Form.Label>
-              <Form.Control required name="name" type="name"  onChange={this.handleInput}/>
+              <Form.Control required name={this.props.currentUser.name} type="name"  defaultValue={this.props.currentUser.name} onChange={this.handleInput}/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicName" >
               <Form.Label>
                   <h4>Pet Name </h4>
               </Form.Label>
-              <Form.Control required name="pet_name" type="pet_name" value={this.props.currentUser.pet.name} onChange={this.handleInput}/>
+              <Form.Control required name={this.props.currentUser.pet.name} type="pet_name" defaultValue={this.props.currentUser.pet.name} onChange={this.handleInput}/>
           </Form.Group>
         
           <Form.Group className="mb-3" controlId="formBasicName" >
               <Form.Label>
                   <h4>Display name</h4>
               </Form.Label>
-              <Form.Control required name="display_name" type="display_name" value={this.props.currentUser.display_name}  onChange={this.handleInput}/>  
+              <Form.Control required name={this.props.currentUser.display_name} type="display_name" defaultValue={this.props.currentUser.display_name}  onChange={this.handleInput}/>  
           </Form.Group>
 
           <Form.Label>
                <h4> Pet Species </h4>
               </Form.Label>
-          <Form.Select className="mb-3" name="species" type="species" controlId="formBasicName" onChange={this.handleInput}>
+          <Form.Select className="mb-3" name={this.props.currentUser.pet.species} type="species" controlId="formBasicName" onChange={this.handleInput}>
                         <option>{this.props.currentUser.pet.species}</option>
                         <option value="dude"> Dude</option>
                         <option value="pink"> Pink </option>
@@ -182,13 +182,13 @@ handleInput = (ev) => {
               <Form.Label>
                   <h4>Email Address</h4>
               </Form.Label>
-              <Form.Control required name="email" type="email" value={this.props.currentUser.email} onChange={this.handleInput} />
+              <Form.Control required name={this.props.currentUser.email} type="email" defaultValue={this.props.currentUser.email} onChange={this.handleInput} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicName" >
               <Form.Label>
                   <h4>Password</h4>
               </Form.Label>
-              <Form.Control required name="password" type="password" value={this.props.currentUser.password} onChange={this.handleInput}/>
+              <Form.Control required name="password" type="password" defaultValue={this.props.currentUser.password} onChange={this.handleInput}/>
           </Form.Group>
 
           <Button variant="info" type="submit" className="update" onClick = {this.updateProfileInfo}>Update</Button>
