@@ -14,7 +14,7 @@
 @import url('https://fonts.cdnfonts.com/css/bm-neco');
 
 @import url('https://fonts.cdnfonts.com/css/serious-rounded'); 
-/* seriousr2b/2 seriousr4b/4 */
+seriousr2b/2 seriousr4b/4
 
 .Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
   font-family: seriousr2, sans-serif;
