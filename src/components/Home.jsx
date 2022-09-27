@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Test from './Test'
+import Test from './Test';
 import User from './User';
 import { Route, HashRouter as Router, Link } from "react-router-dom";
 import Login from './Login';

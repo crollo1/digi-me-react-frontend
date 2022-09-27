@@ -12,12 +12,24 @@ import Pixel7 from '../assets/pixel7.png'
 
 class Test extends React.Component{
 
+    state = {
+
+        user: '',
+
+    }
+
+    setTestUser = () => {
+
+        
+
+    }
+
+
     render(){
 
         return(
 
             <div>
-                <Home />
                 <h1 className="homepage">Welcome to Digi-Critter World!! </h1>
                 <img className="redblob" src={Pixel1} alt="redblob"/>
                 <img className="pikachu" src={Pixel2} alt="pikachu"/>
