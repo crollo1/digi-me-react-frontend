@@ -1,6 +1,6 @@
 import React from "react";
 
-import Home from './Home';
+// import Home from './Home';
 
 import Pixel1 from '../assets/pixel1.png'
 import Pixel2 from '../assets/pixel2.png'
@@ -20,7 +20,7 @@ class Test extends React.Component{
 
     setTestUser = () => {
 
-        
+
 
     }
 
