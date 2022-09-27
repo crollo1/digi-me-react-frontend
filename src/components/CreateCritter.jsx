@@ -152,7 +152,7 @@ class CreateCritter extends React.Component{
                 // this.props.setCurrentUser();
                 
                 console.log("history:",this.props.history)
-                this.props.history.push('/');
+                this.props.history.push('/critter_hangs');
                 console.log(submitNewPet);
 
 
