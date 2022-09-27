@@ -138,22 +138,22 @@ class CreateCritter extends React.Component{
 
                 name:this.state.name,
                 species: critters[this.state.clickCount],
-                user_id: this.state.currentUser.id
-
+                user_id: this.state.currentUser.id,
+                
             })
             console.log(submitNewPet)
-
-                // console.log("jwt", result.data.token.token);
-                // // set axios default headers to have an authorization key
-                // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token.token;
-                // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
-                // this.props.setCurrentUser();
-                // redirec the url of the page to /my_profile so we can load the MyProfile component
-                // this.props.setCurrentUser();
-                
-                console.log("history:",this.props.history)
-                this.props.history.push('/critter_hangs');
-                console.log(submitNewPet);
+            
+            // console.log("jwt", result.data.token.token);
+            // // set axios default headers to have an authorization key
+            // axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token.token;
+            // // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
+            // this.props.setCurrentUser();
+            // redirec the url of the page to /my_profile so we can load the MyProfile component
+            // this.props.setCurrentUser();
+            
+            console.log("history:",this.props.history)
+            this.props.history.push('/'),
+            console.log(submitNewPet);
 
 
         } catch(err){
