@@ -17,11 +17,12 @@
 /* seriousr2b/2 seriousr4b/4 */
 
 .Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
-  font-family: 'seriousr2', sans-serif;
+  font-family: 'Press Start 2p', sans-serif;
   font-style: normal;
 }
 
 .title {
+  font-family: 'Press Start 2p', sans-serif;
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 }
 

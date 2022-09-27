@@ -133,6 +133,8 @@ class CreateCritter extends React.Component{
         try{
 
             const submitNewPet = await axios.post(
+
+                
                 
                 `${BASE_CREATECRITTER_URL}/pets`, {
 
@@ -141,6 +143,11 @@ class CreateCritter extends React.Component{
                 user_id: this.state.currentUser.id,
                 
             })
+            .then( res => {
+
+                this.props.history.push('/')
+
+            });
             console.log(submitNewPet)
             
             // console.log("jwt", result.data.token.token);
@@ -152,7 +159,6 @@ class CreateCritter extends React.Component{
             // this.props.setCurrentUser();
             
             console.log("history:",this.props.history)
-            this.props.history.push('/'),
             console.log(submitNewPet);
 
 
