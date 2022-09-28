@@ -12,6 +12,9 @@ import CreateCritter from './CreateCritter';
 import FeedAndDrink from './FeedAndDrink'
 import FightGame from './FightGame';
 
+
+
+
 // backend url
 // const BASE_BACKEND_URL = 'http://localhost:3000';
 // This function combines CritterType & Controls for use
@@ -279,9 +282,11 @@ class Home extends React.Component {
                         {/* Links to various pages */}
                         <Link to="/" className="little">Home</Link>
                         {'  '}|{'   '}
-                        <Link to="/critter_hangs" className="little">Critter Hangs</Link>
+                        <Link to="/critter_hangs" className="little">Console</Link>
                         {'  '}|{'   '}
-                        <Link to="/fight" className="little">Fight</Link>
+                        <Link to="/fight" className="little">Battle</Link>
+                        {'  '}|{'   '}
+                        <Link to="/scores" className="little">Ledder Board</Link>
                         <hr />
                     </nav> {/* CLOSES NAV */}
 
@@ -344,19 +349,10 @@ class Home extends React.Component {
                     <Route exact path='/game' render={
                         (props) => <FightGame setOpposingtUserExp={this.setCurrentUser}{...props}/>
                     }/>
-
-                    {this.state.currentUser &&
-
-                        <Route exact path='/' render={ props => (
-
-                            <Test {...props} 
-                                currentUser={this.state.currentUser}
-                            />
-
-                        )}
-                    
-                    />}
-
+                    <Route exact path='/scores' render={
+                        (props) => <User  setCurrentUser={this.setCurrentUser}{...props}/>
+                    }/>
+                    <Route exact path='/' component={Test}/>
             {/* ------------------------------------------------------------ */}
 
             </Router> {/* CLOSES ROUTER */}

@@ -1,8 +1,18 @@
+import axios from 'axios';
 import React from 'react';
 import '../App.css';
 import CritterType from './CritterType';
 import FightControls from './FightControls';
 
+// Need to add the below to the websites as requested
+// let RAILS_BASE_URL;
+// if( process.env.NODE_ENV === 'development'){
+//   RAILS_BASE_URL = 'http://localhost:3000';
+// } else {
+//   RAILS_BASE_URL = 'http://YOUR-APP-NAME.herokuapp.com';
+// }
+
+const BASE_CREATECRITTER_URL = 'http://localhost:3000'
 
 class FightGame extends React.Component {
 
@@ -21,8 +31,8 @@ class FightGame extends React.Component {
         frameInteger: '4',
         animation: 'idle',
         currentUserPet: '',
-        currentUserExp: 30,
-        opposingUserExp: 100,
+        currentUserExp: 20,
+        opposingUserExp: 20,
         currentUserScore: 0,
         opposingUserScore: 0,
         level: 1,
@@ -119,8 +129,14 @@ class FightGame extends React.Component {
     }
 
 
-    gameWon = () => {
-
+    //    displayResetButton = () =>{
+    //     if (this.state.opposingUserExp === 0 ||this.state.currentUserExp === 0){
+    //             <div id="resetContainer">
+    //                 <button onClick={this.resetmeDisGame}/>
+    //             </div>
+    //     }
+    //     }
+    gameWon = async () => {
         console.log('gameWon click')
         const newLevel = this.state.level + 1;
         // const wonOpposingExp = 30 + (newLevel * 10); 
@@ -129,12 +145,20 @@ class FightGame extends React.Component {
         this.setState({
 
             level: newLevel,
-            currentUserExp: 100,
-            opposingUserExp: 100 + (this.state.level * 10),
+            currentUserExp: 50,
+            opposingUserExp: 20 + (this.state.level * 10),
             currentUserScore: this.state.currentUserScore + 1
 
         })
         console.log('currentUE', this.state.currentUserExp, 'oppoUE', this.state.opposingUserExp, 'lost', this.state.level);
+
+        try{
+            const res = await axios.post(`${BASE_CREATECRITTER_URL}/users/current/add_total_score/${newLevel}`);
+            console.log('response from total score:', res.data)
+
+        }catch (err){
+            console.log('error', err)
+        }
 
     }
 
@@ -253,13 +277,11 @@ class FightGame extends React.Component {
             } else if (this.state.opposingUserExp <= 0) {
 
                 // hit this like 5 times
-                console.log('opposingUserExp less than zero')
+                console.log('%c opposingUserExp less than zero:', "font-size: 16pt" )
                 // console.log('check, current user win');
 
                 return (<div id="critterContainerTwo">
-
-                    <div id="level" className="level"> <h4>Level {this.state.level}</h4>
-                    </div>
+                     <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
 
                     <div id="game0-buttons" className="reset-game">
 
@@ -317,8 +339,7 @@ class FightGame extends React.Component {
                 // console.log('oppoent win:')
 
                 return (<div id="critterContainerTwo">
-
-                    <div className="level"> <h4>Level {this.state.level}</h4></div>
+                     <div id="level" className="level"> <h4>Level {this.state.level}</h4></div>
 
                     <div id="game0-buttons" className="reset-game">
 

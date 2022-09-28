@@ -18,7 +18,8 @@ class User extends React.Component{
 
         users: [],
         loading: true,
-        error: null
+        error: null, 
+        sorted: [],
 
     }
 
@@ -28,6 +29,7 @@ class User extends React.Component{
         // We want to load the Users data
         console.log('componentDidMount for users()');
         this.fetchUsers();
+
     
     } // Mount
 
@@ -38,10 +40,12 @@ class User extends React.Component{
 
             const res = await axios.get(RAILS_USER_BASE_URL);
             console.log('users:', res.data)
-
+        
+            // Sorting the data in decending format
+            const sorted = [...res.data].sort((a, b) => b.total_score - a.total_score) 
             this.setState({
 
-                users: res.data,
+                users: sorted,
                 loading: false
 
             });
@@ -62,27 +66,31 @@ class User extends React.Component{
         
     } // fetchUsers
 
+
+
     render(){
 
         return (
 
             <div className="Users">
 
-                <h1>Users</h1>
-
-                <ul>
+                <h1>Ladder Board </h1>
+               {/* { this.state.users.total_score((a,b) => a.total_score - b.total_score)} */}
+               
+                <ol>
                 {
+                    
+
                     this.state.users.map ( r => 
                     
                     <li key={r}>
-                    Name: {r.name} <br /> 
-                    Display Name:{r.display_name} <br /> 
-                    User ID: {r.user_id} <br />
+                    Player {r.display_name} <br /> 
+                    Score {r.total_score}
                     <br />
                     </li>
 
                 )}
-                </ul>
+                </ol>
 
             </div>
 
