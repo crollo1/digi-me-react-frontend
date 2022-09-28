@@ -294,7 +294,8 @@ class Home extends React.Component {
 
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={(props) => 
-                        <CreateCritter currentUser ={this.state.currentUser} {...props}/>}
+                        <CreateCritter currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} {...props}/>
+                    }
                     />}
 
                     {this.state.currentUser &&

@@ -12,17 +12,17 @@ import Pixel7 from '../assets/pixel7.png'
 
 class Test extends React.Component{
 
-    state = {
+    // state = {
 
-        user: '',
+    //     user: '',
 
-    }
+    // }
 
-    setTestUser = () => {
+    // setTestUser = () => {
 
 
 
-    }
+    // }
 
 
     render(){
