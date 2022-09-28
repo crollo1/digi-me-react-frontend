@@ -43,6 +43,7 @@
 .critterheading {
   font-family: 'Press Start 2p', sans-serif;
   font-size: 40px;
+  margin-top: 4rem;
 }
 
 .homepage {
@@ -56,6 +57,14 @@
 
 .selectcritter {
   margin-top: 0;
+}
+
+#containerBnC {
+  margin-top: 2rem;
+}
+
+#critterContainerAlt {
+  margin-top: -2rem;
 }
 
 #critterContainer {
