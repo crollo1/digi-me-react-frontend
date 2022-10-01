@@ -15,23 +15,24 @@ const BASE_BACKEND_URL = 'http://localhost:3000'
 class MyProfile extends React.Component{
 
   state = {
-    name: '',
-    email: '',
-    password: '',
-    display_name: '',
-    pet_name: '',
-    species: ''
 
-    // name: this.props.currentUser.name,
-    // email: this.props.currentUser.email,
-    // password: this.props.currentUser.password,
-    // display_name: this.props.currentUser.display_name,
-    // pet_name: this.props.currentUser.pet.name,
-    // species: this.props.currentUser.pet.species,
+
+    name: this.props.currentUser.name,
+    email: this.props.currentUser.email,
+    password: this.props.currentUser.password,
+    display_name: this.props.currentUser.display_name,
+    pet_name: this.props.currentUser.pet.name,
+    species: this.props.currentUser.pet.species,
 
 }
 
+
+// componentDidMount
+
 handleInput = (ev) => {
+  // console.log('name', ev.target.name)
+  // console.log()
+  console.log('name', ev.target.name, 'value', ev.target.value)
 
   switch(ev.target.name){
 
@@ -47,12 +48,7 @@ handleInput = (ev) => {
 
       case 'email':
           this.setState({email: ev.target.value})
-          // console.log("email:", ev.target.value);
-          break;
-
-      case 'password':
-          this.setState({password: ev.target.value})
-          // console.log("password:", ev.target.value);
+          console.log("email this works");
           break;
       case 'pet_name':
           this.setState({pet_name: ev.target.value})
@@ -67,7 +63,7 @@ handleInput = (ev) => {
           // console.log("password:", ev.target.value);
           break;
       
-          default: console.log('sign in better please');
+          default: console.log('States have changed');
 
   }
 
@@ -112,23 +108,42 @@ handleInput = (ev) => {
   //   // })
   //   // .catch(err => console.warn(err))
   // }
-  updateProfileInfo = async () => {
-
+  updateProfileInfo = async (ev) => {
+      ev.preventDefault();
+    
     console.log('trying to post')
     try{
-      const res = await axios.post(`${BASE_BACKEND_URL}/users/current/update/`, {
+      const res = await axios.post(`${BASE_BACKEND_URL}/users/current/update`, {
 
                 name:this.state.name,
                 display_name:this.state.display_name,
                 email:this.state.email,
                 password:this.state.password, 
-                pet_name: this.props.currentUser.pet.name,
-                species: this.props.currentUser.pet.species
+                pet_name: this.state.pet_name,
+                species: this.state.species
 
-      });
-      console.log('response from total score:', res.data)
+      })
+      // .then( result){
+
+        console.log('post', res.data);
+
+      // //   localStorage.setItem("jwt", result.data.token.token)
+
+      // //   console.log("jwt", result.data.token.token);
+      // //   // set axios default headers to have an authorization key
+      // //   axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token.token;
+      // //   // call the function setCurrentUser that was passed in as a prop so that we can set the current user in Home
+      // //   this.props.setCurrentUser();
+      // //   // redirec the url of the page to /my_profile so we can load the MyProfile component
+      //   console.log()
+        this.props.history.push('/');
+
+      // }.catch(err){
+      //   console.log('error', err);
+      // };
 
     }catch (err){
+      // console.log('error message from post')
       console.log('error', err)
     }
 
@@ -145,53 +160,53 @@ handleInput = (ev) => {
 
         <h1>Hello {this.props.currentUser.name}</h1> 
          {/* <h3>Pet Name: {this.props.currentUser.pet.name}</h3> */}
-        <Form>
+        <Form onSubmit={this.updateProfileInfo}>
           <h2>Personal Details</h2>
-          <Form.Group className="mb-3" controlId="formBasicName" >
+          <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Name </h4>
               </Form.Label>
-              <Form.Control required name={this.props.currentUser.name} type="name"  defaultValue={this.props.currentUser.name} onChange={this.handleInput}/>
+              <Form.Control required name="name" defaultValue={this.props.currentUser.name} onChange={this.handleInput}/>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicName" >
+          <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Pet Name </h4>
               </Form.Label>
-              <Form.Control required name={this.props.currentUser.pet.name} type="pet_name" defaultValue={this.props.currentUser.pet.name} onChange={this.handleInput}/>
+              <Form.Control required name="pet_name"  defaultValue={this.props.currentUser.pet.name} onChange={this.handleInput}/>
           </Form.Group>
         
-          <Form.Group className="mb-3" controlId="formBasicName" >
+          <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Display name</h4>
               </Form.Label>
-              <Form.Control required name={this.props.currentUser.display_name} type="display_name" defaultValue={this.props.currentUser.display_name}  onChange={this.handleInput}/>  
+              <Form.Control required name="display_name"  defaultValue={this.props.currentUser.display_name}  onChange={this.handleInput}/>  
           </Form.Group>
 
           <Form.Label>
                <h4> Pet Species </h4>
               </Form.Label>
-          <Form.Select className="mb-3" name={this.props.currentUser.pet.species} type="species" controlId="formBasicName" onChange={this.handleInput}>
+          <Form.Select className="mb-3" name="species"  controlid="formBasicName" onChange={this.handleInput}>
                         <option>{this.props.currentUser.pet.species}</option>
-                        <option value="dude"> Dude</option>
-                        <option value="pink"> Pink </option>
-                        <option value="owlet"> Owlet </option>
+                        <option value="dude"> dude</option>
+                        <option value="pink"> pink </option>
+                        <option value="owlet"> owlet </option>
             </Form.Select>
 
-          <Form.Group className="mb-3" controlId="formBasicName" >
+          <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Email Address</h4>
               </Form.Label>
-              <Form.Control required name={this.props.currentUser.email} type="email" defaultValue={this.props.currentUser.email} onChange={this.handleInput} />
+              <Form.Control required name="email" defaultValue={this.props.currentUser.email} onChange={this.handleInput} />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicName" >
+          <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Password</h4>
               </Form.Label>
-              <Form.Control required name="password" type="password" defaultValue={this.props.currentUser.password} onChange={this.handleInput}/>
+              <Form.Control required name="password" defaultValue={this.props.currentUser.password} onChange={this.handleInput}/>
           </Form.Group>
 
-          <Button variant="info" type="submit" className="update" onClick = {this.updateProfileInfo}>Update</Button>
+          <Button variant="info"  className="update" type="submit">Update</Button>
         </Form>
 
       </div>

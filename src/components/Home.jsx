@@ -20,12 +20,12 @@ import FightGame from './FightGame';
 // This function combines CritterType & Controls for use
 //      in a seperate route link
 
-let BASE_BACKEND_URL;
-if( process.env.NODE_ENV === 'development'){
-    BASE_BACKEND_URL = 'http://localhost:3000';
-} else {
-    BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
-} // end rails deployment if-else
+let BASE_BACKEND_URL = 'http://localhost:3000';
+// if( process.env.NODE_ENV === 'development'){
+//     BASE_BACKEND_URL = 'http://localhost:3000';
+// } else {
+//     BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
+// } // end rails deployment if-else
 
 
 class Home extends React.Component {
@@ -278,6 +278,9 @@ class Home extends React.Component {
                     
                     <h1 className="title">Digi-Critter</h1>
 
+                   { this.state.currentUser !== null
+                   ?
+                   (
                     <nav>
                         {/* Links to various pages */}
                         <Link to="/" className="little">Home</Link>
@@ -288,7 +291,22 @@ class Home extends React.Component {
                         {'  '}|{'   '}
                         <Link to="/scores" className="little">Ledder Board</Link>
                         <hr />
-                    </nav> {/* CLOSES NAV */}
+                    </nav> 
+                    )
+                    :
+                   (
+
+                    <nav>
+                        {/* Links to various pages */}
+                        <Link to="/" className="little">Home</Link>
+                        {'  '}|{'   '}
+                        <Link to="/scores" className="little">Ledder Board</Link>
+                        <hr />
+                    </nav> 
+
+                    )
+                   }
+
 
                 </header> {/* CLOSES HEADER */}     
                 
