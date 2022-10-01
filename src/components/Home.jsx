@@ -285,11 +285,11 @@ class Home extends React.Component {
                         {/* Links to various pages */}
                         <Link to="/" className="little">Home</Link>
                         {'  '}|{'   '}
-                        <Link to="/critter_hangs" className="little">Console</Link>
+                        <Link to="/critter_hangs" className="little">Health Check</Link>
                         {'  '}|{'   '}
                         <Link to="/fight" className="little">Battle</Link>
                         {'  '}|{'   '}
-                        <Link to="/scores" className="little">Ledder Board</Link>
+                        <Link to="/scores" className="little">Leader Board</Link>
                         <hr />
                     </nav> 
                     )
@@ -317,7 +317,8 @@ class Home extends React.Component {
 
                     {this.state.currentUser &&
                         <Route exact path="/createcritter" render={(props) => 
-                        <CreateCritter currentUser ={this.state.currentUser} {...props}/>}
+                        <CreateCritter currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} {...props}/>
+                    }
                     />}
 
                     {this.state.currentUser &&

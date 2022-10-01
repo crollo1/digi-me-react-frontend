@@ -74,7 +74,7 @@ class User extends React.Component{
 
             <div className="Users">
 
-                <h1>Ladder Board </h1>
+                <h1>Leader Board </h1>
                {/* { this.state.users.total_score((a,b) => a.total_score - b.total_score)} */}
                
                 <ol>
