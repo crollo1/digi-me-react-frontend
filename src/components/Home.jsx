@@ -21,11 +21,11 @@ import FightGame from './FightGame';
 //      in a seperate route link
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
-// if( process.env.NODE_ENV === 'development'){
-//     BASE_BACKEND_URL = 'http://localhost:3000';
-// } else {
-//     BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
-// } // end rails deployment if-else
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 
 class Home extends React.Component {
@@ -279,32 +279,32 @@ class Home extends React.Component {
                     <h1 className="title">Digi-Critter</h1>
 
                    { this.state.currentUser !== null
-                   ?
-                   (
-                    <nav>
-                        {/* Links to various pages */}
-                        <Link to="/" className="little">Home</Link>
-                        {'  '}|{'   '}
-                        <Link to="/critter_hangs" className="little">Health Check</Link>
-                        {'  '}|{'   '}
-                        <Link to="/fight" className="little">Battle</Link>
-                        {'  '}|{'   '}
-                        <Link to="/scores" className="little">Leader Board</Link>
-                        <hr />
-                    </nav> 
-                    )
-                    :
-                   (
+                        ?
+                        (
+                        <nav>
+                            {/* Links to various pages */}
+                            <Link to="/" className="little">Home</Link>
+                            {'  '}|{'   '}
+                            <Link to="/critter_hangs" className="little">Health Check</Link>
+                            {'  '}|{'   '}
+                            <Link to="/fight" className="little">Battle</Link>
+                            {'  '}|{'   '}
+                            <Link to="/scores" className="little">Leader Board</Link>
+                            <hr />
+                        </nav> 
+                        )
+                        :
+                        (
 
-                    <nav>
-                        {/* Links to various pages */}
-                        <Link to="/" className="little">Home</Link>
-                        {'  '}|{'   '}
-                        <Link to="/scores" className="little">Ledder Board</Link>
-                        <hr />
-                    </nav> 
+                            <nav>
+                                {/* Links to various pages */}
+                                <Link to="/" className="little">Home</Link>
+                                {'  '}|{'   '}
+                                <Link to="/scores" className="little">Leader Board</Link>
+                                <hr />
+                            </nav> 
 
-                    )
+                        )
                    }
 
 
