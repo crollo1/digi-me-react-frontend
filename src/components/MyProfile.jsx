@@ -29,51 +29,51 @@ class MyProfile extends React.Component{
     pet_name: this.props.currentUser.pet.name,
     species: this.props.currentUser.pet.species,
 
-}
-
-
-// componentDidMount
-
-handleInput = (ev) => {
-  // console.log('name', ev.target.name)
-  // console.log()
-  console.log('name', ev.target.name, 'value', ev.target.value)
-
-  switch(ev.target.name){
-
-      case 'name':
-          this.setState({name: ev.target.value})
-          // console.log("name:", ev.target.value);
-          break;
-
-      case 'display_name':
-          this.setState({display_name: ev.target.value})
-          // console.log("display_name:", ev.target.value);
-          break;
-
-      case 'email':
-          this.setState({email: ev.target.value})
-          console.log("email this works");
-          break;
-      case 'pet_name':
-          this.setState({pet_name: ev.target.value})
-          // console.log("password:", ev.target.value);
-          break;
-      case 'species':
-            this.setState({species: ev.target.value})
-            // console.log("password:", ev.target.value);
-        break;
-      case 'password':
-          this.setState({password: ev.target.value})
-          // console.log("password:", ev.target.value);
-          break;
-      
-          default: console.log('States have changed');
-
   }
 
 
-} // handleInput
+  // componentDidMount
+
+  handleInput = (ev) => {
+    // console.log('name', ev.target.name)
+    // console.log()
+    console.log('name', ev.target.name, 'value', ev.target.value)
+
+    switch(ev.target.name){
+
+        case 'name':
+            this.setState({name: ev.target.value})
+            // console.log("name:", ev.target.value);
+            break;
+
+        case 'display_name':
+            this.setState({display_name: ev.target.value})
+            // console.log("display_name:", ev.target.value);
+            break;
+
+        case 'email':
+            this.setState({email: ev.target.value})
+            console.log("email this works");
+            break;
+        case 'pet_name':
+            this.setState({pet_name: ev.target.value})
+            // console.log("password:", ev.target.value);
+            break;
+        case 'species':
+              this.setState({species: ev.target.value})
+              // console.log("password:", ev.target.value);
+          break;
+        case 'password':
+            this.setState({password: ev.target.value})
+            // console.log("password:", ev.target.value);
+            break;
+        
+            default: console.log('States have changed');
+
+    }
+
+
+  } // handleInput
 
 
     // set states for each profile - current user with name and email
@@ -120,12 +120,12 @@ handleInput = (ev) => {
     try{
       const res = await axios.post(`${BASE_BACKEND_URL}/users/current/update`, {
 
-                name:this.state.name,
-                display_name:this.state.display_name,
-                email:this.state.email,
-                password:this.state.password, 
-                pet_name: this.state.pet_name,
-                species: this.state.species
+        name:this.state.name,
+        display_name:this.state.display_name,
+        email:this.state.email,
+        password:this.state.password, 
+        pet_name: this.state.pet_name,
+        species: this.state.species
 
       })
       // .then( result){
@@ -194,11 +194,11 @@ handleInput = (ev) => {
                <h4> Pet Species </h4>
               </Form.Label>
           <Form.Select className="mb-3" name="species"  controlid="formBasicName" onChange={this.handleInput}>
-                        <option>{this.props.currentUser.pet.species}</option>
-                        <option value="dude"> dude</option>
-                        <option value="pink"> pink </option>
-                        <option value="owlet"> owlet </option>
-            </Form.Select>
+              <option>{this.props.currentUser.pet.species}</option>
+              <option value="dude"> dude</option>
+              <option value="pink"> pink </option>
+              <option value="owlet"> owlet </option>
+          </Form.Select>
 
           <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>

@@ -21,7 +21,7 @@ import CritterComponents from './CritterComponents'
 // This function combines CritterType & Controls for use
 //      in a seperate route link
 
-let BASE_BACKEND_URL;
+let BASE_BACKEND_URL = 'http://localhost:3000';
 if( process.env.NODE_ENV === 'development'){
     BASE_BACKEND_URL = 'http://localhost:3000';
 } else {
@@ -280,32 +280,32 @@ class Home extends React.Component {
                     <h1 className="title">Digi-Critter</h1>
 
                    { this.state.currentUser !== null
-                   ?
-                   (
+                        ?
+                        (
+                        <nav>
+                            {/* Links to various pages */}
+                            <Link to="/" className="little">Home</Link>
+                            {'  '}|{'   '}
+                            <Link to="/critter_hangs" className="little">Health Check</Link>
+                            {'  '}|{'   '}
+                            <Link to="/fight" className="little">Battle</Link>
+                            {'  '}|{'   '}
+                            <Link to="/scores" className="little">Leader Board</Link>
+                            <hr />
+                        </nav> 
+                        )
+                        :
+                        (
 
-                    <nav id="nav">
-                        {/* Links to various pages */}
-                        <Link to="/" className="little">Home</Link>
-                        {'  '}|{'   '}
-                        <Link to="/critter_hangs" className="little">Console</Link>
-                        {'  '}|{'   '}
-                        <Link to="/fight" className="little">Battle</Link>
-                        {'  '}|{'   '}
-                        <Link to="/scores" className="little">Leader Board</Link>
-                    </nav> 
-                    )
-                    :
-                   (
+                            <nav>
+                                {/* Links to various pages */}
+                                <Link to="/" className="little">Home</Link>
+                                {'  '}|{'   '}
+                                <Link to="/scores" className="little">Leader Board</Link>
+                                <hr />
+                            </nav> 
 
-                    <nav id="nav">
-                        {/* Links to various pages */}
-                        <Link to="/" className="little">Home</Link>
-                        {'  '}|{'   '}
-                        <Link to="/scores" className="little">Ledder Board</Link>
-                        <hr />
-                    </nav> 
-
-                    )
+                        )
                    }
 
 
