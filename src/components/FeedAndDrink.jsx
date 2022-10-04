@@ -53,6 +53,11 @@ class FeedAndDrink extends React.Component {
         givenItem: false,
         animationPlayState: 'running',
         id: 'viewContainerTwo',
+        minleft: -3, 
+        maxLeft: 93, 
+        left: 0,
+        transform: 1,
+        trans: 360
 
     }   // state 
 
@@ -282,6 +287,40 @@ class FeedAndDrink extends React.Component {
 
     }           // closes givenItem()
 
+    moveLeft = () => {
+
+        if( this.state.left <= -35){
+            return
+        } else {
+            this.setState({
+                left: this.state.left - 5
+            })
+        }
+        if( this.state.trans === 360){
+            this.setState({
+                trans: -180
+            })
+        }
+        console.log('clicked')
+    }
+
+    moveRight = () => {
+
+        if( this.state.left >= 35){
+            return
+        } else {
+            this.setState({
+                left: this.state.left + 5
+            })
+        }
+        if( this.state.trans != 360 ){
+            this.setState({
+                trans: 360,
+            })
+        }
+
+    }
+
     render (){
 
         return(
@@ -335,11 +374,18 @@ class FeedAndDrink extends React.Component {
                         </div> // closes div-critterMessage 
                     }
                 </div>
+                    <button className="start-btn" onClick={this.moveLeft}> L </button>
 
-                <div id={`critterContainerAlt`}>
+                    <button className="start-btn" onClick={this.moveRight}> R </button> 
+
+                <div id={`critterContainerAlt`} >
    
                     <div 
                         id={this.state.id}
+                        style ={{ 
+                            marginLeft: `${this.state.left}%`,
+                            transform: `rotateY(${this.state.trans}deg)`
+                        }}
                         // className={
                         //     `
                         //     biggerCritter${this.state.littleCritter}
@@ -358,9 +404,10 @@ class FeedAndDrink extends React.Component {
                         />
 
                     </div>
-                
+                   
+                  
                 </div> {/* CLOSES CRITTER CONTAINER */}
-
+            
             </div>
  
         );  // closes return()
