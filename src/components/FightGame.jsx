@@ -5,14 +5,13 @@ import CritterType from './CritterType';
 import FightControls from './FightControls';
 
 // Need to add the below to the websites as requested
-// let RAILS_BASE_URL;
-// if( process.env.NODE_ENV === 'development'){
-//   RAILS_BASE_URL = 'http://localhost:3000';
-// } else {
-//   RAILS_BASE_URL = 'http://YOUR-APP-NAME.herokuapp.com';
-// }
+let BASE_CREATECRITTER_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_CREATECRITTER_URL = 'http://localhost:3000';
+} else {
+    BASE_CREATECRITTER_URL = 'http://YOUR-APP-NAME.herokuapp.com';
+}
 
-const BASE_CREATECRITTER_URL = 'http://localhost:3000'
 
 class FightGame extends React.Component {
 
@@ -31,8 +30,8 @@ class FightGame extends React.Component {
         frameInteger: '4',
         animation: 'idle',
         currentUserPet: '',
-        currentUserExp: 20,
-        opposingUserExp: 20,
+        currentUserExp: 100,
+        opposingUserExp: 100,
         currentUserScore: 0,
         opposingUserScore: 0,
         level: 1,
@@ -145,8 +144,8 @@ class FightGame extends React.Component {
         this.setState({
 
             level: newLevel,
-            currentUserExp: 50,
-            opposingUserExp: 20 + (this.state.level * 10),
+            currentUserExp: 100,
+            opposingUserExp: 100 + (this.state.level * 5),
             currentUserScore: this.state.currentUserScore + 1
 
         })
@@ -171,7 +170,7 @@ class FightGame extends React.Component {
 
             this.setState({ 
 
-                lostOpposingExp: 100 + (this.state.level * 10), 
+                lostOpposingExp: 100 + (this.state.level * 5), 
                 currentUserExp: 100,
                 opposingUserScore: this.state.opposingUserScore + 1,
                 
@@ -224,7 +223,8 @@ class FightGame extends React.Component {
 
                                 <div id="user-xp"><h4>XP {this.state.currentUserExp}</h4>
                                 </div>
-
+                                <div id="viewContainerThree">
+                                
                                 <CritterType id="game-image"
 
                                     species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
@@ -232,6 +232,7 @@ class FightGame extends React.Component {
                                     action={this.state.animation}
                                      
                                 />
+                                </div>
 
                             </div>
 
@@ -244,10 +245,11 @@ class FightGame extends React.Component {
                                 </div>
 
                                 {/* Below returns a random string from the allocated names */}
+                            <div id="viewContainerThree">
 
                                 <div id="game-flip">
 
-                                    {this.state.opposingCritter && <CritterType
+                                    {this.state.opposingCritter && <CritterType 
 
                                         species={this.state.opposingCritter}
                                         frame={this.state.opposingFrameInteger}
@@ -255,7 +257,7 @@ class FightGame extends React.Component {
 
                                     />} 
                                 </div>
-
+                            </div>
                             </div>
 
                         </div>
@@ -296,7 +298,7 @@ class FightGame extends React.Component {
 
                             <div id="user-game"><h4>{this.props.currentUser.pet.name.toUpperCase()} WINS</h4>
                             </div>
-
+                            <div id="viewContainerThree">
                             <CritterType id="game-critter"
 
                                 species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
@@ -304,6 +306,7 @@ class FightGame extends React.Component {
                                 action={this.state.jumpAnimation}
 
                             />
+                            </div>
 
                         </div>
 
@@ -313,7 +316,7 @@ class FightGame extends React.Component {
                             </div>
 
                             {/* Below returns a random string from the allocated names */}
-
+                            <div id="viewContainerThree">
                             <div id="game-flip">
                                 {this.state.opposingCritter && <CritterType id="game-critter"
 
@@ -322,6 +325,7 @@ class FightGame extends React.Component {
                                     action={this.state.koAnimation}
 
                                 />}
+                            </div>
                             </div>
 
                         </div>

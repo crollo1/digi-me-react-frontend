@@ -11,6 +11,7 @@ import axios from 'axios';
 import CreateCritter from './CreateCritter';
 import FeedAndDrink from './FeedAndDrink'
 import FightGame from './FightGame';
+import CritterComponents from './CritterComponents'
 
 
 
@@ -20,12 +21,12 @@ import FightGame from './FightGame';
 // This function combines CritterType & Controls for use
 //      in a seperate route link
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
-// if( process.env.NODE_ENV === 'development'){
-//     BASE_BACKEND_URL = 'http://localhost:3000';
-// } else {
-//     BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
-// } // end rails deployment if-else
+let BASE_BACKEND_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 
 class Home extends React.Component {
@@ -281,22 +282,22 @@ class Home extends React.Component {
                    { this.state.currentUser !== null
                    ?
                    (
-                    <nav>
+
+                    <nav id="nav">
                         {/* Links to various pages */}
                         <Link to="/" className="little">Home</Link>
                         {'  '}|{'   '}
-                        <Link to="/critter_hangs" className="little">Health Check</Link>
+                        <Link to="/critter_hangs" className="little">Console</Link>
                         {'  '}|{'   '}
                         <Link to="/fight" className="little">Battle</Link>
                         {'  '}|{'   '}
                         <Link to="/scores" className="little">Leader Board</Link>
-                        <hr />
                     </nav> 
                     )
                     :
                    (
 
-                    <nav>
+                    <nav id="nav">
                         {/* Links to various pages */}
                         <Link to="/" className="little">Home</Link>
                         {'  '}|{'   '}
@@ -370,7 +371,11 @@ class Home extends React.Component {
                     <Route exact path='/scores' render={
                         (props) => <User  setCurrentUser={this.setCurrentUser}{...props}/>
                     }/>
+
                     <Route exact path='/' component={Test}/>
+                    <Route exact path='/critter' render={
+                        (props) => <CritterComponents  setCurrentUser={this.setCurrentUser}{...props}/>
+                    }/>
             {/* ------------------------------------------------------------ */}
 
             </Router> {/* CLOSES ROUTER */}

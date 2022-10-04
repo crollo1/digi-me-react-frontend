@@ -4,6 +4,7 @@ import '../App.css'
 import FeedAndDrink from './FeedAndDrink'
 import CritterType from './CritterType';
 import Controls from './Controls';
+import Home from './Home';
 
 
 class CritterComponents extends React.Component {
@@ -23,6 +24,7 @@ class CritterComponents extends React.Component {
         frameInteger: '4',
         animation:'idle',
         currentUserPet:'',
+        id: 'viewContainer',
 
         /* 
         ** AVAILABLE ANIMATIONS **
@@ -85,7 +87,7 @@ class CritterComponents extends React.Component {
 
             <div id="critterContainer">
                 
-                <div id="viewContainer">
+                <div id={this.state.id}>
 
                     <CritterType 
                         species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}

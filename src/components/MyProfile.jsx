@@ -10,7 +10,12 @@ import axios from 'axios';
 // import { toBeEmpty } from '@testing-library/jest-dom/dist/matchers';
 
 // set backend url
-const BASE_BACKEND_URL = 'http://localhost:3000'
+let BASE_BACKEND_URL;
+if( process.env.NODE_ENV === 'development'){
+    BASE_BACKEND_URL = 'http://localhost:3000';
+} else {
+    BASE_BACKEND_URL = 'https://digi-critter.herokuapp.com';
+} // end rails deployment if-else
 
 class MyProfile extends React.Component{
 
@@ -138,6 +143,7 @@ handleInput = (ev) => {
       //   console.log()
         this.props.history.push('/');
 
+        window.location.reload(false);
       // }.catch(err){
       //   console.log('error', err);
       // };
@@ -156,12 +162,13 @@ handleInput = (ev) => {
 
     return(
 
-      <div>
+      <div className='My-profile'>
 
-        <h1>Hello {this.props.currentUser.name}</h1> 
+        <h2>Hello {this.props.currentUser.name}</h2> 
          {/* <h3>Pet Name: {this.props.currentUser.pet.name}</h3> */}
         <Form onSubmit={this.updateProfileInfo}>
-          <h2>Personal Details</h2>
+          <h3>Personal Details</h3>
+          <br /> <br />
           <Form.Group className="mb-3" controlid="formBasicName" >
               <Form.Label>
                   <h4>Name </h4>

@@ -1,6 +1,7 @@
 import React from 'react';
 import CritterType from './CritterType';
 import axios from 'axios';
+// import Controls from '//Controls';
 
 
 // import FoodAndDrink from '../FoodAndDrink.css'
@@ -51,6 +52,7 @@ class FeedAndDrink extends React.Component {
         
         givenItem: false,
         animationPlayState: 'running',
+        id: 'viewContainerTwo',
 
     }   // state 
 
@@ -284,8 +286,8 @@ class FeedAndDrink extends React.Component {
 
         return(
             
-            <div className="App fed">
-                <h2 className="critterheading">Your Critter: '{this.props.currentUser.pet.name}'</h2>
+            <div className="App-fed">
+                <h4 className="critterheading">Your Critter: '{this.props.currentUser.pet.name}'</h4>
                 
                 
                 <div id="containerBnC">
@@ -311,6 +313,15 @@ class FeedAndDrink extends React.Component {
                         `}>
                     </button> {/* closes button-giveSweets */}
 
+                    {/* <div className="critterButtonContainer">
+
+                     <Controls 
+                     updateAction={this.updateAction}
+                    />
+
+                    </div> */}
+
+
                     {
                         <div className="critterMessage">
 
@@ -328,16 +339,18 @@ class FeedAndDrink extends React.Component {
                 <div id={`critterContainerAlt`}>
    
                     <div 
-                        id="viewContainer" 
-                        className={
-                            `
-                            littleCritter${this.state.littleCritter}
-                            goFrom${this.state.littleCritter}
-                            ${this.state.animationPlayState}
-                            `
-                        }>
+                        id={this.state.id}
+                        // className={
+                        //     `
+                        //     biggerCritter${this.state.littleCritter}
+                        //     goFrom${this.state.littleCritter}
+                        //     ${this.state.animationPlayState}
+                        //     `
+                        // }
+                        >
+                            {/* id={this.setState({
+                            id: 'viewContainerTwo'})}  */}
                         <CritterType 
-
                             species={this.getSpeciesBaseName(this.props.currentUser.pet.species)}
                             frame={this.state.frameInteger}
                             action={this.state.animation} 

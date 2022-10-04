@@ -13,18 +13,91 @@
 
 @import url('https://fonts.cdnfonts.com/css/bm-neco');
 
-/* @import url('https://fonts.cdnfonts.com/css/serious-r2b/2');  */
+ /* @import url('https://fonts.cdnfonts.com/css/serious-r2b/2');  */
+
 /* seriousr2b/2 seriousr4b/4 */
 
-.Login, .title, .little, .logininput, .loginform, .inputbutton, .signupform, .Create{
-  font-family: 'seriousr2', sans-serif;
+.Login, .little, .logininput, .loginform, .inputbutton, .signupform, .Create, .Users{
+  font-family: 'Press Start 2p', sans-serif;
   font-style: normal;
+  font-size: small;
+  
+  /* text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ; */
 }
 
-.title {
+.little{
+  font-size: 20px;
+  font-display: black;
+  color: black;
+}
+#nav{
+  color: #282c34;
+}
+.Users{
+  background-image: url("./assets/Home6.jpg");
+  background-position: center center;
+  background-size: 100% 100%;
+
+  /* background-color: white; */
+  padding: 40px;
+ 
+  margin: 60px;
+  border-radius: 20px;
+
+  /* background-size: cover; */
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* height: 1000px;
+  width: 1000px; */
+ 
+
+  object-fit: cover;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
+.title, #Leader{
   font-family: 'Press Start 2p', sans-serif;
   text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
 }
+
+.My-profile{
+  background-image: url("./assets/Home3.jpg");
+  background-position: center center;
+  background-size: 100% 100%;
+
+  /* background-color: white; */
+  padding: 40px;
+ 
+  margin: 60px;
+  border-radius: 20px;
+
+  /* background-size: cover; */
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* height: 1000px;
+  width: 1000px; */
+ 
+
+  object-fit: cover;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2px;
+  padding-top: 40px;
+}
+
+#Leader{
+  padding-top: 40px;
+}
+#leader-board {
+  padding-top: 20px;
+  font-family: 'Press Start 2p', sans-serif;
+  font-size: 20px;
+  text-shadow: -0.5px -1px 0 rgb(39, 38, 38), 1px -1px 0 rgb(224, 218, 218), -0.5px 1px 0 rgb(123, 112, 114), 1px 1px 0 rgb(50, 48, 48), 1px 1px 2vw #cdd6d9, 1px 1px 1vw #171717 ;
+}
+
 
 .createCritter, .logininput, .inputbutton, .left, .right {
   color: rgb(85, 84, 84);
@@ -42,8 +115,8 @@
 
 .critterheading {
   font-family: 'Press Start 2p', sans-serif;
-  font-size: 40px;
-  margin-top: 4rem;
+  font-size: 30px;
+  margin-top: 2rem;
 }
 
 .homepage {
@@ -138,6 +211,10 @@ h4 {
   text-align: center;
   background-image: url("./assets/413-4138875_large-text-box-speech-bubbles-bubble-text-png.png");
   background-size: 100% 20vh;
+  align-items: center;
+  position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
 
 }
 
@@ -148,6 +225,8 @@ h4 {
   object-fit: contain;
   margin: 0px;
   padding: 1px 3vw 0 3vw;
+  text-align: center;
+
 }
 
 .fed {
@@ -242,6 +321,35 @@ h4 {
   }
 }
 
+
+.App-fed{
+  background-image: url("./assets/Home5.jpg");
+  background-position: center center;
+  background-size: 100% 100%;
+
+  /* background-color: white; */
+  padding: 40px;
+ 
+  margin: 30px;
+  border-radius: 20px;
+
+  /* background-size: cover; */
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* height: 1000px;
+  width: 1000px; */
+ 
+
+  object-fit: cover;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10%;
+  height: 794px;
+  /* width: 900px; */
+  text-align: center;
+  position: relative;
+
+}
 /* -------------------------------------------------------- */
 /* -------------------- Pixel Art Css --------------------- */
 /* -------------------------------------------------------- */
@@ -539,6 +647,8 @@ footer {
 }
 
 
+
+
 .App {
   text-align: center;
   height: 70vh;
@@ -585,7 +695,14 @@ footer {
  
 
   object-fit: cover;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+  height: 794px;
+
 }
+
+
 
 .App-link {
   color: #61dafb;
@@ -625,6 +742,8 @@ footer {
 #game-image {
   transform: scaleX(-1);
   margin: 0 auto;
+  margin-bottom: -30px;
+
 }
 
 
@@ -650,9 +769,13 @@ footer {
   /* background-color: black; */
   margin: 0 auto;
   font-family: 'Press Start 2p';
-  margin-bottom: -15px;
+  margin-bottom: -50px;
+  margin-top: 30px;
  
 }
+/* #viewContainer {
+  margin-top: 235px;
+} */
 
 .video-game-button {
   /* background-color: black;
@@ -710,4 +833,13 @@ footer {
 	box-shadow: none;
 	position: relative;
 	top: .2em;
+}
+#viewContainerTwo {
+  margin-top: 46px;
+}
+/* #viewContainer {
+  margin-top: 235px;
+} */
+#viewContainerThree {
+  margin-top: 233px;
 }

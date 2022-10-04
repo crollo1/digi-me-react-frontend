@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React from 'react';
+import '../App.css';
+
 // const RAILS_USER_BASE_URL = 'http://localhost:3000/users';
 
 let RAILS_USER_BASE_URL;
@@ -7,6 +9,7 @@ if( process.env.NODE_ENV === 'development'){
     RAILS_USER_BASE_URL = 'http://localhost:3000/users';
 } else {
     RAILS_USER_BASE_URL = 'https://digi-critter.herokuapp.com';
+
 } // end rails deployment if-else
 
 
@@ -74,19 +77,19 @@ class User extends React.Component{
 
             <div className="Users">
 
-                <h1>Leader Board </h1>
+                <h1 id="Leader">Leader Board </h1>
                {/* { this.state.users.total_score((a,b) => a.total_score - b.total_score)} */}
-               
+               <br />
                 <ol>
                 {
                     
 
                     this.state.users.map ( r => 
                     
-                    <li key={r}>
+                    <li id='leader-board' key={r}>
                     Player {r.display_name} <br /> 
                     Score {r.total_score}
-                    <br />
+                    <br /><br />
                     </li>
 
                 )}
