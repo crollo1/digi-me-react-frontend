@@ -84,14 +84,14 @@ class User extends React.Component{
                 {
                     
 
-                    this.state.users.map ( r => 
-                    
+                    this.state.users.map ( (r, i) => 
+                    i < 5 && (
                     <li id='leader-board' key={r}>
                     Player {r.display_name} <br /> 
                     Score {r.total_score}
                     <br /><br />
                     </li>
-
+                    )
                 )}
                 </ol>
 
