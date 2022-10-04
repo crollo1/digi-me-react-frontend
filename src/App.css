@@ -136,9 +136,6 @@
   margin-top: 2rem;
 }
 
-#critterContainerAlt {
-  margin-top: -2rem;
-}
 
 #critterContainer {
 
@@ -195,12 +192,16 @@ h4 {
   width: 80vw;
   height: 30vh;
   align-self: center;
-  bottom: -25vh;
+  bottom: -33%;
   padding: 0px;
   margin: 0px;
   left: -38px
   
 }
+/* #critterContainerAlt {
+  margin-top: -2rem;
+} */
+
 
 .critterMessage {
   font-family: 'Press Start 2p';
@@ -752,6 +753,8 @@ footer {
   text-align: center;
   color: rgb(3, 9, 11);
   font-size: 15px;
+  white-space: nowrap;
+  padding: 15px;
 }
 
 #game-critter {
