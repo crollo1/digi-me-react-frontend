@@ -42,16 +42,20 @@ class User extends React.Component{
         try{
 
             const res = await axios.get(RAILS_USER_BASE_URL);
-            console.log('users:', res.data)
-        
+            // console.log('users:', res.data)
+            
             // Sorting the data in decending format
-            const sorted = [...res.data].sort((a, b) => b.total_score - a.total_score) 
+            const sorted = [...res.data].sort((a, b) => b.total_score - a.total_score);
+            const topFive = sorted.slice(0, 5)
+            // console.log('topFive', topFive[0].display_name)
+            console.log('sorted', sorted);
             this.setState({
 
-                users: sorted,
+                users: topFive,
                 loading: false
 
             });
+            console.log('users', this.state.users);
 
         } // try
         catch( err ){
@@ -78,21 +82,22 @@ class User extends React.Component{
             <div className="Users">
 
                 <h1 id="Leader">Leader Board </h1>
-               {/* { this.state.users.total_score((a,b) => a.total_score - b.total_score)} */}
-               <br />
+           
                 <ol>
                 {
                     
+                    
+                    this.state.users.map ( r => (
+                        // console.log('r', r);
+                        <li id='leader-board' key={r.id}>
 
-                    this.state.users.map ( (r, i) => 
-                    i < 5 && (
-                    <li id='leader-board' key={r}>
-                    Player {r.display_name} <br /> 
-                    Score {r.total_score}
-                    <br /><br />
-                    </li>
-                    )
-                )}
+                            Player {r.display_name} 
+                            <br />
+                             Score {r.total_score}
+
+                        </li>
+                    ))
+                }
                 </ol>
 
             </div>
